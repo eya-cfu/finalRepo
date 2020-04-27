@@ -130,8 +130,8 @@ class CommandesBLController
             //'id' => $commandesBL->getId(),
            'idCommandeBL' => $commandesBL->getIdCommandeBL(),
           'etat' => $commandesBL->getEtat(),
-           'creationDate' => $commandesBL->getCreationDate(),
-          'dueDate' => $commandesBL->getDueDate(),
+           'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
+          'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
             'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getId(),
             'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
         ];
@@ -216,11 +216,11 @@ class CommandesBLController
                 //'id' => $commandesBL->getId(),
                 'idCommandeBL' =>  $commandesBL->getIdCommandeBL(),
                 'etat' => $commandesBL->getEtat(),
-                'creationDate' => $commandesBL->getCreationDate(),
-                'dueDate' => $commandesBL->getDueDate(),
+                'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
+                'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
                 'nomBL' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getNomBoul(),
-                'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getId(),
+                'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
                 'nom' =>($commandesBL->getLivreur()==null) ? null :  $commandesBL->getLivreur()->getMatricule()->getNom(),
             ];
         }
@@ -245,8 +245,8 @@ class CommandesBLController
             $data[] = [
              //   'id' => $commandesBL->getId(),
                 'idCommandeBL' => $commandesBL->getIdCommandeBL(),
-                'dueDate' => $commandesBL->getDueDate(),
-                'creationDate' => $commandesBL->getCreationDate(),
+                'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
+                'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
                 'etat' => $commandesBL->getEtat(),
                 'idBoulangerie' => ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
                 'matricule' => ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getId(),
@@ -289,7 +289,7 @@ class CommandesBLController
                         // 'id' => $commandesBL->getId(),
                         'codesProduit' => $produit->getCodeProduit(),
                         'libelle'=>$produit->getLibelle(),
-                        'dueDate' => $commandesBL->getDueDate()->format('Y-m-d'),
+                        'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
                         'sumQuantite'=> $sum,
                     ];
                 }
@@ -320,14 +320,15 @@ class CommandesBLController
                 $data[] = [
                     'id' => $commandesBL->getId(),
                     'idCommandeBL' => $commandesBL->getIdCommandeBL(),
-                    'dueDate' => $commandesBL->getDueDate(),
-                    'creationDate' => $commandesBL->getCreationDate(),
+                    'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
+                    'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
                     'etat' => $commandesBL->getEtat(),
                     'idBoulangerie' => ($commandesBL->getIdBoulangerie() == null) ? null : $commandesBL->getIdBoulangerie()->getId(),
                     'matricule' => ($commandesBL->getLivreur() == null) ? null : $commandesBL->getLivreur()->getId(),
                 ];
             }
         }
+        //dd-MM-yyyy'T'hh:mm
         return new JsonResponse($data, Response::HTTP_OK);
     }
 

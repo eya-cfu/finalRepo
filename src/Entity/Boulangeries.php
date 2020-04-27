@@ -57,14 +57,14 @@ class Boulangeries
      * @param $idBoulangerie
      * @param $nbOperateurs
      */
-    public function __construct( $nomBoul, $adresse, $telephone, $matricule, $idBoulangerie, $nbOperateurs)
+    public function __construct( $nomBoul, $adresse, $telephone, $matricule,  $nbOperateurs)//$idBoulangerie,
     {
 
         $this->nomBoul = $nomBoul;
         $this->adresse = $adresse;
         $this->telephone = $telephone;
         $this->matricule = $matricule;
-        $this->idBoulangerie = $idBoulangerie;
+      //  $this->idBoulangerie = $idBoulangerie;
         $this->nbOperateurs = $nbOperateurs;
     }
 
@@ -123,7 +123,8 @@ class Boulangeries
 
     public function getIdBoulangerie(): ?int
     {
-        return $this->idBoulangerie;
+        //changed to return id instead of idBoulangerie
+        return $this->id;
     }
 
     public function setIdBoulangerie(int $idBoulangerie): self

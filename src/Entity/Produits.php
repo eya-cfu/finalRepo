@@ -19,7 +19,7 @@ class Produits
 
     /**
      **
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable = true)
      */
     private $codeProduit;// auto
 
@@ -52,10 +52,10 @@ class Produits
      * @param $TVA
      * @param $prixTTC
      */
-    public function __construct( $codeProduit, $libelle, $prixHA, $TVA, $prixTTC)
+    public function __construct(  $libelle, $prixHA, $TVA, $prixTTC) //$codeProduit,
     {
 
-        $this->codeProduit = $codeProduit;
+     //   $this->codeProduit = $codeProduit;
         $this->libelle = $libelle;
         $this->prixHA = $prixHA;
         $this->TVA = $TVA;
@@ -69,7 +69,8 @@ class Produits
 
     public function getCodeProduit(): ?int
     {
-        return $this->codeProduit;
+        //changed to return id
+        return $this->id;
     }
 
     public function setCodeProduit(int $codeProduit): self

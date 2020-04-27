@@ -29,13 +29,7 @@ class LivreursRepository extends ServiceEntityRepository
 
     public function save($numVehicule, $teleLivreur, $matricule)
     {
-        $livreurs = new Livreurs();
-
-        $livreurs
-            ->setNumVehicule($numVehicule)
-            ->setTeleLivreur($teleLivreur)
-            ->setMatricule($matricule);
-
+        $livreurs = new Livreurs($numVehicule,$teleLivreur,$matricule);
 
         $this->manager->persist($livreurs);
         $this->manager->flush();

@@ -38,7 +38,7 @@ class BoulangeriesController
 
         $data = json_decode($request->getContent(), true);
 
-        $idBoulangerie = $data['idBoulangerie'];
+       // $idBoulangerie = $data['idBoulangerie'];
         $addresse = $data['adresse'];
         $nbOperateurs = $data['nbOperateurs'];
         $nomBL = $data['nomBL'];
@@ -49,14 +49,14 @@ class BoulangeriesController
         // return new JsonResponse($request);
         //  return new JsonResponse($data);
 
-        if (empty($idBoulangerie) || empty($addresse) || empty($nbOperateurs) || empty($telephone))
+        if ( empty($addresse) || empty($nbOperateurs) || empty($telephone))
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
         $responsable2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
 
-        $this->boulangerieRepository->save($idBoulangerie, $addresse, $nbOperateurs, $nomBL,$telephone, $responsable2);
+        $this->boulangerieRepository->save( $addresse, $nbOperateurs, $nomBL,$telephone, $responsable2);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -86,11 +86,11 @@ class BoulangeriesController
      */
     public function getById($idBoulangerie): JsonResponse
     {
-        $boulangeries = $this->boulangerieRepository->findOneBy(['idBoulangerie' => $idBoulangerie]);
+        $boulangeries = $this->boulangerieRepository->findOneBy(['id' => $idBoulangerie]);
        // return new JsonResponse($boulangeries);
 
         $data[] = [
-            //'id' => $boulangeries->getId(),
+
             'id_Boulangerie' => $boulangeries->getIdBoulangerie(),
             'nomBL' => $boulangeries->getNomBoul(),
             'adresse' => $boulangeries->getAdresse(),
@@ -119,7 +119,6 @@ class BoulangeriesController
                 'telephone' => $boulangerie->getTelephone(),
                 'matricule' => $boulangerie->getMatricule()->getMatricule(),
                 'nbOperateurs' => $boulangerie->getNbOperateurs(),
-
             ];
         }
 
@@ -134,7 +133,7 @@ class BoulangeriesController
         $boulangeries = $this->boulangerieRepository->findOneBy(['idBoulangerie' => $idBoulangerie]);
         $data = json_decode($request->getContent(), true);
 
-        empty($data['idBoulangerie']) ? true : $boulangeries->setIdBoulangerie($data['idBoulangerie']);
+      //  empty($data['idBoulangerie']) ? true : $boulangeries->setIdBoulangerie($data['idBoulangerie']);
         empty($data['responsable']) ? true : $boulangeries->setMatricule($data['responsable']);
         empty($data['nbOperateurs']) ? true : $boulangeries->setNbOperateurs($data['nbOperateurs']);
         empty($data['adresse']) ? true : $boulangeries->setAdresse($data['adresse']);
@@ -152,13 +151,12 @@ class BoulangeriesController
      */
     public function delete($idBoulangerie): JsonResponse
     {
-        $boulangeries = $this->boulangerieRepository->findOneBy(['idBoulangerie' => $idBoulangerie]);
+        $boulangeries = $this->boulangerieRepository->findOneBy(['id' => $idBoulangerie]);
 
         $this->boulangerieRepository->remove($boulangeries);
 
         return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
     }
-
 
 
 }

@@ -27,13 +27,9 @@ class CompositionsProduitRepository extends ServiceEntityRepository
         $this->manager = $manager;
     }
 
-    public function save($idComposition, $quantiteComp,$idComposants ,$codesProduits)
+    public function save( $quantiteComp,$idComposants ,$codesProduits)//$idComposition,
     {
-        $compositionsProduit = new CompositionsProduit();
-
-        $compositionsProduit
-            ->setIdComposition($idComposition)
-            ->setQuantiteComp($quantiteComp);
+        $compositionsProduit = new CompositionsProduit($quantiteComp);
 
         foreach ($codesProduits as $codeProduit)
         {
@@ -41,9 +37,8 @@ class CompositionsProduitRepository extends ServiceEntityRepository
         }
         foreach ($idComposants as $idComposant)
         {
-            $compositionsProduit->addIdCommandeBL($idComposant);
+            $compositionsProduit->addIdComposant($idComposant);
         }
-
 
 
         $this->manager->persist($compositionsProduit);

@@ -20,7 +20,7 @@ class CommandesLabo
 
     /**
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable = true)
      */
     private $idCommandeLabo;// auto
 
@@ -53,10 +53,10 @@ class CommandesLabo
      * @param $codeProduit
      * @param $dueDate
      */
-    public function __construct( $idCommandeLabo, $libelle, $quantiteTotal, $dueDate)
+    public function __construct(  $libelle, $quantiteTotal, $dueDate)//$idCommandeLabo,
     {
 
-        $this->idCommandeLabo = $idCommandeLabo;
+    //    $this->idCommandeLabo = $idCommandeLabo;
         $this->libelle = $libelle;
         $this->quantiteTotal = $quantiteTotal;
         $this->codeProduit = new ArrayCollection();
@@ -71,7 +71,8 @@ class CommandesLabo
 
     public function getIdCommandeLabo(): ?string
     {
-        return $this->idCommandeLabo;
+        //changed to return id
+        return $this->id;
     }
 
     public function setIdCommandeLabo(string $idCommandeLabo): self

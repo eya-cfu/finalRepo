@@ -65,16 +65,16 @@ class DetailsCommandesController
         $data = json_decode($request->getContent(), true);
 
         $codesProduits = $data['codeProduit'];
-        $idDetail = $data['idDetail'];
+      //  $idDetail = $data['idDetail'];
         $quantiteProd = $data['quantiteProd'];
         $idCommandesBLs = $data['idCommandeBL'];
 
-        if (empty($codesProduits) || empty($idDetail) || empty($quantiteProd))
+        if (empty($codesProduits) || empty($quantiteProd))
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
         // arrays need to be read
-        $this->detailsCommandesRepository-> save($idDetail,  $quantiteProd,$idCommandesBLs,$codesProduits);
+        $this->detailsCommandesRepository-> save($quantiteProd,$idCommandesBLs,$codesProduits);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -85,7 +85,7 @@ class DetailsCommandesController
      */
     public function delete($idDetail): JsonResponse
     {
-        $detailsCommandesBL = $this->detailsCommandesRepository->findOneBy(['idDetail' => $idDetail]);
+        $detailsCommandesBL = $this->detailsCommandesRepository->findOneBy(['id' => $idDetail]);
 
         $this->detailsCommandesRepository->remove($detailsCommandesBL);
 
@@ -134,10 +134,10 @@ class DetailsCommandesController
      */
     public function update($idDetail, Request $request): JsonResponse
     {
-        $detailsCommandesBL = $this->detailsCommandesRepository->findOneBy(['idDetail' => $idDetail]);
+        $detailsCommandesBL = $this->detailsCommandesRepository->findOneBy(['id' => $idDetail]);
         $data = json_decode($request->getContent(), true);
 
-        empty($data['idDetail']) ? true : $detailsCommandesBL->setIdDetail($data['idDetail']);
+      //  empty($data['idDetail']) ? true : $detailsCommandesBL->setIdDetail($data['idDetail']);
         empty($data['quantiteProd']) ? true : $detailsCommandesBL->setQuantiteProd($data['quantiteProd']);
 
        if(! empty($data['codeProduit']) ) {

@@ -27,13 +27,9 @@ class DetailsCommandesBLRepository extends ServiceEntityRepository
         $this->manager = $manager;
     }
 
-    public function save($idDetail,  $quantiteProd,$idCommandesBLs,$codesProduits)
+    public function save( $quantiteProd,$idCommandesBLs,$codesProduits)//$idDetail,
     {
-        $detailsCommandesBL = new DetailsCommandesBL();
-
-        $detailsCommandesBL
-            ->setIdDetail($idDetail)
-            ->setQuantiteProd($quantiteProd);
+        $detailsCommandesBL = new DetailsCommandesBL($quantiteProd);
 
         foreach ($codesProduits as $codeProduit)
         {

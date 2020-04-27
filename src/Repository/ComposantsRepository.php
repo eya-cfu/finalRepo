@@ -30,12 +30,7 @@ class ComposantsRepository extends ServiceEntityRepository
 
     public function save($idCommposant, $unite, $nomComp)
     {
-        $composants = new Composants();
-
-        $composants
-            ->setIdComposant($idCommposant)
-            ->setNomComp($nomComp)
-            ->setUnite($unite);
+        $composants = new Composants($idCommposant,$unite,$nomComp);
 
         $this->manager->persist($composants);
         $this->manager->flush();

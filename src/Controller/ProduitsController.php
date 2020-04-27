@@ -61,18 +61,18 @@ class ProduitsController
 
         $data = json_decode($request->getContent(), true);
 
-        $codeProduit = $data['codeProduit'];
+      //  $codeProduit = $data['codeProduit'];
         $libelle = $data['libelle'];
         $prixHA = $data['prixHA'];
         $TVA = $data['TVA'];
         $prixTTC = $data['prixTTC'];
 
-        if (empty($codeProduit) || empty($libelle) || empty($prixHA))
+        if ( empty($libelle) || empty($prixHA))
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
-        $this->produitsRepository-> save($codeProduit, $libelle, $prixHA, $TVA, $prixTTC);
+        $this->produitsRepository-> save($libelle, $prixHA, $TVA, $prixTTC);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -83,7 +83,7 @@ class ProduitsController
      */
     public function delete($codeProduit): JsonResponse
     {
-        $produits = $this->produitsRepository->findOneBy(['codeProduit' => $codeProduit]);
+        $produits = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
 
         $this->produitsRepository->remove($produits);
 
@@ -95,7 +95,7 @@ class ProduitsController
      */
     public function get($codeProduit): JsonResponse
     {
-        $produit = $this->produitsRepository->findOneBy(['codeProduit' => $codeProduit]);
+        $produit = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
 
         $data[] = [
             //'id' => $produit->getId(),
@@ -114,7 +114,7 @@ class ProduitsController
      */
     public function getCompos($codeProduit,Request $request): JsonResponse
     {
-        $produit = $this->produitsRepository->findOneBy(['codeProduit' => $codeProduit]);
+        $produit = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
 
         $data = [];
 
@@ -144,10 +144,10 @@ class ProduitsController
      */
     public function update($codeProduit, Request $request): JsonResponse
     {
-        $produits = $this->produitsRepository->findOneBy(['codeProduit' => $codeProduit]);
+        $produits = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
         $data = json_decode($request->getContent(), true);
 
-        empty($data['codeProduit']) ? true : $produits->setCodeProduit($data['codeProduit']);
+        //empty($data['codeProduit']) ? true : $produits->setCodeProduit($data['codeProduit']);
         empty($data['libelle']) ? true : $produits->setLibelle($data['libelle']);
         empty($data['prixHA']) ? true : $produits->setPrixHA($data['prixHA']);
         empty($data['TVA']) ? true : $produits->setTVA($data['TVA']);
@@ -168,7 +168,6 @@ class ProduitsController
             foreach ($composition->getCodeProduit() as $element) // going through products of this each composition
             {
                  if($codeProduit == $element->getCodeProduit()) // composition found that refers to this product
-                     //TODO doesnt filter properly
                 {
                     array_push($compositionArray,$composition );
                 }

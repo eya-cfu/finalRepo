@@ -29,16 +29,7 @@ class CommandesBLRepository extends ServiceEntityRepository
 
     public function save($idCommandeBL,$dueDate,$creationDate,$etat, $livreur, $boulangerie)
     {
-        $commandesBL = new CommandesBL();
-
-        $commandesBL
-            ->setIdCommandeBL($idCommandeBL)
-            ->setDueDate($dueDate)
-            ->setCreationDate($creationDate)
-            ->setEtat($etat)
-            ->setLivreur($livreur)
-            ->setIdBoulangerie($boulangerie);
-
+        $commandesBL = new CommandesBL($idCommandeBL,$dueDate,$creationDate,$etat,$livreur,$boulangerie);
 
         $this->manager->persist($commandesBL);
         $this->manager->flush();

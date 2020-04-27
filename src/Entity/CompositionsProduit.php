@@ -25,7 +25,7 @@ class CompositionsProduit
 
     /**
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable = true)
      */
     private $idComposition;// auto
 
@@ -47,11 +47,11 @@ class CompositionsProduit
      * @param $codeProduit
      * @param $idComposant
      */
-    public function __construct( $quantiteComp, $idComposition)
+    public function __construct( $quantiteComp)//, $idComposition
     {
 
         $this->quantiteComp = $quantiteComp;
-        $this->idComposition = $idComposition;
+       // $this->idComposition = $idComposition;
         $this->codeProduit = new ArrayCollection();
         $this->idComposant = new ArrayCollection();
     }
@@ -77,7 +77,8 @@ class CompositionsProduit
 
     public function getIdComposition(): ?int
     {
-        return $this->idComposition;
+        //changed to return id
+        return $this->id;
     }
 
     public function setIdComposition(int $idComposition): self

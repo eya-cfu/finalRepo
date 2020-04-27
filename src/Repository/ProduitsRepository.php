@@ -27,16 +27,9 @@ class ProduitsRepository extends ServiceEntityRepository
         $this->manager = $manager;
     }
 
-    public function save($codeProduit, $libelle, $prixHA, $TVA, $prixTTC)
+    public function save( $libelle, $prixHA, $TVA, $prixTTC)//$codeProduit,
     {
-        $produits = new Produits();
-
-        $produits
-            ->setCodeProduit($codeProduit)
-            ->setLibelle($libelle)
-            ->setPrixHA($prixHA)
-            ->setTVA($TVA)
-            ->setPrixTTC($prixTTC);
+        $produits = new Produits($libelle,$prixHA,$TVA,$prixTTC);
 
         $this->manager->persist($produits);
         $this->manager->flush();

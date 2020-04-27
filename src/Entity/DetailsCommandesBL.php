@@ -31,7 +31,7 @@ class DetailsCommandesBL
 
     /**
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable = true)
      */
     private $idDetail;// auto
 
@@ -48,10 +48,10 @@ class DetailsCommandesBL
      * @param $idDetail
      * @param $quantiteProd
      */
-    public function __construct( $idDetail, $quantiteProd)
+    public function __construct(  $quantiteProd)// idDetail ,
     {
 
-        $this->idDetail = $idDetail;
+       // $this->idDetail = $idDetail;
         $this->quantiteProd = $quantiteProd;
         $this->codeProduit = new ArrayCollection();
         $this->idCommandeBL = new ArrayCollection();
@@ -119,7 +119,8 @@ class DetailsCommandesBL
 
     public function getIdDetail(): ?int
     {
-        return $this->idDetail;
+        //changed to return id
+        return $this->id;
     }
 
     public function setIdDetail(int $idDetail): self

@@ -37,7 +37,8 @@ class CompositionsProduitController
             {
                     $data[] = [
                         'idComposition' => $compositionsProduit->getIdComposition(),
-                        'idComposant' => ($compositionsProduit->getIdComposant()[$i] == null) ? null : $compositionsProduit->getIdComposant()[$i]->getIdComposant(),
+                        'idComposant' => ($compositionsProduit->getIdComposant()[$i] == null) ? null :
+                            $compositionsProduit->getIdComposant()[$i]->getIdComposant(),
                         'codeProduit' => $compositionsProduit->getCodeProduit()[$i]->getCodeProduit(),
                         'quantiteComp' => $compositionsProduit->getQuantiteComp(),
                     ];
@@ -58,16 +59,16 @@ class CompositionsProduitController
         $data = json_decode($request->getContent(), true);
 
         $codesProduits = $data['codeProduit'];
-        $idComposition = $data['idComposition'];
+      //  $idComposition = $data['idComposition'];
         $quantiteComp = $data['quantiteComp'];
         $idComposants = $data['idComposant'];
 
-        if (empty($codesProduits) || empty($idComposition) || empty($quantiteComp))
+        if (empty($codesProduits)  || empty($quantiteComp))
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
             // need to pass an array here
-        $this->compositionsProduitRepository-> save($idComposition, $quantiteComp,$idComposants ,$codesProduits);
+        $this->compositionsProduitRepository-> save( $quantiteComp,$idComposants ,$codesProduits);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -78,7 +79,7 @@ class CompositionsProduitController
      */
     public function delete($idComposition): JsonResponse
     {
-        $compositionsProduit = $this->compositionsProduitRepository->findOneBy(['idComposition' => $idComposition]);
+        $compositionsProduit = $this->compositionsProduitRepository->findOneBy(['id' => $idComposition]);
 
         $this->compositionsProduitRepository->remove($compositionsProduit);
 
