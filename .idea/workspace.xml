@@ -2,26 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200429203654.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BoulangeriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BoulangeriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesLaboController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesLaboController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CompositionsProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CompositionsProduitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProduitsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Boulangeries.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Boulangeries.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommandesLabo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandesLabo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CompositionsProduit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CompositionsProduit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/DetailsCommandesBL.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/DetailsCommandesBL.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Produits.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produits.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profils.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profils.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/BoulangeriesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BoulangeriesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommandesBLRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommandesBLRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommandesLaboRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommandesLaboRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ComposantsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ComposantsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CompositionsProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CompositionsProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DetailsCommandesBLRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DetailsCommandesBLRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LivreursRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LivreursRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ProduitsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProfilsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfilsRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +181,7 @@
       <workItem from="1587579791204" duration="6130000" />
       <workItem from="1587757495406" duration="2436000" />
       <workItem from="1588017356884" duration="9834000" />
+      <workItem from="1588192097983" duration="2126000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>

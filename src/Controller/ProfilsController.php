@@ -50,7 +50,7 @@ class ProfilsController
      */
     public function getAll(): JsonResponse
     {
-        $profils = $this->profilsRepository->findAll();
+        $profils = $this->profilsRepository->findBy(['deleted'=> false]);
         $data = [];
 
         foreach ($profils as $profil) {

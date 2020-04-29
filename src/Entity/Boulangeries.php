@@ -49,6 +49,11 @@ class Boulangeries
     private $nbOperateurs;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $deleted;
+
+    /**
      * Boulangeries constructor.
      * @param $nomBoul
      * @param $adresse
@@ -155,5 +160,17 @@ class Boulangeries
             'adresse' => $this->getAdresse(),
             'nbOperateurs' => $this->getNbOperateurs()
         ];
+    }
+
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(?bool $deleted): self
+    {
+        $this->deleted = $deleted;
+
+        return $this;
     }
 }

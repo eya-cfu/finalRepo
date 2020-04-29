@@ -17,6 +17,8 @@ use Faker\Factory;
 
 class AppFixtures extends Fixture
 {
+    // This class creates sample Objects to populate the database for testing purposes
+    //ignore objectmanager being underlined thats a visual bug it works fine
     public function load(ObjectManager $manager)
     {
         // $product = new Product();
@@ -30,10 +32,16 @@ class AppFixtures extends Fixture
 
             $profils = new Profils($faker->numberBetween(10000,999),$faker->domainName,$faker->domainName,
                 $faker->unique(true,1000)->password,$faker->firstName);
+
+            $profils->setDeleted(false);
+
             $manager->persist($profils);
 
             $boulangeries = new Boulangeries($faker->name,$faker->colorName,$faker->numberBetween(100,999),
-            $profils,$faker->numberBetween(10000,999),$faker->numberBetween(10000,999));
+            $profils,$faker->numberBetween(10000,999));
+
+            $boulangeries->setDeleted(false);
+
             $manager->persist($boulangeries);
 
             $livreur = new Livreurs($faker->numberBetween(10000,999),$faker->creditCardNumber,$profils);
@@ -45,19 +53,20 @@ class AppFixtures extends Fixture
             $commandes2 = new CommandesBL($faker->colorName,"nouvelle",$faker->dateTime,$faker->dateTime,$boulangeries,$livreur);
             $manager->persist($commandes2);
 
-            $produit = new Produits($faker->numberBetween(0,1000),$faker->colorName,$faker->randomFloat()
+            $produit = new Produits($faker->colorName,$faker->randomFloat()
             ,$faker->randomFloat(),$faker->randomFloat());
+            $produit->setDeleted(false);
 
-
-            $produit2 = new Produits($faker->numberBetween(0,1000),$faker->colorName,$faker->randomFloat()
+            $produit2 = new Produits($faker->colorName,$faker->randomFloat()
                 ,$faker->randomFloat(),$faker->randomFloat());
+            $produit2->setDeleted(false);
+
 
             $manager->persist($produit);
             $manager->persist($produit2);
 
 
-            $detailscommandesBL = new DetailsCommandesBL($faker->unique(true,1000)->numberBetween(0,1000)
-                ,$faker->numberBetween(0,100));
+            $detailscommandesBL = new DetailsCommandesBL($faker->numberBetween(0,100));
             $detailscommandesBL->addCodeProduit($produit);
             $detailscommandesBL->addCodeProduit($produit2);
             $detailscommandesBL->addIdCommandeBL($commandes);
@@ -67,7 +76,7 @@ class AppFixtures extends Fixture
             $composant = new Composants("snoots","long","floopy");
             $manager->persist($composant);
 
-            $compositionProduit = new CompositionsProduit($faker->numberBetween(0,100),$faker->unique(true,1000)->numberBetween(0,1000));
+            $compositionProduit = new CompositionsProduit($faker->numberBetween(0,100));
             $compositionProduit->addCodeProduit($produit);
             $compositionProduit->addCodeProduit($produit2);
             $compositionProduit->addIdComposant($composant);

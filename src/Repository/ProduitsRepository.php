@@ -30,6 +30,7 @@ class ProduitsRepository extends ServiceEntityRepository
     public function save( $libelle, $prixHA, $TVA, $prixTTC)//$codeProduit,
     {
         $produits = new Produits($libelle,$prixHA,$TVA,$prixTTC);
+        $produits->setDeleted(false);
 
         $this->manager->persist($produits);
         $this->manager->flush();
@@ -45,8 +46,11 @@ class ProduitsRepository extends ServiceEntityRepository
 
     public function remove(Produits $produits)
     {
-        $this->manager->remove($produits);
-        $this->manager->flush();
+        $produits->setDeleted(true);
+
+        //   $this->manager->remove($produits);
+        $this->manager->persist($produits);
+         $this->manager->flush();
     }
 
     // /**

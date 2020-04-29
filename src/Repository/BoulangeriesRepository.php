@@ -26,6 +26,7 @@ class BoulangeriesRepository extends ServiceEntityRepository
     public function save( $addresse, $nbOperateurs, $nomBL,$telephone, $responsable)//$idBoulangerie,
     {
         $boulangerie = new Boulangeries($addresse, $nbOperateurs,$nomBL,$telephone,$responsable);
+        $boulangerie->setDeleted(false);
 
         $this->manager->persist($boulangerie);
         $this->manager->flush();
@@ -41,7 +42,11 @@ class BoulangeriesRepository extends ServiceEntityRepository
 
     public function remove(Boulangeries $boulangeries)
     {
-        $this->manager->remove($boulangeries);
+        $boulangeries->setDeleted(true);
+
+        //final deletes now obsolete
+        //$this->manager->remove($boulangeries);
+        $this->manager->persist($boulangeries);
         $this->manager->flush();
     }
 

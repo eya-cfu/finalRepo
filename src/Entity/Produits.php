@@ -44,6 +44,11 @@ class Produits
     private $prixTTC;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $deleted;
+
+    /**
      * Produits constructor.
      * @param $id
      * @param $codeProduit
@@ -138,6 +143,18 @@ class Produits
             'TVA' => $this->getTVA(),
             'prixTTC' => $this->getPrixTTC()
         ];
+    }
+
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(?bool $deleted): self
+    {
+        $this->deleted = $deleted;
+
+        return $this;
     }
 
 }

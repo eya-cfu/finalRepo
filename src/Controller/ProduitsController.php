@@ -36,7 +36,7 @@ class ProduitsController
      */
     public function getAll(): JsonResponse
     {
-        $produits = $this->produitsRepository->findAll();
+        $produits = $this->produitsRepository->findBy(['deleted'=> false]);
         $data = [];
 
         foreach ($produits as $produit) {
@@ -84,6 +84,8 @@ class ProduitsController
     public function delete($codeProduit): JsonResponse
     {
         $produits = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
+
+        $produits->setDeleted(true);
 
         $this->produitsRepository->remove($produits);
 
@@ -158,16 +160,18 @@ class ProduitsController
         return new JsonResponse($updated->toArray(), Response::HTTP_OK);
     }
 
-    public function getCompositionbyCodeProduit ($codeProduit)
+    public function getCompositionbyCodeProduit (int $codeProduit)
     {
         $compositions = $this->compositionsRepository->findAll();
 
+        $compositionArray = array();
+
         foreach ($compositions as $composition) {
 
-            $compositionArray = array();
+
             foreach ($composition->getCodeProduit() as $element) // going through products of this each composition
             {
-                 if($codeProduit == $element->getCodeProduit()) // composition found that refers to this product
+                if($codeProduit == $element->getId()) // composition found that refers to this product
                 {
                     array_push($compositionArray,$composition );
                 }

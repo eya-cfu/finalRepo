@@ -42,6 +42,11 @@ class Profils
     private $password;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $deleted;
+
+    /**
      * Profils constructor.
 
      * @param $matricule
@@ -136,6 +141,18 @@ class Profils
             'login' => $this->getLogin(),
             'password' => $this->getPassword()
         ];
+    }
+
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(?bool $deleted): self
+    {
+        $this->deleted = $deleted;
+
+        return $this;
     }
 
 }

@@ -29,15 +29,9 @@ class ProfilsRepository extends ServiceEntityRepository
 
     public function save($matricule, $login, $password, $nom, $affectation)
     {
-        $profils = new Profils();
+        $profils = new Profils($matricule,$nom,$affectation,$login,$password);
 
-        $profils
-            ->setMatricule($matricule)
-            ->setLogin($login)
-            ->setPassword($password)
-            ->setNom($nom)
-            ->setAffectation($affectation);
-
+        $profils->setDeleted(false);
 
         $this->manager->persist($profils);
         $this->manager->flush();
@@ -53,7 +47,11 @@ class ProfilsRepository extends ServiceEntityRepository
 
     public function remove(Profils $profils)
     {
-        $this->manager->remove($profils);
+        $profils->setDeleted(true);
+
+        //  $this->manager->remove($profils);
+        $this->manager->persist($profils);
+
         $this->manager->flush();
     }
 

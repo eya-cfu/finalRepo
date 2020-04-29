@@ -107,7 +107,7 @@ class BoulangeriesController
      */
     public function getAll(): JsonResponse
     {
-        $boulangeries = $this->boulangerieRepository->findAll();
+        $boulangeries = $this->boulangerieRepository->findBy(['deleted'=> false]);
         $data = [];
 
         foreach ($boulangeries as $boulangerie) {
