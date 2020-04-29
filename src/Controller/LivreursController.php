@@ -39,12 +39,19 @@ class LivreursController
 
         foreach ($livreurs as $livreur) {
             $data[] = [
-                'id' => $livreur->getId(),
-                'matricule' => $livreur->getMatricule()->getMatricule(),
-                'teleLivreur' => $livreur->getTeleLivreur(),
-                'numVehicule' => $livreur->getNumVehicule()
+                'nom' => $livreur->getMatricule()->getNom(),
+                'livreur' =>[
+                    'matricule' => $livreur->getMatricule()->getMatricule(),
+                    'numVehicule' => $livreur->getNumVehicule(),
+                    'teleLivreur' => $livreur->getTeleLivreur(),]
             ];
         }
+        // "nom": "string",
+        //    "livreur": {
+        //      "matricule": 0,
+        //      "teleLivreur": 0,
+        //      "numVehicule": "string"
+        //    }
 
         return new JsonResponse($data, Response::HTTP_OK);
     }

@@ -118,9 +118,9 @@ class DetailsCommandesController
                    && $detail->getIdCommandeBL()[$i]->getDueDate()->format('Y-m-d') == $dueDate)
                 {
                     $data[] = [
+                        'idDetail' => $detail->getIdDetail(),
                         'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
                         'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
-                        'idDetail' => $detail->getIdDetail(),
                         'quantiteProd' => $detail->getQuantiteProd(),
                                 ];
                     //break so it only returns one element

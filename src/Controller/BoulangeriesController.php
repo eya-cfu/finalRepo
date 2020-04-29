@@ -70,13 +70,26 @@ class BoulangeriesController
 
         $data[] = [
             //'id' => $boulangeries->getId(),
-            'id_Boulangerie' => $boulangeries->getIdBoulangerie(),
+            'Boulangerie' =>['id_Boulangerie' => $boulangeries->getIdBoulangerie(),
             'nomBL' => $boulangeries->getNomBoul(),
             'adresse' => $boulangeries->getAdresse(),
             'telephone' => $boulangeries->getTelephone(),
             'matricule' => $boulangeries->getMatricule()->getMatricule(),
             'nbOperateurs' => $boulangeries->getNbOperateurs(),
+            ],
+            'nom'=> $boulangeries->getMatricule()->getNom(),
         ];
+//        {
+//            "Boulangerie": {
+//            "idBoulangerie": 0,
+//      "nomBL": "khaledBoulangerieBusiness",
+//      "adresse": "string",
+//      "telephone": 0,
+//      "matricule": 0,
+//      "nbOperateurs": 0
+//    },
+//    "nom": "string"
+
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
@@ -90,13 +103,14 @@ class BoulangeriesController
        // return new JsonResponse($boulangeries);
 
         $data[] = [
-
-            'id_Boulangerie' => $boulangeries->getIdBoulangerie(),
-            'nomBL' => $boulangeries->getNomBoul(),
-            'adresse' => $boulangeries->getAdresse(),
-            'telephone' => $boulangeries->getTelephone(),
-            'matricule' => $boulangeries->getMatricule()->getMatricule(),
-            'nbOperateurs' => $boulangeries->getNbOperateurs(),
+            'Boulangerie' =>['id_Boulangerie' => $boulangeries->getIdBoulangerie(),
+                'nomBL' => $boulangeries->getNomBoul(),
+                'adresse' => $boulangeries->getAdresse(),
+                'telephone' => $boulangeries->getTelephone(),
+                'matricule' => $boulangeries->getMatricule()->getMatricule(),
+                'nbOperateurs' => $boulangeries->getNbOperateurs(),
+            ],
+            'nom'=> $boulangeries->getMatricule()->getNom(),
         ];
 
         return new JsonResponse($data, Response::HTTP_OK);
@@ -112,13 +126,14 @@ class BoulangeriesController
 
         foreach ($boulangeries as $boulangerie) {
             $data[] = [
-                //'id' => $boulangerie->getId(),
-                'id_Boulangerie' => $boulangerie->getIdBoulangerie(),
-                'nomBL' => $boulangerie->getNomBoul(),
-                'adresse' => $boulangerie->getAdresse(),
-                'telephone' => $boulangerie->getTelephone(),
-                'matricule' => $boulangerie->getMatricule()->getMatricule(),
-                'nbOperateurs' => $boulangerie->getNbOperateurs(),
+                'Boulangerie' =>['id_Boulangerie' => $boulangerie->getIdBoulangerie(),
+                    'nomBL' => $boulangerie->getNomBoul(),
+                    'adresse' => $boulangerie->getAdresse(),
+                    'telephone' => $boulangerie->getTelephone(),
+                    'matricule' => $boulangerie->getMatricule()->getMatricule(),
+                    'nbOperateurs' => $boulangerie->getNbOperateurs(),
+                ],
+                'nom'=> $boulangerie->getMatricule()->getNom(),
             ];
         }
 

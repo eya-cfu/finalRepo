@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>BoulangerieApi</title>
+  <title>BoulangerieApiFinal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -1075,12 +1075,6 @@ margin-bottom: 20px;
                     <li data-group="CommandesBL" data-name="commandesBLIdCommandeBLGet" class="">
                       <a href="#api-CommandesBL-commandesBLIdCommandeBLGet">commandesBLIdCommandeBLGet</a>
                     </li>
-                    <li data-group="CommandesBL" data-name="deleteCommandeBLById" class="">
-                      <a href="#api-CommandesBL-deleteCommandeBLById">deleteCommandeBLById</a>
-                    </li>
-                    <li data-group="CommandesBL" data-name="getCmdsByEtat" class="">
-                      <a href="#api-CommandesBL-getCmdsByEtat">getCmdsByEtat</a>
-                    </li>
                     <li data-group="CommandesBL" data-name="getCmdsByEtatAndBoulangerieID" class="">
                       <a href="#api-CommandesBL-getCmdsByEtatAndBoulangerieID">getCmdsByEtatAndBoulangerieID</a>
                     </li>
@@ -1105,6 +1099,9 @@ margin-bottom: 20px;
                   <li class="nav-header" data-group="CommandesLabo"><a href="#api-CommandesLabo">API Methods - CommandesLabo</a></li>
                     <li data-group="CommandesLabo" data-name="addcommandeLabo" class="">
                       <a href="#api-CommandesLabo-addcommandeLabo">addcommandeLabo</a>
+                    </li>
+                    <li data-group="CommandesLabo" data-name="getCmdsByEtat" class="">
+                      <a href="#api-CommandesLabo-getCmdsByEtat">getCmdsByEtat</a>
                     </li>
                     <li data-group="CommandesLabo" data-name="getCommandesLabo" class="">
                       <a href="#api-CommandesLabo-getCommandesLabo">getCommandesLabo</a>
@@ -1138,9 +1135,6 @@ margin-bottom: 20px;
                   <li class="nav-header" data-group="DetailsCommandesBL"><a href="#api-DetailsCommandesBL">API Methods - DetailsCommandesBL</a></li>
                     <li data-group="DetailsCommandesBL" data-name="addDetailsCommandeBL" class="">
                       <a href="#api-DetailsCommandesBL-addDetailsCommandeBL">addDetailsCommandeBL</a>
-                    </li>
-                    <li data-group="DetailsCommandesBL" data-name="deleteDetailsCommandesBLById" class="">
-                      <a href="#api-DetailsCommandesBL-deleteDetailsCommandesBLById">deleteDetailsCommandesBLById</a>
                     </li>
                     <li data-group="DetailsCommandesBL" data-name="getDetailByProduitAndDate" class="">
                       <a href="#api-DetailsCommandesBL-getDetailByProduitAndDate">getDetailByProduitAndDate</a>
@@ -1208,7 +1202,7 @@ margin-bottom: 20px;
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>BoulangerieApi</h1>
+            <h1>BoulangerieApiFinal</h1>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -1217,7 +1211,7 @@ margin-bottom: 20px;
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
               <div class="app-desc">Version: 1.0.0</div>
             <hr>
-            <div>The Boulangerie finally debugged for use, hosting service might need to be adapted</div>
+            <div>The Boulangerie finally debugged for use, now overwritten with eyas changes</div>
           </div>
         </div>
         <div id="sections">
@@ -1319,9 +1313,9 @@ AdministrateursApi *apiInstance = [[AdministrateursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Administrateurs-addAdmin-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.AdministrateursApi()
+var api = new BoulangerieApiFinal.AdministrateursApi()
 
 var body = ; // {Administrateurs} Adminstrateur object that needs to be added
 
@@ -1591,9 +1585,9 @@ AdministrateursApi *apiInstance = [[AdministrateursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Administrateurs-changeAdminPw-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.AdministrateursApi()
+var api = new BoulangerieApiFinal.AdministrateursApi()
 
 var loginAdmin = loginAdmin_example; // {String} 
 
@@ -1891,9 +1885,9 @@ AdministrateursApi *apiInstance = [[AdministrateursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Administrateurs-deleteAdminbyLogin-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.AdministrateursApi()
+var api = new BoulangerieApiFinal.AdministrateursApi()
 
 var loginAdmin = loginAdmin_example; // {String} login of Admin to delete
 
@@ -2160,9 +2154,9 @@ AdministrateursApi *apiInstance = [[AdministrateursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Administrateurs-getAdminById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.AdministrateursApi()
+var api = new BoulangerieApiFinal.AdministrateursApi()
 
 var loginAdmin = loginAdmin_example; // {String} 
 
@@ -2368,7 +2362,7 @@ except ApiException as e:
                       <article id="api-Administrateurs-getAdministrateurs-0" data-group="User" data-name="getAdministrateurs" data-version="0">
                         <div class="pull-left">
                           <h1>getAdministrateurs</h1>
-                          <p>get detailsCommandesBL by Id</p>
+                          <p>get all admins</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -2448,7 +2442,7 @@ public class AdministrateursApiExample {
                               <pre class="prettyprint"><code class="language-cpp">
 AdministrateursApi *apiInstance = [[AdministrateursApi alloc] init];
 
-// get detailsCommandesBL by Id
+// get all admins
 [apiInstance getAdministrateursWithCompletionHandler: 
               ^(array[Administrateurs] output, NSError* error) {
                             if (output) {
@@ -2462,9 +2456,9 @@ AdministrateursApi *apiInstance = [[AdministrateursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Administrateurs-getAdministrateurs-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.AdministrateursApi()
+var api = new BoulangerieApiFinal.AdministrateursApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -2498,7 +2492,7 @@ namespace Example
 
             try
             {
-                // get detailsCommandesBL by Id
+                // get all admins
                 array[Administrateurs] result = apiInstance.getAdministrateurs();
                 Debug.WriteLine(result);
             }
@@ -2554,7 +2548,7 @@ from pprint import pprint
 api_instance = swagger_client.AdministrateursApi()
 
 try: 
-    # get detailsCommandesBL by Id
+    # get all admins
     api_response = api_instance.get_administrateurs()
     pprint(api_response)
 except ApiException as e:
@@ -2734,9 +2728,9 @@ BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Boulangeries-addBoulangerie-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.BoulangeriesApi()
+var api = new BoulangerieApiFinal.BoulangeriesApi()
 
 var body = ; // {Boulangeries} boulangerie object that needs to be added
 
@@ -2910,7 +2904,7 @@ $(document).ready(function() {
                       <article id="api-Boulangeries-deleteBoulangerie-0" data-group="User" data-name="deleteBoulangerie" data-version="0">
                         <div class="pull-left">
                           <h1>deleteBoulangerie</h1>
-                          <p>deletes Boulangerie by id</p>
+                          <p>deletes Boulangerie by id SOFT DELETE</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -2991,7 +2985,7 @@ public class BoulangeriesApiExample {
 
 BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
 
-// deletes Boulangerie by id
+// deletes Boulangerie by id SOFT DELETE
 [apiInstance deleteBoulangerieWith:idBoulangerie
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -3002,9 +2996,9 @@ BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Boulangeries-deleteBoulangerie-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.BoulangeriesApi()
+var api = new BoulangerieApiFinal.BoulangeriesApi()
 
 var idBoulangerie = 56; // {Integer} 
 
@@ -3042,7 +3036,7 @@ namespace Example
 
             try
             {
-                // deletes Boulangerie by id
+                // deletes Boulangerie by id SOFT DELETE
                 apiInstance.deleteBoulangerie(idBoulangerie);
             }
             catch (Exception e)
@@ -3098,7 +3092,7 @@ api_instance = swagger_client.BoulangeriesApi()
 idBoulangerie = 56 # Integer | 
 
 try: 
-    # deletes Boulangerie by id
+    # deletes Boulangerie by id SOFT DELETE
     api_instance.delete_boulangerie(idBoulangerie)
 except ApiException as e:
     print("Exception when calling BoulangeriesApi->deleteBoulangerie: %s\n" % e)</code></pre>
@@ -3268,9 +3262,9 @@ BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Boulangeries-getBoulangerieById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.BoulangeriesApi()
+var api = new BoulangerieApiFinal.BoulangeriesApi()
 
 var idBoulangerie = 56; // {Integer} 
 
@@ -3573,9 +3567,9 @@ BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Boulangeries-getBoulangerieByMatricule-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.BoulangeriesApi()
+var api = new BoulangerieApiFinal.BoulangeriesApi()
 
 var matricule = 56; // {Integer} 
 
@@ -3875,9 +3869,9 @@ BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Boulangeries-getBoulangeries-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.BoulangeriesApi()
+var api = new BoulangerieApiFinal.BoulangeriesApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -4148,9 +4142,9 @@ BoulangeriesApi *apiInstance = [[BoulangeriesApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Boulangeries-updateAndReplaceBoulangerie-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.BoulangeriesApi()
+var api = new BoulangerieApiFinal.BoulangeriesApi()
 
 var idBoulangerie = 56; // {Integer} 
 
@@ -4460,9 +4454,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-addCommandeBL-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var body = ; // {CommandesBL} CommandeBl object that needs to be added
 
@@ -4733,9 +4727,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-commandesBLIdCommandeBLGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var idCommandeBL = 56; // {Integer} 
 
@@ -4937,576 +4931,6 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-CommandesBL-deleteCommandeBLById">
-                      <article id="api-CommandesBL-deleteCommandeBLById-0" data-group="User" data-name="deleteCommandeBLById" data-version="0">
-                        <div class="pull-left">
-                          <h1>deleteCommandeBLById</h1>
-                          <p>Deletes a commandeBL by Id</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/commandesBL/{idCommandeBL}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-CommandesBL-deleteCommandeBLById-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-java">Java</a></li>
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-CommandesBL-deleteCommandeBLById-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-CommandesBL-deleteCommandeBLById-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/commandesBL/{idCommandeBL}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.CommandesBLApi;
-
-import java.io.File;
-import java.util.*;
-
-public class CommandesBLApiExample {
-
-    public static void main(String[] args) {
-        
-        CommandesBLApi apiInstance = new CommandesBLApi();
-        String idCommandeBL = idCommandeBL_example; // String | CommandeID  to delete
-        try {
-            apiInstance.deleteCommandeBLById(idCommandeBL);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CommandesBLApi#deleteCommandeBLById");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CommandesBLApi;
-
-public class CommandesBLApiExample {
-
-    public static void main(String[] args) {
-        CommandesBLApi apiInstance = new CommandesBLApi();
-        String idCommandeBL = idCommandeBL_example; // String | CommandeID  to delete
-        try {
-            apiInstance.deleteCommandeBLById(idCommandeBL);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CommandesBLApi#deleteCommandeBLById");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *idCommandeBL = idCommandeBL_example; // CommandeID  to delete
-
-CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
-
-// Deletes a commandeBL by Id
-[apiInstance deleteCommandeBLByIdWith:idCommandeBL
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
-
-var api = new BoulangerieApi.CommandesBLApi()
-
-var idCommandeBL = idCommandeBL_example; // {String} CommandeID  to delete
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.deleteCommandeBLById(idCommandeBL, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class deleteCommandeBLByIdExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new CommandesBLApi();
-            var idCommandeBL = idCommandeBL_example;  // String | CommandeID  to delete
-
-            try
-            {
-                // Deletes a commandeBL by Id
-                apiInstance.deleteCommandeBLById(idCommandeBL);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandesBLApi.deleteCommandeBLById: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\Api\CommandesBLApi();
-$idCommandeBL = idCommandeBL_example; // String | CommandeID  to delete
-
-try {
-    $api_instance->deleteCommandeBLById($idCommandeBL);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandesBLApi->deleteCommandeBLById: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::CommandesBLApi;
-
-my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
-my $idCommandeBL = idCommandeBL_example; # String | CommandeID  to delete
-
-eval { 
-    $api_instance->deleteCommandeBLById(idCommandeBL => $idCommandeBL);
-};
-if ($@) {
-    warn "Exception when calling CommandesBLApi->deleteCommandeBLById: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-deleteCommandeBLById-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.CommandesBLApi()
-idCommandeBL = idCommandeBL_example # String | CommandeID  to delete
-
-try: 
-    # Deletes a commandeBL by Id
-    api_instance.delete_commande_bl_by_id(idCommandeBL)
-except ApiException as e:
-    print("Exception when calling CommandesBLApi->deleteCommandeBLById: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">idCommandeBL*</td>
-<td>
-
-
-    <div id="d2e199_deleteCommandeBLById_idCommandeBL">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-                    <div class="inner description">
-                        CommandeID  to delete
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - success </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 400 - Invalid ID supplied </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 404 - not found </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-CommandesBL-getCmdsByEtat">
-                      <article id="api-CommandesBL-getCmdsByEtat-0" data-group="User" data-name="getCmdsByEtat" data-version="0">
-                        <div class="pull-left">
-                          <h1>getCmdsByEtat</h1>
-                          <p>returns commandes filtered collection for BL</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/commandesBL/getCmdsByEtat</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-CommandesBL-getCmdsByEtat-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-java">Java</a></li>
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-CommandesBL-getCmdsByEtat-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/commandesBL/getCmdsByEtat?etat="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.CommandesBLApi;
-
-import java.io.File;
-import java.util.*;
-
-public class CommandesBLApiExample {
-
-    public static void main(String[] args) {
-        
-        CommandesBLApi apiInstance = new CommandesBLApi();
-        String etat = etat_example; // String | 
-        try {
-            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CommandesBLApi#getCmdsByEtat");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CommandesBLApi;
-
-public class CommandesBLApiExample {
-
-    public static void main(String[] args) {
-        CommandesBLApi apiInstance = new CommandesBLApi();
-        String etat = etat_example; // String | 
-        try {
-            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CommandesBLApi#getCmdsByEtat");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; //  (optional)
-
-CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
-
-// returns commandes filtered collection for BL
-[apiInstance getCmdsByEtatWith:etat
-              completionHandler: ^(array[inline_response_200_2] output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
-
-var api = new BoulangerieApi.CommandesBLApi()
-
-var opts = { 
-  'etat': etat_example // {String} 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.getCmdsByEtat(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class getCmdsByEtatExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new CommandesBLApi();
-            var etat = etat_example;  // String |  (optional) 
-
-            try
-            {
-                // returns commandes filtered collection for BL
-                array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandesBLApi.getCmdsByEtat: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\Api\CommandesBLApi();
-$etat = etat_example; // String | 
-
-try {
-    $result = $api_instance->getCmdsByEtat($etat);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandesBLApi->getCmdsByEtat: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::CommandesBLApi;
-
-my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
-my $etat = etat_example; # String | 
-
-eval { 
-    my $result = $api_instance->getCmdsByEtat(etat => $etat);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CommandesBLApi->getCmdsByEtat: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.CommandesBLApi()
-etat = etat_example # String |  (optional)
-
-try: 
-    # returns commandes filtered collection for BL
-    api_response = api_instance.get_cmds_by_etat(etat=etat)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CommandesBLApi->getCmdsByEtat: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">etat</td>
-<td>
-
-
-    <div id="d2e199_getCmdsByEtat_etat">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-            </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - success </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-getCmdsByEtat-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-getCmdsByEtat-200-schema">
-                                  <div id='responses-getCmdsByEtat-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "success",
-  "schema" : {
-    "type" : "array",
-    "items" : {
-      "$ref" : "#/definitions/inline_response_200_2"
-    }
-  }
-};
-                                        var schema = schemaWrapper.schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = defs;
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-getCmdsByEtat-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-getCmdsByEtat-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-getCmdsByEtat-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                            <h3> Status: 204 - No content. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: default - Unexpected Error </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
                     <div id="api-CommandesBL-getCmdsByEtatAndBoulangerieID">
                       <article id="api-CommandesBL-getCmdsByEtatAndBoulangerieID-0" data-group="User" data-name="getCmdsByEtatAndBoulangerieID" data-version="0">
                         <div class="pull-left">
@@ -5612,9 +5036,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtatAndBoulangerieID-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var opts = { 
   'etat': etat_example, // {String} 
@@ -5944,9 +5368,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtatAndmatricule-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var opts = { 
   'etat': etat_example, // {String} 
@@ -6264,9 +5688,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-getCmdsForLab-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var opts = { 
   'etat': etat_example // {String} 
@@ -6569,9 +5993,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-getDetailsByCommandeBL-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var idCommandeBL = 56; // {Integer} 
 
@@ -6871,9 +6295,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-getcommandesBL-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -7142,9 +6566,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-patchCmdBlEtat-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var idCommandeBL = 56; // {Integer} 
 
@@ -7456,9 +6880,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesBL-patchLivreur-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesBLApi()
+var api = new BoulangerieApiFinal.CommandesBLApi()
 
 var idCommandeBL = 56; // {Integer} 
 
@@ -7768,9 +7192,9 @@ CommandesLaboApi *apiInstance = [[CommandesLaboApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesLabo-addcommandeLabo-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesLaboApi()
+var api = new BoulangerieApiFinal.CommandesLaboApi()
 
 var body = ; // {CommandesLabo} commandeLabo object that needs to be added
 
@@ -7948,6 +7372,312 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-CommandesLabo-getCmdsByEtat">
+                      <article id="api-CommandesLabo-getCmdsByEtat-0" data-group="User" data-name="getCmdsByEtat" data-version="0">
+                        <div class="pull-left">
+                          <h1>getCmdsByEtat</h1>
+                          <p>returns commandes filtered collection for BL</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/commandesBL/getCmdsByEtat</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CommandesLabo-getCmdsByEtat-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CommandesLabo-getCmdsByEtat-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/commandesBL/getCmdsByEtat?etat="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.CommandesLaboApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CommandesLaboApiExample {
+
+    public static void main(String[] args) {
+        
+        CommandesLaboApi apiInstance = new CommandesLaboApi();
+        String etat = etat_example; // String | 
+        try {
+            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CommandesLaboApi#getCmdsByEtat");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CommandesLaboApi;
+
+public class CommandesLaboApiExample {
+
+    public static void main(String[] args) {
+        CommandesLaboApi apiInstance = new CommandesLaboApi();
+        String etat = etat_example; // String | 
+        try {
+            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CommandesLaboApi#getCmdsByEtat");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; //  (optional)
+
+CommandesLaboApi *apiInstance = [[CommandesLaboApi alloc] init];
+
+// returns commandes filtered collection for BL
+[apiInstance getCmdsByEtatWith:etat
+              completionHandler: ^(array[inline_response_200_2] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
+
+var api = new BoulangerieApiFinal.CommandesLaboApi()
+
+var opts = { 
+  'etat': etat_example // {String} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getCmdsByEtat(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getCmdsByEtatExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new CommandesLaboApi();
+            var etat = etat_example;  // String |  (optional) 
+
+            try
+            {
+                // returns commandes filtered collection for BL
+                array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandesLaboApi.getCmdsByEtat: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\CommandesLaboApi();
+$etat = etat_example; // String | 
+
+try {
+    $result = $api_instance->getCmdsByEtat($etat);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandesLaboApi->getCmdsByEtat: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::CommandesLaboApi;
+
+my $api_instance = WWW::SwaggerClient::CommandesLaboApi->new();
+my $etat = etat_example; # String | 
+
+eval { 
+    my $result = $api_instance->getCmdsByEtat(etat => $etat);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CommandesLaboApi->getCmdsByEtat: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CommandesLaboApi()
+etat = etat_example # String |  (optional)
+
+try: 
+    # returns commandes filtered collection for BL
+    api_response = api_instance.get_cmds_by_etat(etat=etat)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CommandesLaboApi->getCmdsByEtat: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">etat</td>
+<td>
+
+
+    <div id="d2e199_getCmdsByEtat_etat">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - success </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getCmdsByEtat-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getCmdsByEtat-200-schema">
+                                  <div id='responses-getCmdsByEtat-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "success",
+  "schema" : {
+    "type" : "array",
+    "items" : {
+      "$ref" : "#/definitions/inline_response_200_2"
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getCmdsByEtat-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getCmdsByEtat-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getCmdsByEtat-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 204 - No content. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: default - Unexpected Error </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-CommandesLabo-getCommandesLabo">
                       <article id="api-CommandesLabo-getCommandesLabo-0" data-group="User" data-name="getCommandesLabo" data-version="0">
                         <div class="pull-left">
@@ -8046,9 +7776,9 @@ CommandesLaboApi *apiInstance = [[CommandesLaboApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CommandesLabo-getCommandesLabo-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CommandesLaboApi()
+var api = new BoulangerieApiFinal.CommandesLaboApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -8318,9 +8048,9 @@ ComposantsApi *apiInstance = [[ComposantsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Composants-addComposant-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ComposantsApi()
+var api = new BoulangerieApiFinal.ComposantsApi()
 
 var body = ; // {Composants} Composant object that needs to be added
 
@@ -8591,9 +8321,9 @@ ComposantsApi *apiInstance = [[ComposantsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Composants-composantsIdComposantGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ComposantsApi()
+var api = new BoulangerieApiFinal.ComposantsApi()
 
 var idComposant = idComposant_example; // {String} 
 
@@ -8799,7 +8529,7 @@ except ApiException as e:
                       <article id="api-Composants-deleteComposantById-0" data-group="User" data-name="deleteComposantById" data-version="0">
                         <div class="pull-left">
                           <h1>deleteComposantById</h1>
-                          <p>Deletes a composant by id</p>
+                          <p>Deletes a composant by id SOFT DELETE</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -8880,7 +8610,7 @@ public class ComposantsApiExample {
 
 ComposantsApi *apiInstance = [[ComposantsApi alloc] init];
 
-// Deletes a composant by id
+// Deletes a composant by id SOFT DELETE
 [apiInstance deleteComposantByIdWith:idComposant
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -8891,9 +8621,9 @@ ComposantsApi *apiInstance = [[ComposantsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Composants-deleteComposantById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ComposantsApi()
+var api = new BoulangerieApiFinal.ComposantsApi()
 
 var idComposant = idComposant_example; // {String} composant id to delete
 
@@ -8931,7 +8661,7 @@ namespace Example
 
             try
             {
-                // Deletes a composant by id
+                // Deletes a composant by id SOFT DELETE
                 apiInstance.deleteComposantById(idComposant);
             }
             catch (Exception e)
@@ -8987,7 +8717,7 @@ api_instance = swagger_client.ComposantsApi()
 idComposant = idComposant_example # String | composant id to delete
 
 try: 
-    # Deletes a composant by id
+    # Deletes a composant by id SOFT DELETE
     api_instance.delete_composant_by_id(idComposant)
 except ApiException as e:
     print("Exception when calling ComposantsApi->deleteComposantById: %s\n" % e)</code></pre>
@@ -9157,9 +8887,9 @@ ComposantsApi *apiInstance = [[ComposantsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Composants-getComposants-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ComposantsApi()
+var api = new BoulangerieApiFinal.ComposantsApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -9429,9 +9159,9 @@ CompositionsProduitApi *apiInstance = [[CompositionsProduitApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CompositionsProduit-addCompositionProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CompositionsProduitApi()
+var api = new BoulangerieApiFinal.CompositionsProduitApi()
 
 var body = ; // {CompositionsProduit} CompositionsProduit object that needs to be added
 
@@ -9709,9 +9439,9 @@ CompositionsProduitApi *apiInstance = [[CompositionsProduitApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CompositionsProduit-deleteCompositionByProduitAndComposant-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CompositionsProduitApi()
+var api = new BoulangerieApiFinal.CompositionsProduitApi()
 
 var codeProduit = 56; // {Integer} 
 
@@ -9904,7 +9634,7 @@ except ApiException as e:
                       <article id="api-CompositionsProduit-deleteCompositionsProduitById-0" data-group="User" data-name="deleteCompositionsProduitById" data-version="0">
                         <div class="pull-left">
                           <h1>deleteCompositionsProduitById</h1>
-                          <p>Deletes a compositionProduit by its ID</p>
+                          <p>Deletes a compositionProduit by its ID (DELETED WITH)</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -9985,7 +9715,7 @@ public class CompositionsProduitApiExample {
 
 CompositionsProduitApi *apiInstance = [[CompositionsProduitApi alloc] init];
 
-// Deletes a compositionProduit by its ID
+// Deletes a compositionProduit by its ID (DELETED WITH)
 [apiInstance deleteCompositionsProduitByIdWith:idComposition
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -9996,9 +9726,9 @@ CompositionsProduitApi *apiInstance = [[CompositionsProduitApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CompositionsProduit-deleteCompositionsProduitById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CompositionsProduitApi()
+var api = new BoulangerieApiFinal.CompositionsProduitApi()
 
 var idComposition = 56; // {Integer} CompositionProduit Id to delete
 
@@ -10036,7 +9766,7 @@ namespace Example
 
             try
             {
-                // Deletes a compositionProduit by its ID
+                // Deletes a compositionProduit by its ID (DELETED WITH)
                 apiInstance.deleteCompositionsProduitById(idComposition);
             }
             catch (Exception e)
@@ -10092,7 +9822,7 @@ api_instance = swagger_client.CompositionsProduitApi()
 idComposition = 56 # Integer | CompositionProduit Id to delete
 
 try: 
-    # Deletes a compositionProduit by its ID
+    # Deletes a compositionProduit by its ID (DELETED WITH)
     api_instance.delete_compositions_produit_by_id(idComposition)
 except ApiException as e:
     print("Exception when calling CompositionsProduitApi->deleteCompositionsProduitById: %s\n" % e)</code></pre>
@@ -10262,9 +9992,9 @@ CompositionsProduitApi *apiInstance = [[CompositionsProduitApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-CompositionsProduit-getCompositionsProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.CompositionsProduitApi()
+var api = new BoulangerieApiFinal.CompositionsProduitApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -10534,9 +10264,9 @@ DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-DetailsCommandesBL-addDetailsCommandeBL-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.DetailsCommandesBLApi()
+var api = new BoulangerieApiFinal.DetailsCommandesBLApi()
 
 var body = ; // {DetailsCommandesBL} DetailsCommandeBl object that needs to be added
 
@@ -10706,270 +10436,6 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
-                    <div id="api-DetailsCommandesBL-deleteDetailsCommandesBLById">
-                      <article id="api-DetailsCommandesBL-deleteDetailsCommandesBLById-0" data-group="User" data-name="deleteDetailsCommandesBLById" data-version="0">
-                        <div class="pull-left">
-                          <h1>deleteDetailsCommandesBLById</h1>
-                          <p>Deletes a detail by ID</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/detailsCommandesBL/{idDetail}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-java">Java</a></li>
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/detailsCommandesBL/{idDetail}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DetailsCommandesBLApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DetailsCommandesBLApiExample {
-
-    public static void main(String[] args) {
-        
-        DetailsCommandesBLApi apiInstance = new DetailsCommandesBLApi();
-        Integer idDetail = 56; // Integer | detail Id to delete
-        try {
-            apiInstance.deleteDetailsCommandesBLById(idDetail);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DetailsCommandesBLApi#deleteDetailsCommandesBLById");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DetailsCommandesBLApi;
-
-public class DetailsCommandesBLApiExample {
-
-    public static void main(String[] args) {
-        DetailsCommandesBLApi apiInstance = new DetailsCommandesBLApi();
-        Integer idDetail = 56; // Integer | detail Id to delete
-        try {
-            apiInstance.deleteDetailsCommandesBLById(idDetail);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DetailsCommandesBLApi#deleteDetailsCommandesBLById");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *idDetail = 56; // detail Id to delete
-
-DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
-
-// Deletes a detail by ID
-[apiInstance deleteDetailsCommandesBLByIdWith:idDetail
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
-
-var api = new BoulangerieApi.DetailsCommandesBLApi()
-
-var idDetail = 56; // {Integer} detail Id to delete
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.deleteDetailsCommandesBLById(idDetail, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class deleteDetailsCommandesBLByIdExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new DetailsCommandesBLApi();
-            var idDetail = 56;  // Integer | detail Id to delete
-
-            try
-            {
-                // Deletes a detail by ID
-                apiInstance.deleteDetailsCommandesBLById(idDetail);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DetailsCommandesBLApi.deleteDetailsCommandesBLById: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\Api\DetailsCommandesBLApi();
-$idDetail = 56; // Integer | detail Id to delete
-
-try {
-    $api_instance->deleteDetailsCommandesBLById($idDetail);
-} catch (Exception $e) {
-    echo 'Exception when calling DetailsCommandesBLApi->deleteDetailsCommandesBLById: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DetailsCommandesBLApi;
-
-my $api_instance = WWW::SwaggerClient::DetailsCommandesBLApi->new();
-my $idDetail = 56; # Integer | detail Id to delete
-
-eval { 
-    $api_instance->deleteDetailsCommandesBLById(idDetail => $idDetail);
-};
-if ($@) {
-    warn "Exception when calling DetailsCommandesBLApi->deleteDetailsCommandesBLById: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DetailsCommandesBL-deleteDetailsCommandesBLById-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DetailsCommandesBLApi()
-idDetail = 56 # Integer | detail Id to delete
-
-try: 
-    # Deletes a detail by ID
-    api_instance.delete_details_commandes_bl_by_id(idDetail)
-except ApiException as e:
-    print("Exception when calling DetailsCommandesBLApi->deleteDetailsCommandesBLById: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">idDetail*</td>
-<td>
-
-
-    <div id="d2e199_deleteDetailsCommandesBLById_idDetail">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    Integer
-                </span>
-
-                    <div class="inner description">
-                        detail Id to delete
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - successfully deleted </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 400 - Invalid ID supplied </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 404 - detail not found </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
                     <div id="api-DetailsCommandesBL-getDetailByProduitAndDate">
                       <article id="api-DetailsCommandesBL-getDetailByProduitAndDate-0" data-group="User" data-name="getDetailByProduitAndDate" data-version="0">
                         <div class="pull-left">
@@ -11021,7 +10487,7 @@ public class DetailsCommandesBLApiExample {
         Integer codeProduit = 56; // Integer | 
         date dueDate = 2013-10-20; // date | 
         try {
-            array[DetailsCommandesBL] result = apiInstance.getDetailByProduitAndDate(codeProduit, dueDate);
+            DetailsCommandesBL result = apiInstance.getDetailByProduitAndDate(codeProduit, dueDate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DetailsCommandesBLApi#getDetailByProduitAndDate");
@@ -11041,7 +10507,7 @@ public class DetailsCommandesBLApiExample {
         Integer codeProduit = 56; // Integer | 
         date dueDate = 2013-10-20; // date | 
         try {
-            array[DetailsCommandesBL] result = apiInstance.getDetailByProduitAndDate(codeProduit, dueDate);
+            DetailsCommandesBL result = apiInstance.getDetailByProduitAndDate(codeProduit, dueDate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DetailsCommandesBLApi#getDetailByProduitAndDate");
@@ -11063,7 +10529,7 @@ DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
 // get detailsCommandesBL by codeProduit and dueDate
 [apiInstance getDetailByProduitAndDateWith:codeProduit
     dueDate:dueDate
-              completionHandler: ^(array[DetailsCommandesBL] output, NSError* error) {
+              completionHandler: ^(DetailsCommandesBL output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -11075,9 +10541,9 @@ DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-DetailsCommandesBL-getDetailByProduitAndDate-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.DetailsCommandesBLApi()
+var api = new BoulangerieApiFinal.DetailsCommandesBLApi()
 
 var codeProduit = 56; // {Integer} 
 
@@ -11119,7 +10585,7 @@ namespace Example
             try
             {
                 // get detailsCommandesBL by codeProduit and dueDate
-                array[DetailsCommandesBL] result = apiInstance.getDetailByProduitAndDate(codeProduit, dueDate);
+                DetailsCommandesBL result = apiInstance.getDetailByProduitAndDate(codeProduit, dueDate);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11263,10 +10729,7 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "success",
   "schema" : {
-    "type" : "array",
-    "items" : {
-      "$ref" : "#/definitions/DetailsCommandesBL"
-    }
+    "$ref" : "#/definitions/DetailsCommandesBL"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -11409,9 +10872,9 @@ DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-DetailsCommandesBL-getdetailsCommandesBL-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.DetailsCommandesBLApi()
+var api = new BoulangerieApiFinal.DetailsCommandesBLApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -11682,9 +11145,9 @@ DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-DetailsCommandesBL-patchDetailQuantity-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.DetailsCommandesBLApi()
+var api = new BoulangerieApiFinal.DetailsCommandesBLApi()
 
 var idDetail = 56; // {Integer} 
 
@@ -11994,9 +11457,9 @@ LivreursApi *apiInstance = [[LivreursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Livreurs-addLivreur-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.LivreursApi()
+var api = new BoulangerieApiFinal.LivreursApi()
 
 var body = ; // {Livreurs} Livreur object that needs to be added
 
@@ -12170,7 +11633,7 @@ $(document).ready(function() {
                       <article id="api-Livreurs-deleteLivreurbyMatricule-0" data-group="User" data-name="deleteLivreurbyMatricule" data-version="0">
                         <div class="pull-left">
                           <h1>deleteLivreurbyMatricule</h1>
-                          <p>Deletes a livreur by matricule</p>
+                          <p>Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -12251,7 +11714,7 @@ public class LivreursApiExample {
 
 LivreursApi *apiInstance = [[LivreursApi alloc] init];
 
-// Deletes a livreur by matricule
+// Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL
 [apiInstance deleteLivreurbyMatriculeWith:matricule
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -12262,9 +11725,9 @@ LivreursApi *apiInstance = [[LivreursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Livreurs-deleteLivreurbyMatricule-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.LivreursApi()
+var api = new BoulangerieApiFinal.LivreursApi()
 
 var matricule = 56; // {Integer} livreur matricule to delete
 
@@ -12302,7 +11765,7 @@ namespace Example
 
             try
             {
-                // Deletes a livreur by matricule
+                // Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL
                 apiInstance.deleteLivreurbyMatricule(matricule);
             }
             catch (Exception e)
@@ -12358,7 +11821,7 @@ api_instance = swagger_client.LivreursApi()
 matricule = 56 # Integer | livreur matricule to delete
 
 try: 
-    # Deletes a livreur by matricule
+    # Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL
     api_instance.delete_livreurby_matricule(matricule)
 except ApiException as e:
     print("Exception when calling LivreursApi->deleteLivreurbyMatricule: %s\n" % e)</code></pre>
@@ -12528,9 +11991,9 @@ LivreursApi *apiInstance = [[LivreursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Livreurs-getLivreurs-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.LivreursApi()
+var api = new BoulangerieApiFinal.LivreursApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -12793,9 +12256,9 @@ LivreursApi *apiInstance = [[LivreursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Livreurs-getLivreursByMatricule-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.LivreursApi()
+var api = new BoulangerieApiFinal.LivreursApi()
 
 var matricule = 56; // {Integer} 
 
@@ -13086,9 +12549,9 @@ LivreursApi *apiInstance = [[LivreursApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Livreurs-updateLivreur-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.LivreursApi()
+var api = new BoulangerieApiFinal.LivreursApi()
 
 var matricule = 56; // {Integer} 
 
@@ -13388,9 +12851,9 @@ ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Produits-addProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProduitsApi()
+var api = new BoulangerieApiFinal.ProduitsApi()
 
 var body = ; // {Produits} Produit object that needs to be added
 
@@ -13564,7 +13027,7 @@ $(document).ready(function() {
                       <article id="api-Produits-deleteProduitByCodeProduit-0" data-group="User" data-name="deleteProduitByCodeProduit" data-version="0">
                         <div class="pull-left">
                           <h1>deleteProduitByCodeProduit</h1>
-                          <p>Deletes a produit by its code</p>
+                          <p>Deletes a produit by its code SOFT DELETE</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -13645,7 +13108,7 @@ public class ProduitsApiExample {
 
 ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
 
-// Deletes a produit by its code
+// Deletes a produit by its code SOFT DELETE
 [apiInstance deleteProduitByCodeProduitWith:codeProduit
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -13656,9 +13119,9 @@ ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Produits-deleteProduitByCodeProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProduitsApi()
+var api = new BoulangerieApiFinal.ProduitsApi()
 
 var codeProduit = 56; // {Integer} Produit code to delete
 
@@ -13696,7 +13159,7 @@ namespace Example
 
             try
             {
-                // Deletes a produit by its code
+                // Deletes a produit by its code SOFT DELETE
                 apiInstance.deleteProduitByCodeProduit(codeProduit);
             }
             catch (Exception e)
@@ -13752,7 +13215,7 @@ api_instance = swagger_client.ProduitsApi()
 codeProduit = 56 # Integer | Produit code to delete
 
 try: 
-    # Deletes a produit by its code
+    # Deletes a produit by its code SOFT DELETE
     api_instance.delete_produit_by_code_produit(codeProduit)
 except ApiException as e:
     print("Exception when calling ProduitsApi->deleteProduitByCodeProduit: %s\n" % e)</code></pre>
@@ -13925,9 +13388,9 @@ ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Produits-getCompositionsOfProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProduitsApi()
+var api = new BoulangerieApiFinal.ProduitsApi()
 
 var codeProduit = 56; // {Integer} 
 
@@ -14233,9 +13696,9 @@ ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Produits-getProduitByCodeProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProduitsApi()
+var api = new BoulangerieApiFinal.ProduitsApi()
 
 var codeProduit = 56; // {Integer} 
 
@@ -14535,9 +13998,9 @@ ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Produits-getProduits-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProduitsApi()
+var api = new BoulangerieApiFinal.ProduitsApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -14808,9 +14271,9 @@ ProduitsApi *apiInstance = [[ProduitsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Produits-updateAndReplaceProduit-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProduitsApi()
+var api = new BoulangerieApiFinal.ProduitsApi()
 
 var codeProduit = 56; // {Integer} 
 
@@ -15120,9 +14583,9 @@ ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Profils-addProfil-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProfilsApi()
+var api = new BoulangerieApiFinal.ProfilsApi()
 
 var body = ; // {Profils} profil object that needs to be added
 
@@ -15296,7 +14759,7 @@ $(document).ready(function() {
                       <article id="api-Profils-deleteProfilByMatricule-0" data-group="User" data-name="deleteProfilByMatricule" data-version="0">
                         <div class="pull-left">
                           <h1>deleteProfilByMatricule</h1>
-                          <p>Deletes a profil</p>
+                          <p>Deletes a profil SOFT DELETE</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -15377,7 +14840,7 @@ public class ProfilsApiExample {
 
 ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
 
-// Deletes a profil
+// Deletes a profil SOFT DELETE
 [apiInstance deleteProfilByMatriculeWith:matricule
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -15388,9 +14851,9 @@ ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Profils-deleteProfilByMatricule-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProfilsApi()
+var api = new BoulangerieApiFinal.ProfilsApi()
 
 var matricule = 56; // {Integer} Profil matricule to delete
 
@@ -15428,7 +14891,7 @@ namespace Example
 
             try
             {
-                // Deletes a profil
+                // Deletes a profil SOFT DELETE
                 apiInstance.deleteProfilByMatricule(matricule);
             }
             catch (Exception e)
@@ -15484,7 +14947,7 @@ api_instance = swagger_client.ProfilsApi()
 matricule = 56 # Integer | Profil matricule to delete
 
 try: 
-    # Deletes a profil
+    # Deletes a profil SOFT DELETE
     api_instance.delete_profil_by_matricule(matricule)
 except ApiException as e:
     print("Exception when calling ProfilsApi->deleteProfilByMatricule: %s\n" % e)</code></pre>
@@ -15649,9 +15112,9 @@ ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Profils-getProfilByLogin-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProfilsApi()
+var api = new BoulangerieApiFinal.ProfilsApi()
 
 var login = login_example; // {String} login of profil to return
 
@@ -15949,9 +15412,9 @@ ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Profils-getProfilByMatricule-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProfilsApi()
+var api = new BoulangerieApiFinal.ProfilsApi()
 
 var matricule = 56; // {Integer} 
 
@@ -16243,9 +15706,9 @@ ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Profils-getProfils-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApi = require('boulangerie_api');
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
 
-var api = new BoulangerieApi.ProfilsApi()
+var api = new BoulangerieApiFinal.ProfilsApi()
 
 var callback = function(error, data, response) {
   if (error) {
