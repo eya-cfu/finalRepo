@@ -162,7 +162,7 @@ class CommandesBLController
 
     /**
      * @Route("/commandesBL/{idCommandeBL}", name="deleteCommandeBL", methods={"DELETE"})
-     */
+
     public function delete($idCommandeBL): JsonResponse
     {
         $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
@@ -171,6 +171,7 @@ class CommandesBLController
 
         return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
     }
+     */
 
     /**
      * @Route("/commandesBL/{idCommandeBL}/identifyLivreur", name="updateLivreurofCommande", methods={"PATCH"})

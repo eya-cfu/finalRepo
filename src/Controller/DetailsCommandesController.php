@@ -82,7 +82,7 @@ class DetailsCommandesController
 
     /**
      * @Route("/detailsCommandesBL/{idDetail}", name="deleteDetailsCmd", methods={"DELETE"})
-     */
+
     public function delete($idDetail): JsonResponse
     {
         $detailsCommandesBL = $this->detailsCommandesRepository->findOneBy(['id' => $idDetail]);
@@ -91,6 +91,7 @@ class DetailsCommandesController
 
         return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
     }
+     */
 
     /**
      * @Route("/detailsCommandesBL/findByProduitAndDate", name="getDetailsByCodeAndDate", methods={"GET"})
@@ -122,6 +123,8 @@ class DetailsCommandesController
                         'idDetail' => $detail->getIdDetail(),
                         'quantiteProd' => $detail->getQuantiteProd(),
                                 ];
+                    //break so it only returns one element
+                    break;
                 }
             }
         }

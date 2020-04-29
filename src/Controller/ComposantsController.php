@@ -66,7 +66,7 @@ class ComposantsController
 
     /**
      * @Route("/composants/{idComposant}", name="deleteComposant", methods={"DELETE"})
-     */
+
     public function delete($idComposant): JsonResponse
     {
         $composants = $this->composantsRepository->findOneBy(['idComposant' => $idComposant]);
@@ -75,6 +75,8 @@ class ComposantsController
 
         return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
     }
+*/
+
 
     /**
      * @Route("/composants/{idComposant}", name="getComposantById", methods={"GET"})

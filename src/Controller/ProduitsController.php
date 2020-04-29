@@ -85,7 +85,7 @@ class ProduitsController
     {
         $produits = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
 
-       
+
          $compositionsToDelete = $this->getCompositionbyCodeProduit($produits->getCodeProduit());
 
          foreach ($compositionsToDelete as $compositionToDelete){
