@@ -124,7 +124,7 @@ class DetailsCommandesController
                         'quantiteProd' => $detail->getQuantiteProd(),
                                 ];
                     //break so it only returns one element
-                    break;
+                    //break;
                 }
             }
         }
