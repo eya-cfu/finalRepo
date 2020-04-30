@@ -1,0 +1,3302 @@
+<!doctype html>
+<html>
+  <head>
+    <title>BoulangerieApiFinal</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>BoulangerieApiFinal</h1>
+    <div class="app-desc">The Boulangerie finally debugged for use, now overwritten with eyas changes</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="leafyteam@notaRealCompany.com">leafyteam@notaRealCompany.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/Boulangerie/ApiCourse/1.0.0</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Administrateurs">Administrateurs</a></h4>
+  <ul>
+  <li><a href="#addAdmin"><code><span class="http-method">post</span> /adminstrateurs</code></a></li>
+  <li><a href="#changeAdminPw"><code><span class="http-method">patch</span> /administrateurs/{loginAdmin}</code></a></li>
+  <li><a href="#deleteAdminbyLogin"><code><span class="http-method">delete</span> /administrateurs/{loginAdmin}</code></a></li>
+  <li><a href="#getAdminById"><code><span class="http-method">get</span> /administrateurs/{loginAdmin}</code></a></li>
+  <li><a href="#getAdministrateurs"><code><span class="http-method">get</span> /adminstrateurs</code></a></li>
+  </ul>
+  <h4><a href="#Boulangeries">Boulangeries</a></h4>
+  <ul>
+  <li><a href="#addBoulangerie"><code><span class="http-method">post</span> /boulangeries</code></a></li>
+  <li><a href="#deleteBoulangerie"><code><span class="http-method">delete</span> /boulangeries/ById/{idBoulangerie}</code></a></li>
+  <li><a href="#getBoulangerieById"><code><span class="http-method">get</span> /boulangeries/ById/{idBoulangerie}</code></a></li>
+  <li><a href="#getBoulangerieByMatricule"><code><span class="http-method">get</span> /boulangeries/{matricule}</code></a></li>
+  <li><a href="#getBoulangeries"><code><span class="http-method">get</span> /boulangeries</code></a></li>
+  <li><a href="#updateAndReplaceBoulangerie"><code><span class="http-method">put</span> /boulangeries/ById/{idBoulangerie}</code></a></li>
+  </ul>
+  <h4><a href="#CommandesBL">CommandesBL</a></h4>
+  <ul>
+  <li><a href="#addCommandeBL"><code><span class="http-method">post</span> /commandesBL</code></a></li>
+  <li><a href="#commandesBLIdCommandeBLGet"><code><span class="http-method">get</span> /commandesBL/{idCommandeBL}</code></a></li>
+  <li><a href="#getCmdsByEtatAndBoulangerieID"><code><span class="http-method">get</span> /commandesBL/getCmdsbyEtatAndBoulangerieID</code></a></li>
+  <li><a href="#getCmdsByEtatAndmatricule"><code><span class="http-method">get</span> /commandesBL/getCmdsByEtatAndMatricule</code></a></li>
+  <li><a href="#getCmdsForLab"><code><span class="http-method">get</span> /commandesBL/getCmdsForLab</code></a></li>
+  <li><a href="#getDetailsByCommandeBL"><code><span class="http-method">get</span> /commandesBL/{idCommandeBL}/detailsCmdBL</code></a></li>
+  <li><a href="#getcommandesBL"><code><span class="http-method">get</span> /commandesBL</code></a></li>
+  <li><a href="#patchCmdBlEtat"><code><span class="http-method">patch</span> /commandesBL/{idCommandeBL}</code></a></li>
+  <li><a href="#patchLivreur"><code><span class="http-method">patch</span> /commandesBL/{idCommandeBL}/identifyLivreur</code></a></li>
+  </ul>
+  <h4><a href="#CommandesLabo">CommandesLabo</a></h4>
+  <ul>
+  <li><a href="#addcommandeLabo"><code><span class="http-method">post</span> /commandesLabo</code></a></li>
+  <li><a href="#getCmdsByEtat"><code><span class="http-method">get</span> /commandesBL/getCmdsByEtat</code></a></li>
+  <li><a href="#getCommandesLabo"><code><span class="http-method">get</span> /commandesLabo</code></a></li>
+  </ul>
+  <h4><a href="#Composants">Composants</a></h4>
+  <ul>
+  <li><a href="#addComposant"><code><span class="http-method">post</span> /composants</code></a></li>
+  <li><a href="#composantsIdComposantGet"><code><span class="http-method">get</span> /composants/{idComposant}</code></a></li>
+  <li><a href="#deleteComposantById"><code><span class="http-method">delete</span> /composants/{idComposant}</code></a></li>
+  <li><a href="#getComposants"><code><span class="http-method">get</span> /composants</code></a></li>
+  </ul>
+  <h4><a href="#CompositionsProduit">CompositionsProduit</a></h4>
+  <ul>
+  <li><a href="#addCompositionProduit"><code><span class="http-method">post</span> /compositionsProduit</code></a></li>
+  <li><a href="#deleteCompositionByProduitAndComposant"><code><span class="http-method">delete</span> /compositionsProduit/findByProduitAndComposant</code></a></li>
+  <li><a href="#deleteCompositionsProduitById"><code><span class="http-method">delete</span> /compositionsProduit/{idComposition}</code></a></li>
+  <li><a href="#getCompositionsProduit"><code><span class="http-method">get</span> /compositionsProduit</code></a></li>
+  </ul>
+  <h4><a href="#DetailsCommandesBL">DetailsCommandesBL</a></h4>
+  <ul>
+  <li><a href="#addDetailsCommandeBL"><code><span class="http-method">post</span> /detailsCommandesBL</code></a></li>
+  <li><a href="#getDetailByProduitAndDate"><code><span class="http-method">get</span> /detailsCommandesBL/findByProduitAndDate</code></a></li>
+  <li><a href="#getdetailsCommandesBL"><code><span class="http-method">get</span> /detailsCommandesBL</code></a></li>
+  <li><a href="#patchDetailQuantity"><code><span class="http-method">patch</span> /detailsCommandesBL/{idDetail}</code></a></li>
+  </ul>
+  <h4><a href="#Livreurs">Livreurs</a></h4>
+  <ul>
+  <li><a href="#addLivreur"><code><span class="http-method">post</span> /livreurs</code></a></li>
+  <li><a href="#deleteLivreurbyMatricule"><code><span class="http-method">delete</span> /livreurs/{matricule}</code></a></li>
+  <li><a href="#getLivreurs"><code><span class="http-method">get</span> /livreurs</code></a></li>
+  <li><a href="#getLivreursByMatricule"><code><span class="http-method">get</span> /livreurs/{matricule}</code></a></li>
+  <li><a href="#updateLivreur"><code><span class="http-method">put</span> /livreurs/{matricule}</code></a></li>
+  </ul>
+  <h4><a href="#Produits">Produits</a></h4>
+  <ul>
+  <li><a href="#addProduit"><code><span class="http-method">post</span> /produits</code></a></li>
+  <li><a href="#deleteProduitByCodeProduit"><code><span class="http-method">delete</span> /produits/{codeProduit}</code></a></li>
+  <li><a href="#getCompositionsOfProduit"><code><span class="http-method">get</span> /produits/{codeProduit}/compositionsProduit</code></a></li>
+  <li><a href="#getProduitByCodeProduit"><code><span class="http-method">get</span> /produits/{codeProduit}</code></a></li>
+  <li><a href="#getProduits"><code><span class="http-method">get</span> /produits</code></a></li>
+  <li><a href="#updateAndReplaceProduit"><code><span class="http-method">put</span> /produits/{codeProduit}</code></a></li>
+  </ul>
+  <h4><a href="#Profils">Profils</a></h4>
+  <ul>
+  <li><a href="#addProfil"><code><span class="http-method">post</span> /profils</code></a></li>
+  <li><a href="#deleteProfilByMatricule"><code><span class="http-method">delete</span> /profils/{matricule}</code></a></li>
+  <li><a href="#getProfilByLogin"><code><span class="http-method">get</span> /profils/Login/{login}</code></a></li>
+  <li><a href="#getProfilByMatricule"><code><span class="http-method">get</span> /profils/{matricule}</code></a></li>
+  <li><a href="#getProfils"><code><span class="http-method">get</span> /profils</code></a></li>
+  </ul>
+
+  <h1><a name="Administrateurs">Administrateurs</a></h1>
+  <div class="method"><a name="addAdmin"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /adminstrateurs</code></pre></div>
+    <div class="method-summary">add a new Admin (<span class="nickname">addAdmin</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Administrateurs">Administrateurs</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Adminstrateur object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="changeAdminPw"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /administrateurs/{loginAdmin}</code></pre></div>
+    <div class="method-summary">changing Admin's password (<span class="nickname">changeAdminPw</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">loginAdmin (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">passwordAdmin <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Password changed.
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteAdminbyLogin"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /administrateurs/{loginAdmin}</code></pre></div>
+    <div class="method-summary">Deletes an Admin by login (<span class="nickname">deleteAdminbyLogin</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">loginAdmin (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; login of Admin to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAdminById"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /administrateurs/{loginAdmin}</code></pre></div>
+    <div class="method-summary">get Admin by Id (<span class="nickname">getAdminById</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">loginAdmin (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Administrateurs">Administrateurs</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "loginAdmin" : "loginAdmin",
+  "teleAdmin" : 0,
+  "passwordAdmin" : "passwordAdmin",
+  "nomAdmin" : "nomAdmin"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#Administrateurs">Administrateurs</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAdministrateurs"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /adminstrateurs</code></pre></div>
+    <div class="method-summary">get all admins (<span class="nickname">getAdministrateurs</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Administrateurs">Administrateurs</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "loginAdmin" : "loginAdmin",
+  "teleAdmin" : 0,
+  "passwordAdmin" : "passwordAdmin",
+  "nomAdmin" : "nomAdmin"
+}, {
+  "loginAdmin" : "loginAdmin",
+  "teleAdmin" : 0,
+  "passwordAdmin" : "passwordAdmin",
+  "nomAdmin" : "nomAdmin"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Boulangeries">Boulangeries</a></h1>
+  <div class="method"><a name="addBoulangerie"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /boulangeries</code></pre></div>
+    <div class="method-summary">Add a new boulangerie (<span class="nickname">addBoulangerie</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Boulangeries">Boulangeries</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; boulangerie object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteBoulangerie"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /boulangeries/ById/{idBoulangerie}</code></pre></div>
+    <div class="method-summary">deletes Boulangerie by id SOFT DELETE (<span class="nickname">deleteBoulangerie</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idBoulangerie (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    succesful return
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBoulangerieById"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /boulangeries/ById/{idBoulangerie}</code></pre></div>
+    <div class="method-summary">returns one Boulangerie by ID (<span class="nickname">getBoulangerieById</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idBoulangerie (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Boulangeries">Boulangeries</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nomBL" : "khaledBoulangerieBusiness",
+  "matricule" : 1465,
+  "idBoulangerie" : 0,
+  "nbOperateurs" : 5,
+  "adresse" : "adresse",
+  "telephone" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    succesful return
+        <a href="#Boulangeries">Boulangeries</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBoulangerieByMatricule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /boulangeries/{matricule}</code></pre></div>
+    <div class="method-summary">returns one Boulangerie by Matricule of Responsable (<span class="nickname">getBoulangerieByMatricule</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">matricule (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Boulangeries">Boulangeries</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nomBL" : "khaledBoulangerieBusiness",
+  "matricule" : 1465,
+  "idBoulangerie" : 0,
+  "nbOperateurs" : 5,
+  "adresse" : "adresse",
+  "telephone" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    succesful return
+        <a href="#Boulangeries">Boulangeries</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBoulangeries"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /boulangeries</code></pre></div>
+    <div class="method-summary">get all boulangeries (<span class="nickname">getBoulangeries</span>)</div>
+    <div class="method-notes">returns Boulangeries filetered collection</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200_1">inline_response_200_1</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "nom" : "nom",
+  "Boulangerie" : {
+    "nomBL" : "khaledBoulangerieBusiness",
+    "matricule" : 1465,
+    "idBoulangerie" : 0,
+    "nbOperateurs" : 5,
+    "adresse" : "adresse",
+    "telephone" : 6
+  }
+}, {
+  "nom" : "nom",
+  "Boulangerie" : {
+    "nomBL" : "khaledBoulangerieBusiness",
+    "matricule" : 1465,
+    "idBoulangerie" : 0,
+    "nbOperateurs" : 5,
+    "adresse" : "adresse",
+    "telephone" : 6
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">204</h4>
+    empty collection. No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateAndReplaceBoulangerie"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /boulangeries/ById/{idBoulangerie}</code></pre></div>
+    <div class="method-summary">replaces Boulangerie by Updated version (<span class="nickname">updateAndReplaceBoulangerie</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idBoulangerie (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Boulangeries">Boulangeries</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; updated boulangerie object </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    succesful return
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CommandesBL">CommandesBL</a></h1>
+  <div class="method"><a name="addCommandeBL"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /commandesBL</code></pre></div>
+    <div class="method-summary">create an orderBL (<span class="nickname">addCommandeBL</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#CommandesBL">CommandesBL</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; CommandeBl object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="commandesBLIdCommandeBLGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL/{idCommandeBL}</code></pre></div>
+    <div class="method-summary">returns a commandeBL (<span class="nickname">commandesBLIdCommandeBLGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idCommandeBL (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CommandesBL">CommandesBL</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#CommandesBL">CommandesBL</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCmdsByEtatAndBoulangerieID"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL/getCmdsbyEtatAndBoulangerieID</code></pre></div>
+    <div class="method-summary">get Commandes collection of the Boulangerie by Etat (<span class="nickname">getCmdsByEtatAndBoulangerieID</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">etat (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div><div class="param">idBoulangerie (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#CommandesBL">CommandesBL</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+}, {
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCmdsByEtatAndmatricule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL/getCmdsByEtatAndMatricule</code></pre></div>
+    <div class="method-summary">gets commandes collection by matricule for livreur (<span class="nickname">getCmdsByEtatAndmatricule</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">etat (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div><div class="param">matricule (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#CommandesBL">CommandesBL</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+}, {
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCmdsForLab"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL/getCmdsForLab</code></pre></div>
+    <div class="method-summary">gets commandes filtered for laboratoire (<span class="nickname">getCmdsForLab</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">etat (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200_3">inline_response_200_3</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "sumQuantite" : 6,
+  "libelle" : "libelle",
+  "dueDate" : "2000-01-23",
+  "codeProduit" : 0
+}, {
+  "sumQuantite" : 6,
+  "libelle" : "libelle",
+  "dueDate" : "2000-01-23",
+  "codeProduit" : 0
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDetailsByCommandeBL"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL/{idCommandeBL}/detailsCmdBL</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getDetailsByCommandeBL</span>)</div>
+    <div class="method-notes">returns detailsCommandes filtered collection by idCommande</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idCommandeBL (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200_4">inline_response_200_4</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "libelle" : "libelle",
+  "quantiteProd" : 6,
+  "codeProduit" : 0
+}, {
+  "libelle" : "libelle",
+  "quantiteProd" : 6,
+  "codeProduit" : 0
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK. DetailsCommandesBL returned.
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getcommandesBL"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getcommandesBL</span>)</div>
+    <div class="method-notes">returns all commandesBL</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#CommandesBL">CommandesBL</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+}, {
+  "matricule" : 6,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "etat" : "nouvelle",
+  "idCommandeBL" : "idCommandeBL"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content. Empty collection.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="patchCmdBlEtat"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /commandesBL/{idCommandeBL}</code></pre></div>
+    <div class="method-summary">patching etat of a commandeBL objet (<span class="nickname">patchCmdBlEtat</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idCommandeBL (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">etat <a href="#string">string</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="patchLivreur"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /commandesBL/{idCommandeBL}/identifyLivreur</code></pre></div>
+    <div class="method-summary">putting in the matricule of Livreur (<span class="nickname">patchLivreur</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idCommandeBL (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#integer">integer</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    unexpected error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CommandesLabo">CommandesLabo</a></h1>
+  <div class="method"><a name="addcommandeLabo"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /commandesLabo</code></pre></div>
+    <div class="method-summary">Add a new commandesLabo (<span class="nickname">addcommandeLabo</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#CommandesLabo">CommandesLabo</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; commandeLabo object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid input
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCmdsByEtat"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesBL/getCmdsByEtat</code></pre></div>
+    <div class="method-summary">returns commandes filtered collection for BL (<span class="nickname">getCmdsByEtat</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">etat (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200_2">inline_response_200_2</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "nomBL" : "nomBL",
+  "matricule" : 6026,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "nom" : "nom",
+  "idCommandeBL" : "idCommandeBL"
+}, {
+  "nomBL" : "nomBL",
+  "matricule" : 6026,
+  "idBoulangerie" : 0,
+  "dueDate" : "2000-01-23",
+  "creationDate" : "2000-01-23",
+  "nom" : "nom",
+  "idCommandeBL" : "idCommandeBL"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCommandesLabo"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /commandesLabo</code></pre></div>
+    <div class="method-summary">get commandesLabo (<span class="nickname">getCommandesLabo</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#CommandesLabo">CommandesLabo</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "libelle" : "libelle",
+  "dueDate" : "2000-01-23",
+  "quantiteTotal" : "quantiteTotal",
+  "idCommandesLabo" : 0,
+  "codeProduit" : 6
+}, {
+  "libelle" : "libelle",
+  "dueDate" : "2000-01-23",
+  "quantiteTotal" : "quantiteTotal",
+  "idCommandesLabo" : 0,
+  "codeProduit" : 6
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Composants">Composants</a></h1>
+  <div class="method"><a name="addComposant"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /composants</code></pre></div>
+    <div class="method-summary">add Composant Object (<span class="nickname">addComposant</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Composants">Composants</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Composant object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="composantsIdComposantGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /composants/{idComposant}</code></pre></div>
+    <div class="method-summary">get composant by id (<span class="nickname">composantsIdComposantGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idComposant (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Composants">Composants</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "unite" : "unite",
+  "idComposant" : "idComposant",
+  "nomComp" : "nomComp"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    sucess
+        <a href="#Composants">Composants</a>
+    <h4 class="field-label">404</h4>
+    Not found
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteComposantById"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /composants/{idComposant}</code></pre></div>
+    <div class="method-summary">Deletes a composant by id SOFT DELETE (<span class="nickname">deleteComposantById</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idComposant (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; composant id to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Produit not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getComposants"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /composants</code></pre></div>
+    <div class="method-summary">get all composants (<span class="nickname">getComposants</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Composants">Composants</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "unite" : "unite",
+  "idComposant" : "idComposant",
+  "nomComp" : "nomComp"
+}, {
+  "unite" : "unite",
+  "idComposant" : "idComposant",
+  "nomComp" : "nomComp"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CompositionsProduit">CompositionsProduit</a></h1>
+  <div class="method"><a name="addCompositionProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /compositionsProduit</code></pre></div>
+    <div class="method-summary">create new CompositionProduit (<span class="nickname">addCompositionProduit</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#CompositionsProduit">CompositionsProduit</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; CompositionsProduit object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    sucessfully created
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid input
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCompositionByProduitAndComposant"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /compositionsProduit/findByProduitAndComposant</code></pre></div>
+    <div class="method-summary">Deletes a compositionProduit by codeProduit and idComposant (<span class="nickname">deleteCompositionByProduitAndComposant</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">codeProduit (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div><div class="param">idComposant (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successfully deleted
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCompositionsProduitById"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /compositionsProduit/{idComposition}</code></pre></div>
+    <div class="method-summary">Deletes a compositionProduit by its ID (DELETED WITH) (<span class="nickname">deleteCompositionsProduitById</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idComposition (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; CompositionProduit Id to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successfully deleted
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCompositionsProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /compositionsProduit</code></pre></div>
+    <div class="method-summary">get compositionsProduit (<span class="nickname">getCompositionsProduit</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#CompositionsProduit">CompositionsProduit</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "idComposition" : 0,
+  "quantiteComp" : 1,
+  "idComposant" : "idComposant",
+  "codeProduit" : 6
+}, {
+  "idComposition" : 0,
+  "quantiteComp" : 1,
+  "idComposant" : "idComposant",
+  "codeProduit" : 6
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="DetailsCommandesBL">DetailsCommandesBL</a></h1>
+  <div class="method"><a name="addDetailsCommandeBL"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /detailsCommandesBL</code></pre></div>
+    <div class="method-summary">add detailsCommandesBL (<span class="nickname">addDetailsCommandeBL</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#DetailsCommandesBL">DetailsCommandesBL</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; DetailsCommandeBl object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDetailByProduitAndDate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /detailsCommandesBL/findByProduitAndDate</code></pre></div>
+    <div class="method-summary">get detailsCommandesBL by codeProduit and dueDate (<span class="nickname">getDetailByProduitAndDate</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">codeProduit (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div><div class="param">dueDate (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  format: date</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#DetailsCommandesBL">DetailsCommandesBL</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "idDetail" : 0,
+  "quantiteProd" : 1,
+  "codeProduit" : 6,
+  "idCommandeBL" : "idCommandeBL"
+}, {
+  "idDetail" : 0,
+  "quantiteProd" : 1,
+  "codeProduit" : 6,
+  "idCommandeBL" : "idCommandeBL"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getdetailsCommandesBL"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /detailsCommandesBL</code></pre></div>
+    <div class="method-summary">get all details for all commandes BL (<span class="nickname">getdetailsCommandesBL</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#DetailsCommandesBL">DetailsCommandesBL</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "idDetail" : 0,
+  "quantiteProd" : 1,
+  "codeProduit" : 6,
+  "idCommandeBL" : "idCommandeBL"
+}, {
+  "idDetail" : 0,
+  "quantiteProd" : 1,
+  "codeProduit" : 6,
+  "idCommandeBL" : "idCommandeBL"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="patchDetailQuantity"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /detailsCommandesBL/{idDetail}</code></pre></div>
+    <div class="method-summary">patching the quantity of a detailsCommandesBL (<span class="nickname">patchDetailQuantity</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">idDetail (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">quantiteProd <a href="#integer">integer</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Livreurs">Livreurs</a></h1>
+  <div class="method"><a name="addLivreur"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /livreurs</code></pre></div>
+    <div class="method-summary">Add a new livreur (<span class="nickname">addLivreur</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Livreurs">Livreurs</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Livreur object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    successfully created
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteLivreurbyMatricule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /livreurs/{matricule}</code></pre></div>
+    <div class="method-summary">Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL (<span class="nickname">deleteLivreurbyMatricule</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">matricule (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; livreur matricule to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successfully deleted
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getLivreurs"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /livreurs</code></pre></div>
+    <div class="method-summary">get all livreurs (<span class="nickname">getLivreurs</span>)</div>
+    <div class="method-notes">returns all livreurs as a filtered collection</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200">inline_response_200</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "livreur" : {
+    "numVehicule" : "numVehicule",
+    "matricule" : 0,
+    "teleLivreur" : 6
+  },
+  "nom" : "nom"
+}, {
+  "livreur" : {
+    "numVehicule" : "numVehicule",
+    "matricule" : 0,
+    "teleLivreur" : 6
+  },
+  "nom" : "nom"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    empty collection. No content.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getLivreursByMatricule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /livreurs/{matricule}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getLivreursByMatricule</span>)</div>
+    <div class="method-notes">returns Livreur by Matricule</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">matricule (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Livreurs">Livreurs</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "numVehicule" : "numVehicule",
+  "matricule" : 0,
+  "teleLivreur" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Livreurs">Livreurs</a>
+    <h4 class="field-label">404</h4>
+    Not Found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateLivreur"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /livreurs/{matricule}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateLivreur</span>)</div>
+    <div class="method-notes">updating Livreur with a new Livreur object</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">matricule (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Livreurs">Livreurs</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; The updated livreur version </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Livreur updated.
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Produits">Produits</a></h1>
+  <div class="method"><a name="addProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /produits</code></pre></div>
+    <div class="method-summary">Add a new produit (<span class="nickname">addProduit</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Produits">Produits</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Produit object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    succesfully created
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteProduitByCodeProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /produits/{codeProduit}</code></pre></div>
+    <div class="method-summary">Deletes a produit by its code SOFT DELETE (<span class="nickname">deleteProduitByCodeProduit</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">codeProduit (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Produit code to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successfully deleted
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Produit not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCompositionsOfProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /produits/{codeProduit}/compositionsProduit</code></pre></div>
+    <div class="method-summary">get compositons filtered collection with quantity for a certain produit (<span class="nickname">getCompositionsOfProduit</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">codeProduit (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200_5">inline_response_200_5</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "quantiteComp" : 0,
+  "Composant" : {
+    "unite" : "unite",
+    "idComposant" : "idComposant",
+    "nomComp" : "nomComp"
+  }
+}, {
+  "quantiteComp" : 0,
+  "Composant" : {
+    "unite" : "unite",
+    "idComposant" : "idComposant",
+    "nomComp" : "nomComp"
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProduitByCodeProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /produits/{codeProduit}</code></pre></div>
+    <div class="method-summary">get one produit (<span class="nickname">getProduitByCodeProduit</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">codeProduit (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Produits">Produits</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "prixTTC" : 5.962133916683182,
+  "libelle" : "libelle",
+  "prixHA" : 6.027456183070403,
+  "codeProduit" : 0,
+  "TVA" : 1.4658129805029452
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success
+        <a href="#Produits">Produits</a>
+    <h4 class="field-label">404</h4>
+    Not found.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProduits"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /produits</code></pre></div>
+    <div class="method-summary">get all produits (<span class="nickname">getProduits</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Produits">Produits</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "prixTTC" : 5.962133916683182,
+  "libelle" : "libelle",
+  "prixHA" : 6.027456183070403,
+  "codeProduit" : 0,
+  "TVA" : 1.4658129805029452
+}, {
+  "prixTTC" : 5.962133916683182,
+  "libelle" : "libelle",
+  "prixHA" : 6.027456183070403,
+  "codeProduit" : 0,
+  "TVA" : 1.4658129805029452
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateAndReplaceProduit"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /produits/{codeProduit}</code></pre></div>
+    <div class="method-summary">replaces Produit by Updated version (<span class="nickname">updateAndReplaceProduit</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">codeProduit (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Produits">Produits</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; produit object to replace the one its </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    succesful update
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not found.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Profils">Profils</a></h1>
+  <div class="method"><a name="addProfil"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /profils</code></pre></div>
+    <div class="method-summary">Add a new profil to the system (<span class="nickname">addProfil</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Profils">Profils</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; profil object that needs to be added </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Success. Profil created.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid input.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteProfilByMatricule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /profils/{matricule}</code></pre></div>
+    <div class="method-summary">Deletes a profil SOFT DELETE (<span class="nickname">deleteProfilByMatricule</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">matricule (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Profil matricule to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successfully deleted
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Profil not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProfilByLogin"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /profils/Login/{login}</code></pre></div>
+    <div class="method-summary">Find profil by Login (<span class="nickname">getProfilByLogin</span>)</div>
+    <div class="method-notes">Returns a single profil</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">login (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; login of profil to return </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Produits">Produits</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "prixTTC" : 5.962133916683182,
+  "libelle" : "libelle",
+  "prixHA" : 6.027456183070403,
+  "codeProduit" : 0,
+  "TVA" : 1.4658129805029452
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Produits">Produits</a>
+    <h4 class="field-label">404</h4>
+    Profil not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProfilByMatricule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /profils/{matricule}</code></pre></div>
+    <div class="method-summary">gets a profil by matricule (<span class="nickname">getProfilByMatricule</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">matricule (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Profils">Profils</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "password" : "password",
+  "matricule" : 800,
+  "login" : "login",
+  "nom" : "nom",
+  "affectation" : "affectation"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Profils">Profils</a>
+    <h4 class="field-label">404</h4>
+    Profil not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProfils"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /profils</code></pre></div>
+    <div class="method-summary">get all profils (<span class="nickname">getProfils</span>)</div>
+    <div class="method-notes">returns all profils</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Profils">Profils</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "password" : "password",
+  "matricule" : 800,
+  "login" : "login",
+  "nom" : "nom",
+  "affectation" : "affectation"
+}, {
+  "password" : "password",
+  "matricule" : 800,
+  "login" : "login",
+  "nom" : "nom",
+  "affectation" : "affectation"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returning all
+        
+    <h4 class="field-label">204</h4>
+    Empty collection, no content.
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Unexpected Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Administrateurs"><code>Administrateurs</code> - </a></li>
+    <li><a href="#Boulangeries"><code>Boulangeries</code> - </a></li>
+    <li><a href="#CommandesBL"><code>CommandesBL</code> - </a></li>
+    <li><a href="#CommandesLabo"><code>CommandesLabo</code> - </a></li>
+    <li><a href="#Composants"><code>Composants</code> - </a></li>
+    <li><a href="#CompositionsProduit"><code>CompositionsProduit</code> - </a></li>
+    <li><a href="#DetailsCommandesBL"><code>DetailsCommandesBL</code> - </a></li>
+    <li><a href="#Livreurs"><code>Livreurs</code> - </a></li>
+    <li><a href="#Produits"><code>Produits</code> - </a></li>
+    <li><a href="#Profils"><code>Profils</code> - </a></li>
+    <li><a href="#inline_response_200"><code>inline_response_200</code> - </a></li>
+    <li><a href="#inline_response_200_1"><code>inline_response_200_1</code> - </a></li>
+    <li><a href="#inline_response_200_2"><code>inline_response_200_2</code> - </a></li>
+    <li><a href="#inline_response_200_3"><code>inline_response_200_3</code> - </a></li>
+    <li><a href="#inline_response_200_4"><code>inline_response_200_4</code> - </a></li>
+    <li><a href="#inline_response_200_5"><code>inline_response_200_5</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Administrateurs"><code>Administrateurs</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">loginAdmin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">passwordAdmin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nomAdmin (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">teleAdmin (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Boulangeries"><code>Boulangeries</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idBoulangerie </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">nomBL </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: khaledBoulangerieBusiness</span></div>
+<div class="param">adresse (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">telephone (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">matricule (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nbOperateurs (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CommandesBL"><code>CommandesBL</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idCommandeBL </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dueDate </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">creationDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">etat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> etat Commande </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">nouvelle</div><div class="param-enum">enCours</div><div class="param-enum">honoree</div>
+<div class="param">idBoulangerie </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">matricule (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CommandesLabo"><code>CommandesLabo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idCommandesLabo (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">codeProduit </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">libelle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dueDate </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">quantiteTotal (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Composants"><code>Composants</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idComposant </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nomComp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">unite (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CompositionsProduit"><code>CompositionsProduit</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idComposition </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">codeProduit </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">idComposant </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">quantiteComp </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DetailsCommandesBL"><code>DetailsCommandesBL</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idDetail </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">codeProduit </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">idCommandeBL </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">quantiteProd </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Livreurs"><code>Livreurs</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">matricule (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">teleLivreur (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">numVehicule </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Produits"><code>Produits</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">codeProduit </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">libelle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">prixHA </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">TVA </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">prixTTC (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Profils"><code>Profils</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">matricule </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nom </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">affectation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">login </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">password </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200"><code>inline_response_200</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">nom (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">livreur (optional)</div><div class="param-desc"><span class="param-type"><a href="#Livreurs">Livreurs</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1"><code>inline_response_200_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Boulangerie (optional)</div><div class="param-desc"><span class="param-type"><a href="#Boulangeries">Boulangeries</a></span>  </div>
+<div class="param">nom (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> nom responsable </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_2"><code>inline_response_200_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idCommandeBL (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">creationDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">dueDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">idBoulangerie (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nomBL (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">matricule (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> matricule livreur from cmd </div>
+<div class="param">nom (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> nom correspondant a la matricule (from profil) </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3"><code>inline_response_200_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">codeProduit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">libelle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dueDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">sumQuantite (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_4"><code>inline_response_200_4</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">codeProduit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">libelle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">quantiteProd (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_5"><code>inline_response_200_5</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Composant (optional)</div><div class="param-desc"><span class="param-type"><a href="#Composants">Composants</a></span>  </div>
+<div class="param">quantiteComp (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
