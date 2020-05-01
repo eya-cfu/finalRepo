@@ -2,133 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/.php_cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/AdministrateursApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/AdminstrateursApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ApiServer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/BoulangeriesApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/BoulangeriesApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/CommandesBLApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/CommandesBLApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/CommandesLaboApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/CommandesLaboApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ComposantsApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ComposantsApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/CompositionsProduitApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/CompositionsProduitApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/DetailsCommandesBLApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/DetailsCommandesBLApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/LivreursApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/LivreursApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ProduitsApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ProduitsApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ProfilsApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Api/ProfilsApiInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/AdministrateursController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/BoulangeriesController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/CommandesBLController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/CommandesLaboController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/ComposantsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/CompositionsProduitController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/DetailsCommandesBLController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/LivreursController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/ProduitsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Controller/ProfilsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/DependencyInjection/Compiler/SwaggerServerApiPass.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/DependencyInjection/SwaggerServerExtension.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/Administrateurs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/Boulangeries.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/CommandesBL.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/CommandesLabo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/Composants.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/CompositionsProduit.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/DetailsCommandesBL.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/InlineResponse200.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/InlineResponse2001.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/InlineResponse2002.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/InlineResponse2003.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/InlineResponse2004.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/InlineResponse2005.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/Livreurs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/Produits.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Model/Profils.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/config/routing.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/config/services.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/AdministrateursApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/BoulangeriesApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/CommandesBLApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/CommandesLaboApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/ComposantsApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/CompositionsProduitApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/DetailsCommandesBLApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/LivreursApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/ProduitsApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Api/ProfilsApiInterface.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/Administrateurs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/Boulangeries.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/CommandesBL.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/CommandesLabo.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/Composants.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/CompositionsProduit.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/DetailsCommandesBL.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/InlineResponse200.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/InlineResponse2001.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/InlineResponse2002.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/InlineResponse2003.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/InlineResponse2004.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/InlineResponse2005.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/Livreurs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/Produits.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Resources/docs/Model/Profils.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Service/JmsSerializer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Service/SerializerInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Service/StrictJsonDeserializationVisitor.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Service/SymfonyValidator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Service/TypeMismatchException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Service/ValidatorInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/SwaggerServerBundle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/AdministrateursApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/BoulangeriesApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/CommandesBLApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/CommandesLaboApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/ComposantsApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/CompositionsProduitApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/DetailsCommandesBLApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/LivreursApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/ProduitsApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Api/ProfilsApiInterfaceTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/AppKernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/AdministrateursTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/BoulangeriesTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/CommandesBLTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/CommandesLaboTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/ComposantsTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/CompositionsProduitTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/DetailsCommandesBLTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/InlineResponse2001Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/InlineResponse2002Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/InlineResponse2003Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/InlineResponse2004Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/InlineResponse2005Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/InlineResponse200Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/LivreursTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/ProduitsTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/Model/ProfilsTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/Tests/test_config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/autoload.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/git_push.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/phpunit.xml.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyBundle-php/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BoulangeriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BoulangeriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LivreursController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LivreursController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/api_home/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,8 +143,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/api_home" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/api_home" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -298,7 +178,8 @@
       <workItem from="1587579791204" duration="6130000" />
       <workItem from="1587757495406" duration="2436000" />
       <workItem from="1588017356884" duration="9834000" />
-      <workItem from="1588192097983" duration="4833000" />
+      <workItem from="1588192097983" duration="5359000" />
+      <workItem from="1588363059452" duration="591000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -412,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588195158269</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="wrote documentation in ReadMe.md and updated the homepage">
+      <created>1588197254628</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1588197254628</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +327,8 @@
     <MESSAGE value="soft delete has been adressed still need to cascade delete all compositions of a product that has been softdeleted" />
     <MESSAGE value="cascade deleted all the compositions concerning one product" />
     <MESSAGE value="polished code a bit and made findbyproduit return a single element" />
-    <option name="LAST_COMMIT_MESSAGE" value="polished code a bit and made findbyproduit return a single element" />
+    <MESSAGE value="wrote documentation in ReadMe.md and updated the homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote documentation in ReadMe.md and updated the homepage" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -462,10 +351,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1587477550591" />
-    <state x="412" y="94" width="912" height="886" key="CommitChangelistDialog2" timestamp="1588195158082">
+    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2" timestamp="1588197254181">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="412" y="94" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1588195158082" />
+    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1588197254181" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -478,10 +367,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588195159607">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588197256587">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588195159607" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588197256587" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -490,10 +379,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="624" y="176" width="488" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1586114519655" />
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588022524525">
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588363450874">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588022524525" />
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588363450874" />
     <state x="646" y="400" width="445" height="275" key="git4idea.rebase.GitRebaseDialog" timestamp="1587493782892">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
