@@ -8,6 +8,7 @@
         "ext-json": "*",
         "fzaninotto/faker": "^1.9",
         "sensio/framework-extra-bundle": "^5.5",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "5.0.*",
         "symfony/console": "5.0.*",
         "symfony/dependency-injection": "5.0.*",
@@ -84,9 +85,5 @@
             "allow-contrib": false,
             "require": "5.0.*"
         }
-    },
-	"repositories": [{
-        "type": "path",
-        "url": "./SymfonyBundle-php"
-    }]
+    }
 }
