@@ -17,6 +17,10 @@ While the Controller defines what is modified.
 The Entity Classes control the models and what they contain. They also include the mapping in between the classes via Doctrine 
 If needed modifying attributes and their getters/setters is done here. 
 
+For Testing Purposes the Folder Fixtures contains a class that initiazes the database with a lot 
+of objects. Simply run 
+
+$ ~ php bin/console doctrine:fixtures:load
 
 
 ## Documentation for API Endpoints
