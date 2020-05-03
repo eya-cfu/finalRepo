@@ -47,7 +47,7 @@ class AppFixtures extends Fixture
             $livreur = new Livreurs($faker->numberBetween(10000,999),$faker->creditCardNumber,$profils);
             $manager->persist($livreur);
 
-            $commandes = new CommandesBL($faker->colorName,"nouvelle",$faker->dateTime,$faker->dateTime,$boulangeries,$livreur);
+            $commandes = new CommandesBL($faker->colorName,"nouvelle",$faker->dateTime, \DateTime::createFromFormat('d-m-Y',"20-03-2020"),$boulangeries,$livreur);
             $manager->persist($commandes);
 
             $commandes2 = new CommandesBL($faker->colorName,"nouvelle",$faker->dateTime,$faker->dateTime,$boulangeries,$livreur);

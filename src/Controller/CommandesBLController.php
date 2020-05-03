@@ -12,6 +12,7 @@ use App\Repository\BoulangeriesRepository;
 use App\Repository\CommandesBLRepository;
 use App\Repository\LivreursRepository;
 use App\Repository\ProfilsRepository;
+use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -104,8 +105,8 @@ class CommandesBLController
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
-        $dueDate2 = \DateTime::createFromFormat('Y-m-d', $dueDate);
-        $creationDate2 = \DateTime::createFromFormat('Y-m-d', $creationDate);
+        $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
+        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
         $livreur2 = $this->livreurRepository->findOneBy(['matricule'=> $livreur]);
 
@@ -257,6 +258,39 @@ class CommandesBLController
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+    /**
+     * @Route("/commandesBL/getCount", name="getCount", methods={"GET"})
+     */
+    public function getCount(Request $request): JsonResponse
+    {
+       // $year = $request->query->get('year');
+      //  $yearDate = \DateTime::createFromFormat('d-m-Y', $year);
+
+        //return new JsonResponse($yearDate);
+
+        $now = new DateTime();
+        $year = $now->format("Y");
+
+    $count =   $this->commandesBLRepository->createQueryBuilder('u')
+            ->select('count(u.id)')
+            ->where('u.creationDate > :year' )->setParameter('year',$year)
+            ->getQuery()
+            ->getSingleScalarResult();
+
+       // $commandesBLS = $this->commandesBLRepository -> findBy(['creationDate'=> $year]);
+
+        $data = [];
+
+       // foreach ($commandesBLS as $commandesBL) {
+            $data[] = [
+                 'count' => $count,
+            ];
+       // }
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
 
     /**
      * @Route("/commandesBL/getCmdsForLab", name="getCmdsForLab", methods={"GET"})

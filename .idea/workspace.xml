@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/filename.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boulangerieDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/boulangerieDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +183,8 @@
       <workItem from="1587757495406" duration="2436000" />
       <workItem from="1588017356884" duration="9834000" />
       <workItem from="1588192097983" duration="5359000" />
-      <workItem from="1588363059452" duration="3449000" />
+      <workItem from="1588363059452" duration="3632000" />
+      <workItem from="1588539745502" duration="4117000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -309,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588365845399</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="re exported the database">
+      <created>1588366580235</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588366580235</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +348,8 @@
     <MESSAGE value="polished code a bit and made findbyproduit return a single element" />
     <MESSAGE value="wrote documentation in ReadMe.md and updated the homepage" />
     <MESSAGE value="modified readme to include fixture note and updated the homepage to html 2 so its prettier" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified readme to include fixture note and updated the homepage to html 2 so its prettier" />
+    <MESSAGE value="re exported the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="re exported the database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -349,6 +360,14 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="743" y="404" width="251" height="266" key="#Notifications/67.27.1613.1023@67.27.1613.1023" timestamp="1587494082089" />
+    <state x="170" y="389" width="1397" height="297" key="#SQL_Dialects" timestamp="1588542708394">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="170" y="389" width="1397" height="297" key="#SQL_Dialects/67.27.1613.1023@67.27.1613.1023" timestamp="1588542708394" />
+    <state x="468" y="199" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588542781758">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="468" y="199" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1588542781758" />
     <state x="648" y="256" width="441" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1587491071439">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -361,10 +380,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1587477550591" />
-    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2" timestamp="1588365845001">
+    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2" timestamp="1588366580043">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1588365845001" />
+    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1588366580043" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -389,10 +408,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="624" y="176" width="488" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1586114519655" />
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588363450874">
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588542860215">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588363450874" />
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588542860215" />
     <state x="646" y="400" width="445" height="275" key="git4idea.rebase.GitRebaseDialog" timestamp="1587493782892">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
