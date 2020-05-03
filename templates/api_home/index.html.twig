@@ -732,8 +732,7 @@ margin-bottom: 20px;
       "maxLength" : 50
     },
     "telephone" : {
-      "type" : "integer",
-      "format" : "int64"
+      "type" : "integer"
     },
     "matricule" : {
       "type" : "integer",
@@ -792,7 +791,7 @@ margin-bottom: 20px;
       "format" : "date"
     },
     "quantiteTotal" : {
-      "type" : "string"
+      "type" : "integer"
     }
   }
 };
@@ -859,7 +858,8 @@ margin-bottom: 20px;
     "livreur" : {
       "$ref" : "#/definitions/Livreurs"
     }
-  }
+  },
+  "description" : "Named Livreur"
 };
         defs["inline_response_200_1"] = {
   "type" : "object",
@@ -871,7 +871,8 @@ margin-bottom: 20px;
       "type" : "string",
       "description" : "nom responsable"
     }
-  }
+  },
+  "description" : "BL with name Responsable"
 };
         defs["inline_response_200_2"] = {
   "type" : "object",
@@ -921,7 +922,8 @@ margin-bottom: 20px;
     "sumQuantite" : {
       "type" : "integer"
     }
-  }
+  },
+  "description" : "Response to getCommandeForLab"
 };
         defs["inline_response_200_4"] = {
   "type" : "object",
@@ -948,6 +950,15 @@ margin-bottom: 20px;
     }
   }
 };
+        defs["inline_response_200_6"] = {
+  "type" : "object",
+  "properties" : {
+    "count" : {
+      "type" : "integer",
+      "description" : "number of cmdbl this year"
+    }
+  }
+};
         defs["Livreurs"] = {
   "type" : "object",
   "required" : [ "numVehicule" ],
@@ -956,8 +967,7 @@ margin-bottom: 20px;
       "type" : "integer"
     },
     "teleLivreur" : {
-      "type" : "integer",
-      "format" : "int64"
+      "type" : "integer"
     },
     "numVehicule" : {
       "type" : "string",
@@ -1072,8 +1082,14 @@ margin-bottom: 20px;
                     <li data-group="CommandesBL" data-name="addCommandeBL" class="">
                       <a href="#api-CommandesBL-addCommandeBL">addCommandeBL</a>
                     </li>
+                    <li data-group="CommandesBL" data-name="commandesBLGetCountGet" class="">
+                      <a href="#api-CommandesBL-commandesBLGetCountGet">commandesBLGetCountGet</a>
+                    </li>
                     <li data-group="CommandesBL" data-name="commandesBLIdCommandeBLGet" class="">
                       <a href="#api-CommandesBL-commandesBLIdCommandeBLGet">commandesBLIdCommandeBLGet</a>
+                    </li>
+                    <li data-group="CommandesBL" data-name="getCmdsByEtat" class="">
+                      <a href="#api-CommandesBL-getCmdsByEtat">getCmdsByEtat</a>
                     </li>
                     <li data-group="CommandesBL" data-name="getCmdsByEtatAndBoulangerieID" class="">
                       <a href="#api-CommandesBL-getCmdsByEtatAndBoulangerieID">getCmdsByEtatAndBoulangerieID</a>
@@ -1099,9 +1115,6 @@ margin-bottom: 20px;
                   <li class="nav-header" data-group="CommandesLabo"><a href="#api-CommandesLabo">API Methods - CommandesLabo</a></li>
                     <li data-group="CommandesLabo" data-name="addcommandeLabo" class="">
                       <a href="#api-CommandesLabo-addcommandeLabo">addcommandeLabo</a>
-                    </li>
-                    <li data-group="CommandesLabo" data-name="getCmdsByEtat" class="">
-                      <a href="#api-CommandesLabo-getCmdsByEtat">getCmdsByEtat</a>
                     </li>
                     <li data-group="CommandesLabo" data-name="getCommandesLabo" class="">
                       <a href="#api-CommandesLabo-getCommandesLabo">getCommandesLabo</a>
@@ -1211,7 +1224,7 @@ margin-bottom: 20px;
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
               <div class="app-desc">Version: 1.0.0</div>
             <hr>
-            <div>The Boulangerie finally debugged for use, now overwritten with eyas changes</div>
+            <div>The Boulangerie finally debugged for use, now overwritten with eyas changes twice and added get count</div>
           </div>
         </div>
         <div id="sections">
@@ -4626,6 +4639,274 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-CommandesBL-commandesBLGetCountGet">
+                      <article id="api-CommandesBL-commandesBLGetCountGet-0" data-group="User" data-name="commandesBLGetCountGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>commandesBLGetCountGet</h1>
+                          <p>gets Count of CommandesBL for the current year provided by client</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/commandesBL/getCount</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CommandesBL-commandesBLGetCountGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CommandesBL-commandesBLGetCountGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CommandesBL-commandesBLGetCountGet-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/commandesBL/getCount"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.CommandesBLApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CommandesBLApiExample {
+
+    public static void main(String[] args) {
+        
+        CommandesBLApi apiInstance = new CommandesBLApi();
+        try {
+            inline_response_200_6 result = apiInstance.commandesBLGetCountGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CommandesBLApi#commandesBLGetCountGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CommandesBLApi;
+
+public class CommandesBLApiExample {
+
+    public static void main(String[] args) {
+        CommandesBLApi apiInstance = new CommandesBLApi();
+        try {
+            inline_response_200_6 result = apiInstance.commandesBLGetCountGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CommandesBLApi#commandesBLGetCountGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
+
+// gets Count of CommandesBL for the current year provided by client
+[apiInstance commandesBLGetCountGetWithCompletionHandler: 
+              ^(inline_response_200_6 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
+
+var api = new BoulangerieApiFinal.CommandesBLApi()
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.commandesBLGetCountGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class commandesBLGetCountGetExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new CommandesBLApi();
+
+            try
+            {
+                // gets Count of CommandesBL for the current year provided by client
+                inline_response_200_6 result = apiInstance.commandesBLGetCountGet();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandesBLApi.commandesBLGetCountGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\CommandesBLApi();
+
+try {
+    $result = $api_instance->commandesBLGetCountGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandesBLApi->commandesBLGetCountGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::CommandesBLApi;
+
+my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
+
+eval { 
+    my $result = $api_instance->commandesBLGetCountGet();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CommandesBLApi->commandesBLGetCountGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-commandesBLGetCountGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CommandesBLApi()
+
+try: 
+    # gets Count of CommandesBL for the current year provided by client
+    api_response = api_instance.commandes_bl_get_count_get()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CommandesBLApi->commandesBLGetCountGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - success </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-commandesBLGetCountGet-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-commandesBLGetCountGet-200-schema">
+                                  <div id='responses-commandesBLGetCountGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "success",
+  "schema" : {
+    "$ref" : "#/definitions/inline_response_200_6"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-commandesBLGetCountGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-commandesBLGetCountGet-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-commandesBLGetCountGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - bad Request </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: default - Unexpected Error </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-CommandesBL-commandesBLIdCommandeBLGet">
                       <article id="api-CommandesBL-commandesBLIdCommandeBLGet-0" data-group="User" data-name="commandesBLIdCommandeBLGet" data-version="0">
                         <div class="pull-left">
@@ -4674,7 +4955,7 @@ public class CommandesBLApiExample {
     public static void main(String[] args) {
         
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
         try {
             CommandesBL result = apiInstance.commandesBLIdCommandeBLGet(idCommandeBL);
             System.out.println(result);
@@ -4693,7 +4974,7 @@ public class CommandesBLApiExample {
 
     public static void main(String[] args) {
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
         try {
             CommandesBL result = apiInstance.commandesBLIdCommandeBLGet(idCommandeBL);
             System.out.println(result);
@@ -4709,7 +4990,7 @@ public class CommandesBLApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-CommandesBL-commandesBLIdCommandeBLGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *idCommandeBL = 56; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *idCommandeBL = idCommandeBL_example; // 
 
 CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
@@ -4731,7 +5012,7 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 var api = new BoulangerieApiFinal.CommandesBLApi()
 
-var idCommandeBL = 56; // {Integer} 
+var idCommandeBL = idCommandeBL_example; // {String} 
 
 
 var callback = function(error, data, response) {
@@ -4763,7 +5044,7 @@ namespace Example
         {
             
             var apiInstance = new CommandesBLApi();
-            var idCommandeBL = 56;  // Integer | 
+            var idCommandeBL = idCommandeBL_example;  // String | 
 
             try
             {
@@ -4786,7 +5067,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\CommandesBLApi();
-$idCommandeBL = 56; // Integer | 
+$idCommandeBL = idCommandeBL_example; // String | 
 
 try {
     $result = $api_instance->commandesBLIdCommandeBLGet($idCommandeBL);
@@ -4803,7 +5084,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::CommandesBLApi;
 
 my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
-my $idCommandeBL = 56; # Integer | 
+my $idCommandeBL = idCommandeBL_example; # String | 
 
 eval { 
     my $result = $api_instance->commandesBLIdCommandeBLGet(idCommandeBL => $idCommandeBL);
@@ -4823,7 +5104,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.CommandesBLApi()
-idCommandeBL = 56 # Integer | 
+idCommandeBL = idCommandeBL_example # String | 
 
 try: 
     # returns a commandeBL
@@ -4850,7 +5131,7 @@ except ApiException as e:
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
             </div>
@@ -4913,6 +5194,314 @@ except ApiException as e:
                             </div>
 
                             <h3> Status: 404 - not found </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: default - Unexpected Error </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-CommandesBL-getCmdsByEtat">
+                      <article id="api-CommandesBL-getCmdsByEtat-0" data-group="User" data-name="getCmdsByEtat" data-version="0">
+                        <div class="pull-left">
+                          <h1>getCmdsByEtat</h1>
+                          <p>returns commandes filtered collection for web app</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/commandesBL/getCmdsByEtat</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CommandesBL-getCmdsByEtat-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CommandesBL-getCmdsByEtat-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CommandesBL-getCmdsByEtat-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/commandesBL/getCmdsByEtat?etat="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.CommandesBLApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CommandesBLApiExample {
+
+    public static void main(String[] args) {
+        
+        CommandesBLApi apiInstance = new CommandesBLApi();
+        String etat = etat_example; // String | 
+        try {
+            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CommandesBLApi#getCmdsByEtat");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CommandesBLApi;
+
+public class CommandesBLApiExample {
+
+    public static void main(String[] args) {
+        CommandesBLApi apiInstance = new CommandesBLApi();
+        String etat = etat_example; // String | 
+        try {
+            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CommandesBLApi#getCmdsByEtat");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; // 
+
+CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
+
+// returns commandes filtered collection for web app
+[apiInstance getCmdsByEtatWith:etat
+              completionHandler: ^(array[inline_response_200_2] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
+
+var api = new BoulangerieApiFinal.CommandesBLApi()
+
+var etat = etat_example; // {String} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getCmdsByEtat(etat, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getCmdsByEtatExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new CommandesBLApi();
+            var etat = etat_example;  // String | 
+
+            try
+            {
+                // returns commandes filtered collection for web app
+                array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandesBLApi.getCmdsByEtat: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\CommandesBLApi();
+$etat = etat_example; // String | 
+
+try {
+    $result = $api_instance->getCmdsByEtat($etat);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandesBLApi->getCmdsByEtat: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::CommandesBLApi;
+
+my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
+my $etat = etat_example; # String | 
+
+eval { 
+    my $result = $api_instance->getCmdsByEtat(etat => $etat);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CommandesBLApi->getCmdsByEtat: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtat-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CommandesBLApi()
+etat = etat_example # String | 
+
+try: 
+    # returns commandes filtered collection for web app
+    api_response = api_instance.get_cmds_by_etat(etat)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CommandesBLApi->getCmdsByEtat: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">etat*</td>
+<td>
+
+
+    <div id="d2e199_getCmdsByEtat_etat">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - success </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getCmdsByEtat-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getCmdsByEtat-200-schema">
+                                  <div id='responses-getCmdsByEtat-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "success",
+  "schema" : {
+    "type" : "array",
+    "items" : {
+      "$ref" : "#/definitions/inline_response_200_2"
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getCmdsByEtat-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getCmdsByEtat-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getCmdsByEtat-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 204 - No content. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -5016,8 +5605,8 @@ public class CommandesBLApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtatAndBoulangerieID-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; //  (optional)
-Integer *idBoulangerie = 56; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; // 
+Integer *idBoulangerie = 56; // 
 
 CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
@@ -5040,10 +5629,10 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 var api = new BoulangerieApiFinal.CommandesBLApi()
 
-var opts = { 
-  'etat': etat_example, // {String} 
-  'idBoulangerie': 56 // {Integer} 
-};
+var etat = etat_example; // {String} 
+
+var idBoulangerie = 56; // {Integer} 
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -5052,7 +5641,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getCmdsByEtatAndBoulangerieID(opts, callback);
+api.getCmdsByEtatAndBoulangerieID(etat, idBoulangerie, callback);
 </code></pre>
                             </div>
 
@@ -5074,8 +5663,8 @@ namespace Example
         {
             
             var apiInstance = new CommandesBLApi();
-            var etat = etat_example;  // String |  (optional) 
-            var idBoulangerie = 56;  // Integer |  (optional) 
+            var etat = etat_example;  // String | 
+            var idBoulangerie = 56;  // Integer | 
 
             try
             {
@@ -5137,12 +5726,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.CommandesBLApi()
-etat = etat_example # String |  (optional)
-idBoulangerie = 56 # Integer |  (optional)
+etat = etat_example # String | 
+idBoulangerie = 56 # Integer | 
 
 try: 
     # get Commandes collection of the Boulangerie by Etat
-    api_response = api_instance.get_cmds_by_etat_and_boulangerie_id(etat=etat, idBoulangerie=idBoulangerie)
+    api_response = api_instance.get_cmds_by_etat_and_boulangerie_id(etat, idBoulangerie)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CommandesBLApi->getCmdsByEtatAndBoulangerieID: %s\n" % e)</code></pre>
@@ -5161,7 +5750,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">etat</td>
+                                <tr><td style="width:150px;">etat*</td>
 <td>
 
 
@@ -5173,12 +5762,15 @@ except ApiException as e:
                 </span>
 
             </div>
+                <div class="inner required">
+                    Required
+                </div>
         </div>
     </div>
 </td>
 </tr>
 
-                                <tr><td style="width:150px;">idBoulangerie</td>
+                                <tr><td style="width:150px;">idBoulangerie*</td>
 <td>
 
 
@@ -5190,6 +5782,9 @@ except ApiException as e:
                 </span>
 
             </div>
+                <div class="inner required">
+                    Required
+                </div>
         </div>
     </div>
 </td>
@@ -5348,8 +5943,8 @@ public class CommandesBLApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-CommandesBL-getCmdsByEtatAndmatricule-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; //  (optional)
-Integer *matricule = 56; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; // 
+Integer *matricule = 56; // 
 
 CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
@@ -5372,10 +5967,10 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 var api = new BoulangerieApiFinal.CommandesBLApi()
 
-var opts = { 
-  'etat': etat_example, // {String} 
-  'matricule': 56 // {Integer} 
-};
+var etat = etat_example; // {String} 
+
+var matricule = 56; // {Integer} 
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -5384,7 +5979,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getCmdsByEtatAndmatricule(opts, callback);
+api.getCmdsByEtatAndmatricule(etat, matricule, callback);
 </code></pre>
                             </div>
 
@@ -5406,8 +6001,8 @@ namespace Example
         {
             
             var apiInstance = new CommandesBLApi();
-            var etat = etat_example;  // String |  (optional) 
-            var matricule = 56;  // Integer |  (optional) 
+            var etat = etat_example;  // String | 
+            var matricule = 56;  // Integer | 
 
             try
             {
@@ -5469,12 +6064,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.CommandesBLApi()
-etat = etat_example # String |  (optional)
-matricule = 56 # Integer |  (optional)
+etat = etat_example # String | 
+matricule = 56 # Integer | 
 
 try: 
     # gets commandes collection by matricule for livreur
-    api_response = api_instance.get_cmds_by_etat_andmatricule(etat=etat, matricule=matricule)
+    api_response = api_instance.get_cmds_by_etat_andmatricule(etat, matricule)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CommandesBLApi->getCmdsByEtatAndmatricule: %s\n" % e)</code></pre>
@@ -5493,7 +6088,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">etat</td>
+                                <tr><td style="width:150px;">etat*</td>
 <td>
 
 
@@ -5505,12 +6100,15 @@ except ApiException as e:
                 </span>
 
             </div>
+                <div class="inner required">
+                    Required
+                </div>
         </div>
     </div>
 </td>
 </tr>
 
-                                <tr><td style="width:150px;">matricule</td>
+                                <tr><td style="width:150px;">matricule*</td>
 <td>
 
 
@@ -5522,6 +6120,9 @@ except ApiException as e:
                 </span>
 
             </div>
+                <div class="inner required">
+                    Required
+                </div>
         </div>
     </div>
 </td>
@@ -5941,7 +6542,7 @@ public class CommandesBLApiExample {
     public static void main(String[] args) {
         
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
         try {
             array[inline_response_200_4] result = apiInstance.getDetailsByCommandeBL(idCommandeBL);
             System.out.println(result);
@@ -5960,7 +6561,7 @@ public class CommandesBLApiExample {
 
     public static void main(String[] args) {
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
         try {
             array[inline_response_200_4] result = apiInstance.getDetailsByCommandeBL(idCommandeBL);
             System.out.println(result);
@@ -5976,7 +6577,7 @@ public class CommandesBLApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-CommandesBL-getDetailsByCommandeBL-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *idCommandeBL = 56; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *idCommandeBL = idCommandeBL_example; // 
 
 CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
@@ -5997,7 +6598,7 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 var api = new BoulangerieApiFinal.CommandesBLApi()
 
-var idCommandeBL = 56; // {Integer} 
+var idCommandeBL = idCommandeBL_example; // {String} 
 
 
 var callback = function(error, data, response) {
@@ -6029,7 +6630,7 @@ namespace Example
         {
             
             var apiInstance = new CommandesBLApi();
-            var idCommandeBL = 56;  // Integer | 
+            var idCommandeBL = idCommandeBL_example;  // String | 
 
             try
             {
@@ -6051,7 +6652,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\CommandesBLApi();
-$idCommandeBL = 56; // Integer | 
+$idCommandeBL = idCommandeBL_example; // String | 
 
 try {
     $result = $api_instance->getDetailsByCommandeBL($idCommandeBL);
@@ -6068,7 +6669,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::CommandesBLApi;
 
 my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
-my $idCommandeBL = 56; # Integer | 
+my $idCommandeBL = idCommandeBL_example; # String | 
 
 eval { 
     my $result = $api_instance->getDetailsByCommandeBL(idCommandeBL => $idCommandeBL);
@@ -6088,7 +6689,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.CommandesBLApi()
-idCommandeBL = 56 # Integer | 
+idCommandeBL = idCommandeBL_example # String | 
 
 try: 
     api_response = api_instance.get_details_by_commande_bl(idCommandeBL)
@@ -6114,7 +6715,7 @@ except ApiException as e:
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
             </div>
@@ -6514,7 +7115,7 @@ public class CommandesBLApiExample {
     public static void main(String[] args) {
         
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
         String etat = etat_example; // String | 
         try {
             apiInstance.patchCmdBlEtat(idCommandeBL, etat);
@@ -6533,7 +7134,7 @@ public class CommandesBLApiExample {
 
     public static void main(String[] args) {
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
         String etat = etat_example; // String | 
         try {
             apiInstance.patchCmdBlEtat(idCommandeBL, etat);
@@ -6549,7 +7150,7 @@ public class CommandesBLApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-CommandesBL-patchCmdBlEtat-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *idCommandeBL = 56; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *idCommandeBL = idCommandeBL_example; // 
 String *etat = etat_example; //  (optional)
 
 CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
@@ -6570,7 +7171,7 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 var api = new BoulangerieApiFinal.CommandesBLApi()
 
-var idCommandeBL = 56; // {Integer} 
+var idCommandeBL = idCommandeBL_example; // {String} 
 
 var opts = { 
   'etat': etat_example // {String} 
@@ -6605,7 +7206,7 @@ namespace Example
         {
             
             var apiInstance = new CommandesBLApi();
-            var idCommandeBL = 56;  // Integer | 
+            var idCommandeBL = idCommandeBL_example;  // String | 
             var etat = etat_example;  // String |  (optional) 
 
             try
@@ -6628,7 +7229,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\CommandesBLApi();
-$idCommandeBL = 56; // Integer | 
+$idCommandeBL = idCommandeBL_example; // String | 
 $etat = etat_example; // String | 
 
 try {
@@ -6645,7 +7246,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::CommandesBLApi;
 
 my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
-my $idCommandeBL = 56; # Integer | 
+my $idCommandeBL = idCommandeBL_example; # String | 
 my $etat = WWW::SwaggerClient::Object::String->new(); # String | 
 
 eval { 
@@ -6665,7 +7266,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.CommandesBLApi()
-idCommandeBL = 56 # Integer | 
+idCommandeBL = idCommandeBL_example # String | 
 etat = etat_example # String |  (optional)
 
 try: 
@@ -6692,7 +7293,7 @@ except ApiException as e:
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
             </div>
@@ -6828,10 +7429,10 @@ public class CommandesBLApiExample {
     public static void main(String[] args) {
         
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
-        Integer body = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
+        Integer matricule = 56; // Integer | 
         try {
-            apiInstance.patchLivreur(idCommandeBL, body);
+            apiInstance.patchLivreur(idCommandeBL, matricule);
         } catch (ApiException e) {
             System.err.println("Exception when calling CommandesBLApi#patchLivreur");
             e.printStackTrace();
@@ -6847,10 +7448,10 @@ public class CommandesBLApiExample {
 
     public static void main(String[] args) {
         CommandesBLApi apiInstance = new CommandesBLApi();
-        Integer idCommandeBL = 56; // Integer | 
-        Integer body = 56; // Integer | 
+        String idCommandeBL = idCommandeBL_example; // String | 
+        Integer matricule = 56; // Integer | 
         try {
-            apiInstance.patchLivreur(idCommandeBL, body);
+            apiInstance.patchLivreur(idCommandeBL, matricule);
         } catch (ApiException e) {
             System.err.println("Exception when calling CommandesBLApi#patchLivreur");
             e.printStackTrace();
@@ -6863,14 +7464,14 @@ public class CommandesBLApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-CommandesBL-patchLivreur-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *idCommandeBL = 56; // 
-Integer *body = 56; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *idCommandeBL = idCommandeBL_example; // 
+Integer *matricule = 56; // 
 
 CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 // putting in the matricule of Livreur
 [apiInstance patchLivreurWith:idCommandeBL
-    body:body
+    matricule:matricule
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -6884,9 +7485,9 @@ CommandesBLApi *apiInstance = [[CommandesBLApi alloc] init];
 
 var api = new BoulangerieApiFinal.CommandesBLApi()
 
-var idCommandeBL = 56; // {Integer} 
+var idCommandeBL = idCommandeBL_example; // {String} 
 
-var body = 56; // {Integer} 
+var matricule = 56; // {Integer} 
 
 
 var callback = function(error, data, response) {
@@ -6896,7 +7497,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.patchLivreur(idCommandeBL, body, callback);
+api.patchLivreur(idCommandeBL, matricule, callback);
 </code></pre>
                             </div>
 
@@ -6918,13 +7519,13 @@ namespace Example
         {
             
             var apiInstance = new CommandesBLApi();
-            var idCommandeBL = 56;  // Integer | 
-            var body = 56;  // Integer | 
+            var idCommandeBL = idCommandeBL_example;  // String | 
+            var matricule = 56;  // Integer | 
 
             try
             {
                 // putting in the matricule of Livreur
-                apiInstance.patchLivreur(idCommandeBL, body);
+                apiInstance.patchLivreur(idCommandeBL, matricule);
             }
             catch (Exception e)
             {
@@ -6941,11 +7542,11 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\CommandesBLApi();
-$idCommandeBL = 56; // Integer | 
-$body = 56; // Integer | 
+$idCommandeBL = idCommandeBL_example; // String | 
+$matricule = 56; // Integer | 
 
 try {
-    $api_instance->patchLivreur($idCommandeBL, $body);
+    $api_instance->patchLivreur($idCommandeBL, $matricule);
 } catch (Exception $e) {
     echo 'Exception when calling CommandesBLApi->patchLivreur: ', $e->getMessage(), PHP_EOL;
 }
@@ -6958,11 +7559,11 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::CommandesBLApi;
 
 my $api_instance = WWW::SwaggerClient::CommandesBLApi->new();
-my $idCommandeBL = 56; # Integer | 
-my $body = WWW::SwaggerClient::Object::Integer->new(); # Integer | 
+my $idCommandeBL = idCommandeBL_example; # String | 
+my $matricule = WWW::SwaggerClient::Object::Integer->new(); # Integer | 
 
 eval { 
-    $api_instance->patchLivreur(idCommandeBL => $idCommandeBL, body => $body);
+    $api_instance->patchLivreur(idCommandeBL => $idCommandeBL, matricule => $matricule);
 };
 if ($@) {
     warn "Exception when calling CommandesBLApi->patchLivreur: $@\n";
@@ -6978,12 +7579,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.CommandesBLApi()
-idCommandeBL = 56 # Integer | 
-body = 56 # Integer | 
+idCommandeBL = idCommandeBL_example # String | 
+matricule = 56 # Integer | 
 
 try: 
     # putting in the matricule of Livreur
-    api_instance.patch_livreur(idCommandeBL, body)
+    api_instance.patch_livreur(idCommandeBL, matricule)
 except ApiException as e:
     print("Exception when calling CommandesBLApi->patchLivreur: %s\n" % e)</code></pre>
                             </div>
@@ -7005,7 +7606,7 @@ except ApiException as e:
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
             </div>
@@ -7026,7 +7627,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">matricule <span style="color:red;">*</span></td>
 <td>
 
 
@@ -7034,7 +7635,7 @@ except ApiException as e:
 $(document).ready(function() {
   var schemaWrapper = {
   "in" : "body",
-  "name" : "body",
+  "name" : "matricule",
   "required" : true,
   "schema" : {
     "type" : "integer",
@@ -7052,12 +7653,12 @@ $(document).ready(function() {
   }
 
   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_patchLivreur_body');
+  var result = $('#d2e199_patchLivreur_matricule');
   result.empty();
   result.append(view.render());
 });
 </script>
-<div id="d2e199_patchLivreur_body"></div>
+<div id="d2e199_patchLivreur_matricule"></div>
 </td>
 </tr>
 
@@ -7354,312 +7955,6 @@ $(document).ready(function() {
                             </div>
 
                             <h3> Status: 400 - Invalid input </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: default - Unexpected Error </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-CommandesLabo-getCmdsByEtat">
-                      <article id="api-CommandesLabo-getCmdsByEtat-0" data-group="User" data-name="getCmdsByEtat" data-version="0">
-                        <div class="pull-left">
-                          <h1>getCmdsByEtat</h1>
-                          <p>returns commandes filtered collection for BL</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/commandesBL/getCmdsByEtat</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-CommandesLabo-getCmdsByEtat-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-java">Java</a></li>
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-CommandesLabo-getCmdsByEtat-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-CommandesLabo-getCmdsByEtat-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0/commandesBL/getCmdsByEtat?etat="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.CommandesLaboApi;
-
-import java.io.File;
-import java.util.*;
-
-public class CommandesLaboApiExample {
-
-    public static void main(String[] args) {
-        
-        CommandesLaboApi apiInstance = new CommandesLaboApi();
-        String etat = etat_example; // String | 
-        try {
-            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CommandesLaboApi#getCmdsByEtat");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CommandesLaboApi;
-
-public class CommandesLaboApiExample {
-
-    public static void main(String[] args) {
-        CommandesLaboApi apiInstance = new CommandesLaboApi();
-        String etat = etat_example; // String | 
-        try {
-            array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CommandesLaboApi#getCmdsByEtat");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *etat = etat_example; //  (optional)
-
-CommandesLaboApi *apiInstance = [[CommandesLaboApi alloc] init];
-
-// returns commandes filtered collection for BL
-[apiInstance getCmdsByEtatWith:etat
-              completionHandler: ^(array[inline_response_200_2] output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var BoulangerieApiFinal = require('boulangerie_api_final');
-
-var api = new BoulangerieApiFinal.CommandesLaboApi()
-
-var opts = { 
-  'etat': etat_example // {String} 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.getCmdsByEtat(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class getCmdsByEtatExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new CommandesLaboApi();
-            var etat = etat_example;  // String |  (optional) 
-
-            try
-            {
-                // returns commandes filtered collection for BL
-                array[inline_response_200_2] result = apiInstance.getCmdsByEtat(etat);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandesLaboApi.getCmdsByEtat: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\Api\CommandesLaboApi();
-$etat = etat_example; // String | 
-
-try {
-    $result = $api_instance->getCmdsByEtat($etat);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandesLaboApi->getCmdsByEtat: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::CommandesLaboApi;
-
-my $api_instance = WWW::SwaggerClient::CommandesLaboApi->new();
-my $etat = etat_example; # String | 
-
-eval { 
-    my $result = $api_instance->getCmdsByEtat(etat => $etat);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CommandesLaboApi->getCmdsByEtat: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-CommandesLabo-getCmdsByEtat-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.CommandesLaboApi()
-etat = etat_example # String |  (optional)
-
-try: 
-    # returns commandes filtered collection for BL
-    api_response = api_instance.get_cmds_by_etat(etat=etat)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CommandesLaboApi->getCmdsByEtat: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">etat</td>
-<td>
-
-
-    <div id="d2e199_getCmdsByEtat_etat">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-            </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - success </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-getCmdsByEtat-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-getCmdsByEtat-200-schema">
-                                  <div id='responses-getCmdsByEtat-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "success",
-  "schema" : {
-    "type" : "array",
-    "items" : {
-      "$ref" : "#/definitions/inline_response_200_2"
-    }
-  }
-};
-                                        var schema = schemaWrapper.schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = defs;
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-getCmdsByEtat-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-getCmdsByEtat-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-getCmdsByEtat-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                            <h3> Status: 204 - No content. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -11132,7 +11427,7 @@ public class DetailsCommandesBLApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DetailsCommandesBL-patchDetailQuantity-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Integer *idDetail = 56; // 
-Integer *quantiteProd = 56; //  (optional)
+Integer *quantiteProd = 56; // 
 
 DetailsCommandesBLApi *apiInstance = [[DetailsCommandesBLApi alloc] init];
 
@@ -11154,9 +11449,8 @@ var api = new BoulangerieApiFinal.DetailsCommandesBLApi()
 
 var idDetail = 56; // {Integer} 
 
-var opts = { 
-  'quantiteProd': 56 // {Integer} 
-};
+var quantiteProd = 56; // {Integer} 
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -11165,7 +11459,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.patchDetailQuantity(idDetail, opts, callback);
+api.patchDetailQuantity(idDetail, quantiteProd, callback);
 </code></pre>
                             </div>
 
@@ -11188,7 +11482,7 @@ namespace Example
             
             var apiInstance = new DetailsCommandesBLApi();
             var idDetail = 56;  // Integer | 
-            var quantiteProd = 56;  // Integer |  (optional) 
+            var quantiteProd = 56;  // Integer | 
 
             try
             {
@@ -11248,11 +11542,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.DetailsCommandesBLApi()
 idDetail = 56 # Integer | 
-quantiteProd = 56 # Integer |  (optional)
+quantiteProd = 56 # Integer | 
 
 try: 
     # patching the quantity of a detailsCommandesBL
-    api_instance.patch_detail_quantity(idDetail, quantiteProd=quantiteProd)
+    api_instance.patch_detail_quantity(idDetail, quantiteProd)
 except ApiException as e:
     print("Exception when calling DetailsCommandesBLApi->patchDetailQuantity: %s\n" % e)</code></pre>
                             </div>
@@ -11295,7 +11589,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">quantiteProd </td>
+                                <tr><td style="width:150px;">quantiteProd <span style="color:red;">*</span></td>
 <td>
 
 
@@ -11304,7 +11598,7 @@ $(document).ready(function() {
   var schemaWrapper = {
   "in" : "body",
   "name" : "quantiteProd",
-  "required" : false,
+  "required" : true,
   "schema" : {
     "type" : "integer"
   }
@@ -11636,7 +11930,7 @@ $(document).ready(function() {
                       <article id="api-Livreurs-deleteLivreurbyMatricule-0" data-group="User" data-name="deleteLivreurbyMatricule" data-version="0">
                         <div class="pull-left">
                           <h1>deleteLivreurbyMatricule</h1>
-                          <p>Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL</p>
+                          <p>Deletes a livreur by matricule DELETE + SOFT DELETE CORRESPONDING PROFIL</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -11717,7 +12011,7 @@ public class LivreursApiExample {
 
 LivreursApi *apiInstance = [[LivreursApi alloc] init];
 
-// Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL
+// Deletes a livreur by matricule DELETE + SOFT DELETE CORRESPONDING PROFIL
 [apiInstance deleteLivreurbyMatriculeWith:matricule
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -11768,7 +12062,7 @@ namespace Example
 
             try
             {
-                // Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL
+                // Deletes a livreur by matricule DELETE + SOFT DELETE CORRESPONDING PROFIL
                 apiInstance.deleteLivreurbyMatricule(matricule);
             }
             catch (Exception e)
@@ -11824,7 +12118,7 @@ api_instance = swagger_client.LivreursApi()
 matricule = 56 # Integer | livreur matricule to delete
 
 try: 
-    # Deletes a livreur by matricule SOFT DELETE + SOFT DELETE CORRESPONDING PROFIL
+    # Deletes a livreur by matricule DELETE + SOFT DELETE CORRESPONDING PROFIL
     api_instance.delete_livreurby_matricule(matricule)
 except ApiException as e:
     print("Exception when calling LivreursApi->deleteLivreurbyMatricule: %s\n" % e)</code></pre>
@@ -15064,7 +15358,7 @@ public class ProfilsApiExample {
         ProfilsApi apiInstance = new ProfilsApi();
         String login = login_example; // String | login of profil to return
         try {
-            Produits result = apiInstance.getProfilByLogin(login);
+            Profils result = apiInstance.getProfilByLogin(login);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilsApi#getProfilByLogin");
@@ -15083,7 +15377,7 @@ public class ProfilsApiExample {
         ProfilsApi apiInstance = new ProfilsApi();
         String login = login_example; // String | login of profil to return
         try {
-            Produits result = apiInstance.getProfilByLogin(login);
+            Profils result = apiInstance.getProfilByLogin(login);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilsApi#getProfilByLogin");
@@ -15103,7 +15397,7 @@ ProfilsApi *apiInstance = [[ProfilsApi alloc] init];
 
 // Find profil by Login
 [apiInstance getProfilByLoginWith:login
-              completionHandler: ^(Produits output, NSError* error) {
+              completionHandler: ^(Profils output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -15156,7 +15450,7 @@ namespace Example
             try
             {
                 // Find profil by Login
-                Produits result = apiInstance.getProfilByLogin(login);
+                Profils result = apiInstance.getProfilByLogin(login);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -15277,7 +15571,7 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "successful operation",
   "schema" : {
-    "$ref" : "#/definitions/Produits"
+    "$ref" : "#/definitions/Profils"
   }
 };
                                         var schema = schemaWrapper.schema;
