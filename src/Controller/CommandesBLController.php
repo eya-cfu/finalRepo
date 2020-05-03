@@ -264,11 +264,6 @@ class CommandesBLController
      */
     public function getCount(Request $request): JsonResponse
     {
-       // $year = $request->query->get('year');
-      //  $yearDate = \DateTime::createFromFormat('d-m-Y', $year);
-
-        //return new JsonResponse($yearDate);
-
         $now = new DateTime();
         $year = $now->format("Y");
 
