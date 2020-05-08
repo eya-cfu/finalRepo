@@ -1,3 +1,3 @@
 <?php
 
-require __DIR__ . '/src/Controller/ApiHomeController.php';
+require __DIR__ . '/public';
