@@ -76,6 +76,28 @@ class ProduitsController
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
+    
+    /**
+     * @Route("/produits/getCount", name="getCount", methods={"GET"})
+     */
+    public function getCount(Request $request): JsonResponse
+    {
+        
+
+    $count =   $this->produitsRepository->createQueryBuilder('u')
+            ->select('count(u.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+
+        $data = [];
+
+            $data[] = [
+                 'count' => $count,
+            ];
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
 
 
     /**
