@@ -1,4 +1,4 @@
-#API for Boulangerie Khaled
+#API for Bakeries Management
 The Boulangerie finally debugged for use, hosting service might need to be adapted
 
 
