@@ -1,6 +1,9 @@
-#API for Bakeries Management
-The Boulangerie finally debugged for use, hosting service might need to be adapted
+# API for Bakeries Management
+The Boulangerie finally debugged for use, hosting service might need to be adapted.
 
+
+## Requirements:
+Php 7.4 with Composer, MySQL 5.7 .
 
 ## Getting Started
 The ApiHomeController class defines the Homepage which is an html file that contains a full documentation.
@@ -23,7 +26,7 @@ of objects. Simply run
 $ ~ php bin/console doctrine:fixtures:load
 
 
-## Documentation for API Endpoints
+# Documentation for API Endpoints
 
 All URIs are relative to *https://virtserver.swaggerhub.com/Boulangerie/ApiCourse/1.0.0*
 
