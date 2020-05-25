@@ -87,6 +87,11 @@ class ProfilsController
     {
         $profils = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
 
+        if(empty($profils))
+        {
+            throw new NotFoundHttpException('Not found!');
+        }
+
         $data[] = [
             //'id' => $profils->getId(),
             'matricule' => $profils->getMatricule(),

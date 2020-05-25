@@ -105,7 +105,7 @@ class DetailsCommandesController
         $codeProduit = $request->query->get('codeProduit');
         $dueDate =  $request->query->get('dueDate');
 
-        $data[] =[];
+       // $data[] =[];
 
         // for every detail we need to go through and display the specific produit
         foreach ($detailsCommandes as $detail) {
@@ -128,6 +128,7 @@ class DetailsCommandesController
                 }
             }
         }
+
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
