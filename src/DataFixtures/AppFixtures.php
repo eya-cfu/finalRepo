@@ -73,13 +73,13 @@ class AppFixtures extends Fixture
             $detailscommandesBL->addIdCommandeBL($commandes2);
             $manager->persist($detailscommandesBL);
 
-            $composant = new Composants("snoots","long","floopy");
-            $manager->persist($composant);
+         //   $composant = new Composants("snoots","long","floopy");
+           // $manager->persist($composant);
 
             $compositionProduit = new CompositionsProduit($faker->numberBetween(0,100));
             $compositionProduit->addCodeProduit($produit);
             $compositionProduit->addCodeProduit($produit2);
-            $compositionProduit->addIdComposant($composant);
+          //  $compositionProduit->addIdComposant($composant);
             $manager->persist($compositionProduit);
 
         }
