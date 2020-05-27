@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilsController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +182,9 @@
       <workItem from="1588017356884" duration="9834000" />
       <workItem from="1588192097983" duration="5359000" />
       <workItem from="1588363059452" duration="3632000" />
-      <workItem from="1588539745502" duration="4606000" />
+      <workItem from="1588539745502" duration="5476000" />
+      <workItem from="1590438156685" duration="1673000" />
+      <workItem from="1590440201218" duration="2654000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -322,7 +326,28 @@
       <option name="project" value="LOCAL" />
       <updated>1588544459650</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added getCount and made it support getting the current year">
+      <created>1588544883638</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1588544883638</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added getCount and made it support getting the current year">
+      <created>1588545390640</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1588545390640</updated>
+    </task>
+    <task id="LOCAL-00023" summary="changed get requests to only return one object, modified gets to suit swagger in boulangerie, made idcomposant unique and deleted it from faker. fixed the matricule issue in livreur and boulangerie">
+      <created>1590441929167</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1590441929169</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +378,8 @@
     <MESSAGE value="modified readme to include fixture note and updated the homepage to html 2 so its prettier" />
     <MESSAGE value="re exported the database" />
     <MESSAGE value="Added getCount and made it support getting the current year" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getCount and made it support getting the current year" />
+    <MESSAGE value="changed get requests to only return one object, modified gets to suit swagger in boulangerie, made idcomposant unique and deleted it from faker. fixed the matricule issue in livreur and boulangerie" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed get requests to only return one object, modified gets to suit swagger in boulangerie, made idcomposant unique and deleted it from faker. fixed the matricule issue in livreur and boulangerie" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -384,10 +410,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1587477550591" />
-    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2" timestamp="1588544459372">
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1590441928865">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="422" y="118" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1588544459372" />
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1590441928865" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -400,10 +426,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588544461460">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1590441931622">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1588544461460" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1590441931622" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>

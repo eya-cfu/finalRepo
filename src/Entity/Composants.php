@@ -17,7 +17,7 @@ class Composants
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=6)
+     * @ORM\Column(type="string", length=6,unique=true)
      */
     private $idComposant;
 

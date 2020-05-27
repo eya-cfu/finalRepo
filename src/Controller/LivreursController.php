@@ -84,7 +84,8 @@ class LivreursController
      */
     public function delete($matricule): JsonResponse
     {
-        $livreurs = $this->livreurRepository->findOneBy(['matricule' => $matricule]);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+        $livreurs = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
 
         $this->livreurRepository->remove($livreurs);
 
@@ -96,8 +97,8 @@ class LivreursController
      */
     public function get($matricule): JsonResponse
     {
-        $livreurs = $this->livreurRepository->findOneBy(['matricule' => $matricule]);
-
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+        $livreurs = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
 
         $data[] = [
             //'id' => $livreurs->getId(),
@@ -108,7 +109,9 @@ class LivreursController
             'teleLivreur' => $livreurs->getTeleLivreur(),]
         ];
 
-        return new JsonResponse($data, Response::HTTP_OK);
+        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
     }
 
     /**
@@ -116,7 +119,9 @@ class LivreursController
      */
     public function update($matricule, Request $request): JsonResponse
     {
-        $livreurs = $this->livreurRepository->findOneBy(['matricule' => $matricule]);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+        $livreurs = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+
         $data = json_decode($request->getContent(), true);
 
         empty($data['matricule']) ? true : $livreurs->setMatricule($data['matricule']);

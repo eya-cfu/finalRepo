@@ -66,19 +66,27 @@ class BoulangeriesController
      */
     public function get($matricule): JsonResponse
     {
-       $boulangeries = $this->boulangerieRepository->findOneBy(['matricule' => $matricule]);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+       $boulangeries = $this->boulangerieRepository->findOneBy(['matricule' => $profil->getId()]);
 
         $data[] = [
             //'id' => $boulangeries->getId(),
-            'Boulangerie' =>['id_Boulangerie' => $boulangeries->getIdBoulangerie(),
+            'id_Boulangerie' => $boulangeries->getIdBoulangerie(),
             'nomBL' => $boulangeries->getNomBoul(),
             'adresse' => $boulangeries->getAdresse(),
             'telephone' => $boulangeries->getTelephone(),
             'matricule' => $boulangeries->getMatricule()->getMatricule(),
             'nbOperateurs' => $boulangeries->getNbOperateurs(),
-            ],
-            'nom'=> $boulangeries->getMatricule()->getNom(),
+
         ];
+        //{
+        //  "idBoulangerie": 0,
+        //  "nomBL": "khaledBoulangerieBusiness",
+        //  "adresse": "string",
+        //  "telephone": 0,
+        //  "matricule": 0,
+        //  "nbOperateurs": 0
+        //}
 //        {
 //            "Boulangerie": {
 //            "idBoulangerie": 0,
@@ -90,8 +98,9 @@ class BoulangeriesController
 //    },
 //    "nom": "string"
 
-
-        return new JsonResponse($data, Response::HTTP_OK);
+        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
     }
 
     /**
@@ -103,17 +112,17 @@ class BoulangeriesController
        // return new JsonResponse($boulangeries);
 
         $data[] = [
-            'Boulangerie' =>['id_Boulangerie' => $boulangeries->getIdBoulangerie(),
-                'nomBL' => $boulangeries->getNomBoul(),
-                'adresse' => $boulangeries->getAdresse(),
-                'telephone' => $boulangeries->getTelephone(),
-                'matricule' => $boulangeries->getMatricule()->getMatricule(),
-                'nbOperateurs' => $boulangeries->getNbOperateurs(),
-            ],
-            'nom'=> $boulangeries->getMatricule()->getNom(),
+            'id_Boulangerie' => $boulangeries->getIdBoulangerie(),
+            'nomBL' => $boulangeries->getNomBoul(),
+            'adresse' => $boulangeries->getAdresse(),
+            'telephone' => $boulangeries->getTelephone(),
+            'matricule' => $boulangeries->getMatricule()->getMatricule(),
+            'nbOperateurs' => $boulangeries->getNbOperateurs(),
         ];
 
-        return new JsonResponse($data, Response::HTTP_OK);
+        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
     }
 
     /**
@@ -137,7 +146,9 @@ class BoulangeriesController
             ];
         }
 
-        return new JsonResponse($data, Response::HTTP_OK);
+        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
     }
 
     /**

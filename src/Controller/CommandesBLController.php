@@ -137,7 +137,9 @@ class CommandesBLController
             'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
         ];
 
-        return new JsonResponse($data, Response::HTTP_OK);
+        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
     }
 
 
