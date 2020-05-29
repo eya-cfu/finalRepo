@@ -21,7 +21,7 @@ class CompositionsProduitController
 
 
     /**
-     * @Route("/compositionsProduits", name="getCompositionsProduit", methods={"GET"})
+     * @Route("/compositionsProduit", name="getCompositionsProduit", methods={"GET"})
      */
     public function getAll(): JsonResponse
     {
