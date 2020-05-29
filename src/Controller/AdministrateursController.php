@@ -51,7 +51,7 @@ class AdministrateursController
     }
 
     /**
-     * @Route("/administrateurs/{loginAdmin}", name="get_one_", methods={"GET"})
+     * @Route("/administrateurs/{loginAdmin}", name="get_one_admin", methods={"GET"})
      */
     public function get($loginAdmin): JsonResponse
     {

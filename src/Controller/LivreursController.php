@@ -101,12 +101,12 @@ class LivreursController
         $livreurs = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
 
         $data[] = [
-            //'id' => $livreurs->getId(),
-            'nom' => $livreurs->getMatricule()->getNom(),
-            'livreur' =>[
             'matricule' => $livreurs->getMatricule()->getMatricule(),
             'numVehicule' => $livreurs->getNumVehicule(),
-            'teleLivreur' => $livreurs->getTeleLivreur(),]
+            'teleLivreur' => $livreurs->getTeleLivreur(),
+            // "matricule": 0,
+            //  "teleLivreur": 0,
+            //  "numVehicule": "string"
         ];
 
         $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
