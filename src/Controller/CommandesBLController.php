@@ -119,7 +119,7 @@ class CommandesBLController
 
 
       /**
-     * @Route("/commandesBL/ById/{idCommandeBL}", name="get_one_CommandesBL", methods={"GET"})
+     * @Route("/commandesBL/{idCommandeBL}", name="get_one_CommandesBL", methods={"GET"})
        */
     public function get($idCommandeBL): JsonResponse
     {
