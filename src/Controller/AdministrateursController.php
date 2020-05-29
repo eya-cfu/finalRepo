@@ -51,7 +51,7 @@ class AdministrateursController
     }
 
     /**
-     * @Route("/administrateurs/{loginAdmin}", name="get_one_", methods={"GET"})
+     * @Route("/administrateurs/{loginAdmin}", name="get_one_admin", methods={"GET"})
      */
     public function get($loginAdmin): JsonResponse
     {
@@ -65,7 +65,9 @@ class AdministrateursController
             'teleAdmin' => $administrateur->getTeleAdmin(),
         ];
 
-        return new JsonResponse($data, Response::HTTP_OK);
+ $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
     }
 
     /**

@@ -302,8 +302,10 @@ class CommandesBLController
 
         foreach ($commandesBLS as $commandesBL) {
 
-           $detailsCommandes = $this->getByIdCommande($commandesBL->getId());
-            $data[] = [];
+           $detailsCommandes = $this->getByIdCommande($commandesBL->getIdCommandeBL());
+           // return new JsonResponse( $detailsCommandes,Response::HTTP_OK);
+
+           // $data[] = [];
 
             $sum = 0 ;
             foreach ($detailsCommandes as $item) {
@@ -414,6 +416,8 @@ class CommandesBLController
                 if($idCommandeBL == $element->getIdCommandeBL())
                 {
                     array_push($detailsForCommands,$detailsCommandesBL );
+                   // array_push($detailsForCommands,$element->getIdCommandeBL());
+                    //array_push($detailsForCommands,$idCommandeBL);
                 }
             }
 
