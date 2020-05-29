@@ -31,7 +31,7 @@ class DetailsCommandesController
         $detailsCommandesBLS = $this->detailsCommandesRepository->findAll();
         $data = [];
 
-        foreach ($detailsCommandesBLS as $detailsCommandesBL) {
+      /*  foreach ($detailsCommandesBLS as $detailsCommandesBL) {
             $codesProduit = array();
             $idsCommandeBL = array();
             foreach ($detailsCommandesBL->getCodeProduit() as $element)
@@ -50,6 +50,31 @@ class DetailsCommandesController
                 'idDetail' => $detailsCommandesBL->getIdDetail(),
                 'quantiteProd' => $detailsCommandesBL->getQuantiteProd(),
             ];
+            */
+
+        // all detailsCommandes
+        $detailsCommandes = $this->detailsCommandesRepository->findAll();
+
+        // $data[] =[];
+
+        // for every detail we need to go through and display the specific produit
+        foreach ($detailsCommandes as $detail) {
+
+            // this loop assumes that each codeProduit has a idCommande or it wont work
+            for($i = 0 ; $i < sizeof($detail->getCodeProduit()); $i++ )
+            {
+
+                {
+                    $data[] = [
+                        'idDetail' => $detail->getIdDetail(),
+                        'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
+                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                        'quantiteProd' => $detail->getQuantiteProd(),
+                    ];
+                    //break so it only returns one element
+                    //break;
+                }
+            }
         }
 
         return new JsonResponse($data, Response::HTTP_OK);
@@ -128,7 +153,6 @@ class DetailsCommandesController
                 }
             }
         }
-
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
