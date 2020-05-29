@@ -333,7 +333,7 @@ class CommandesBLController
     }
 
     /**
-     * @Route("/commandesBL/getCmdsByEtatAndBoulangerieID", name="getCmdsByEtatandBOul", methods={"GET"})
+     * @Route("/commandesBL/getCmdsbyEtatAndBoulangerieID", name="getCmdsByEtatandBOul", methods={"GET"})
      */
     public function getCmdsByEtatAndBoulangerieID(Request $request): JsonResponse
     {
