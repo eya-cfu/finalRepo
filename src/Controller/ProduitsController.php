@@ -100,7 +100,7 @@ class ProduitsController
     /**
      * @Route("/produits/{codeProduit}", name="getProduitByCode", methods={"GET"})
      */
-    public function get($codeProduit): JsonResponse
+    public function getByCode($codeProduit): JsonResponse
     {
         $produit = $this->produitsRepository->findOneBy(['id' => $codeProduit]);
 
@@ -147,6 +147,30 @@ class ProduitsController
         }
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+//
+
+    /**
+     * @Route("/produits/CountAll/getCount/", name="getCountProduit", methods={"GET"})
+     */
+    public function getCount(): JsonResponse
+    {
+
+        $count =   $this->produitsRepository->createQueryBuilder('u')
+            ->select('count(u.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+
+        $data[] = [
+            'count' => $count,
+        ];
+
+        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+        $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($jsonDec, Response::HTTP_OK);
+    }
+
 
     /**
      * @Route("/produits/{codeProduit}", name="updateProduit", methods={"PUT"})
