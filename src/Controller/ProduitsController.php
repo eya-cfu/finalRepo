@@ -151,7 +151,7 @@ class ProduitsController
 //
 
     /**
-     * @Route("/produits/CountAll/getCount/", name="getCountProduit", methods={"GET"})
+     * @Route("/produits/CountAll/getCount", name="getCountProduit", methods={"GET"})
      */
     public function getCount(): JsonResponse
     {

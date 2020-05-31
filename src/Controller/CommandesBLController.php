@@ -234,7 +234,7 @@ class CommandesBLController
 
 
     /**
-     * @Route("/commandesBL/getByEtatAndMatricule", name="getByEtatAndMatricule", methods={"GET"})
+     * @Route("/commandesBL/getCmdsByEtatAndMatricule", name="getByEtatAndMatricule", methods={"GET"})
      */
     public function getByEtatAndMatricule(Request $request): JsonResponse
     {
@@ -337,7 +337,7 @@ class CommandesBLController
     }
 
     /**
-     * @Route("/commandesBL/getCmdsByEtatAndBoulangerieID", name="getCmdsByEtatandBOul", methods={"GET"})
+     * @Route("/commandesBL/getCmdsbyEtatAndBoulangerieID", name="getCmdsByEtatandBOul", methods={"GET"})
      */
     public function getCmdsByEtatAndBoulangerieID(Request $request): JsonResponse
     {
