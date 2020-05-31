@@ -378,12 +378,13 @@ class CommandesBLController
     public function getDetailsCommandesForCommandes($idCommandeBL,Request $request): JsonResponse
     {
         $commandesBLS = $this->commandesBLRepository->findBy(['idCommandeBL'=>$idCommandeBL]);
-        $data[] = [];
+
 
 
         foreach ($commandesBLS as $commandesBL) {
 
             $detailsCommandes = $this->getByIdCommande($commandesBL->getIdCommandeBL());
+            //return new JsonResponse($detailsCommandes);
 
             //get all details for this specific commande and go through their products
             foreach ($detailsCommandes as $element)
@@ -393,7 +394,7 @@ class CommandesBLController
                 {
 
                     $data[] = [
-                        //'id' => $commandesBL->getId(),
+                      //  'idCommandeBL' => $commandesBL->getIdCommandeBL(),
                         'codesProduit' => $produit->getCodeProduit(),
                         'libelle'=> $produit->getLibelle(),
                         'quantite'=> $element->getQuantiteProd(),
@@ -411,17 +412,18 @@ class CommandesBLController
     public function getByIdCommande ($idCommandeBL)
     {
         $detailsCommandesBLS = $this->detailsCommandesBLRepository->findAll();
-
+        $detailsForCommands = array();
         foreach ($detailsCommandesBLS as $detailsCommandesBL) {
 
-            $detailsForCommands = array();
+
+
             foreach ($detailsCommandesBL->getIdCommandeBL() as $element)
             {
-                //array_push($detailsForCommands,$element->getIdCommandeBL() );
-                if($idCommandeBL == $element->getIdCommandeBL())
+               // array_push($detailsForCommands,$element->getIdCommandeBL() );
+              if($idCommandeBL == $element->getIdCommandeBL())
                 {
                     array_push($detailsForCommands,$detailsCommandesBL );
-                   // array_push($detailsForCommands,$element->getIdCommandeBL());
+                    //array_push($detailsForCommands,$element->getIdCommandeBL());
                     //array_push($detailsForCommands,$idCommandeBL);
                 }
             }

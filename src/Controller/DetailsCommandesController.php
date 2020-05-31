@@ -164,7 +164,7 @@ class DetailsCommandesController
         $codeProduit = $request->query->get('codeProduit');
         $dueDate =  $request->query->get('dueDate');
 
-       // $data[] =[];
+
 
         // for every detail we need to go through and display the specific produit
         foreach ($detailsCommandes as $detail) {
@@ -174,7 +174,7 @@ class DetailsCommandesController
             {
                 //need to compare the code again so we only get the product we need, basically sequential search
                 if($detail->getCodeProduit()[$i]->getCodeProduit()==$codeProduit
-                   && $detail->getIdCommandeBL()[$i]->getDueDate()->format('Y-m-d') == $dueDate)
+                   && $detail->getIdCommandeBL()[$i]->getDueDate()->format('d-m-Y') == $dueDate)
                 {
                     $data[] = [
                         'idDetail' => $detail->getIdDetail(),
@@ -184,6 +184,16 @@ class DetailsCommandesController
                                 ];
                     //break so it only returns one element
                     //break;
+                }
+                else
+                {
+                    $data[] = [
+                        'idDetail' => $detail->getIdDetail(),
+                        'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
+                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                        'quantiteProd' => $detail->getQuantiteProd(),
+                        'wrong'=> "fuck"
+                    ];
                 }
             }
         }
