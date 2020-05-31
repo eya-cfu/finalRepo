@@ -67,8 +67,8 @@ class CommandesBLController
         foreach ($commandesBLS as $commandesBL) {
             $data[] = [
                 'id' => $commandesBL->getId(),
-                'creationDate' => $commandesBL->getCreationDate(),
-                'dueDate' => $commandesBL->getDueDate(),
+                'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
+                'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'idCommandeBL' => $commandesBL->getIdCommandeBL(),
                 'etat' => $commandesBL->getEtat(),
                 'matricule' => ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getId(),
