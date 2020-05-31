@@ -12,6 +12,7 @@ use App\Repository\BoulangeriesRepository;
 use App\Repository\CommandesBLRepository;
 use App\Repository\LivreursRepository;
 use App\Repository\ProfilsRepository;
+use Cassandra\Date;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
@@ -268,10 +269,12 @@ class CommandesBLController
     {
         $now = new DateTime();
         $year = $now->format("Y");
+        $yearDate = new DateTime($year.'-01-01');
+
 
     $count =   $this->commandesBLRepository->createQueryBuilder('u')
             ->select('count(u.id)')
-            ->where('u.creationDate > :year' )->setParameter('year',$year)
+            ->where('u.creationDate > :year' )->setParameter('year',$yearDate)
             ->getQuery()
             ->getSingleScalarResult();
 
