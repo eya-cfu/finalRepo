@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\CommandesBL;
 use App\Entity\DetailsCommandesBL;
+use App\Entity\Produits;
 use App\Repository\DetailsCommandesBLRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,10 +19,17 @@ use Symfony\Component\Validator\Constraints\Collection;
 class DetailsCommandesController
 {
     private $detailsCommandesRepository;
+    private $produitsRepository;
+    private $commandesBlRepository;
+    private $em;
 
-    public function __construct(DetailsCommandesBLRepository $detailsCommandesBLRepository)
+    public function __construct(DetailsCommandesBLRepository $detailsCommandesBLRepository,EntityManagerInterface $entityManager)
     {
         $this->detailsCommandesRepository = $detailsCommandesBLRepository;
+
+        $this->em= $entityManager;
+        $this->produitsRepository = $this->em->getRepository(Produits::class);
+        $this->commandesBlRepository = $this->em->getRepository(CommandesBL::class);
     }
 
 
@@ -28,8 +38,8 @@ class DetailsCommandesController
      */
     public function getAll(): JsonResponse
     {
-        $detailsCommandesBLS = $this->detailsCommandesRepository->findAll();
-        $data = [];
+      //  $detailsCommandesBLS = $this->detailsCommandesRepository->findAll();
+      //  $data = [];
 
       /*  foreach ($detailsCommandesBLS as $detailsCommandesBL) {
             $codesProduit = array();
@@ -94,12 +104,36 @@ class DetailsCommandesController
         $quantiteProd = $data['quantiteProd'];
         $idCommandesBLs = $data['idCommandeBL'];
 
-        if (empty($codesProduits) || empty($quantiteProd))
+       // if (empty($codesProduits) || empty($quantiteProd))
         {
-            throw new NotFoundHttpException('Expecting mandatory parameters!');
+         //   throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
+
+        $codesProduitsObjects = array();
+        $commandesObjects = array();
+        foreach ($codesProduits as $codeProduit)
+        {
+            $produit = $this->produitsRepository->findOneBy(['id'=>$codeProduit ]);
+            if(empty($produit))
+            {
+                throw new NotFoundHttpException('Produit Not Found!');
+            }
+            array_push($codesProduitsObjects, $produit);
+        }
+
+        foreach ($idCommandesBLs as $idCommandesBL)
+        {
+            $commandeBl = $this->commandesBlRepository->findOneBy(['idCommandeBL'=>$idCommandesBL ]);
+            if(empty($commandeBl))
+            {
+                throw new NotFoundHttpException('Commande Not Found!');
+            }
+            array_push($commandesObjects, $commandeBl);
+        }
+
+
         // arrays need to be read
-        $this->detailsCommandesRepository-> save($quantiteProd,$idCommandesBLs,$codesProduits);
+        $this->detailsCommandesRepository-> save($quantiteProd,$commandesObjects,$codesProduitsObjects);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
