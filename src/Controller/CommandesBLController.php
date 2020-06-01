@@ -114,7 +114,7 @@ class CommandesBLController
         {
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
-        else $livreur2 = 0;
+        else $livreur2 = null;
 
 
         $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
