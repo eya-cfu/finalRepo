@@ -31,6 +31,8 @@ class LivreursRepository extends ServiceEntityRepository
     {
         $livreurs = new Livreurs($numVehicule,$teleLivreur,$matricule);
 
+        $livreurs->setDeleted(false);
+
         $this->manager->persist($livreurs);
         $this->manager->flush();
     }
@@ -45,7 +47,11 @@ class LivreursRepository extends ServiceEntityRepository
 
     public function remove(Livreurs $livreurs)
     {
-        $this->manager->remove($livreurs);
+        $livreurs->setDeleted(true);
+
+        //  $this->manager->remove($profils);
+        $this->manager->persist($livreurs);
+
         $this->manager->flush();
     }
 

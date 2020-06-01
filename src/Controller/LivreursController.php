@@ -34,7 +34,7 @@ class LivreursController
      */
     public function getAll(): JsonResponse
     {
-        $livreurs = $this->livreurRepository->findAll();
+        $livreurs = $this->livreurRepository->findBy(['deleted'=> false]);
         $data = [];
 
         foreach ($livreurs as $livreur) {

@@ -35,6 +35,11 @@ class Livreurs
     private $matricule;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $deleted;
+
+    /**
      * Livreurs constructor.
 
      * @param $teleLivreur
@@ -97,6 +102,18 @@ class Livreurs
             'numVehicule' => $this->getNumVehicule(),
             'teleLivreur' => $this->getTeleLivreur()
         ];
+    }
+
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(?bool $deleted): self
+    {
+        $this->deleted = $deleted;
+
+        return $this;
     }
 
 }
