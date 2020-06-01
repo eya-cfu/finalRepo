@@ -261,7 +261,9 @@ class CommandesBLController
         $etat = $request->query->get('etat');
        $matricule =  $request->query->get('matricule');
 
-        $commandesBLS = $this->commandesBLRepository -> findBy(['etat'=> $etat, 'livreur'=> $matricule]);
+        $profil = $this->profilRepository->findOneBy(['matricule' => $matricule]);
+
+        $commandesBLS = $this->commandesBLRepository -> findBy(['etat'=> $etat, 'livreur'=> $profil->getId()]);
 
         $data = [];
 

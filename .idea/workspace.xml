@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LivreursController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LivreursController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +185,7 @@
       <workItem from="1590440201218" duration="2975000" />
       <workItem from="1590783033703" duration="3563000" />
       <workItem from="1590956250054" duration="17946000" />
-      <workItem from="1591042952320" duration="8799000" />
+      <workItem from="1591042952320" duration="9108000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -475,7 +474,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591051586122</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fixed postLivreur">
+      <created>1591053177171</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1591053177171</updated>
+    </task>
+    <task id="LOCAL-00043" summary="smol fixes">
+      <created>1591053471440</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1591053471440</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,8 +499,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="cascade deleted all the compositions concerning one product" />
-    <MESSAGE value="polished code a bit and made findbyproduit return a single element" />
     <MESSAGE value="wrote documentation in ReadMe.md and updated the homepage" />
     <MESSAGE value="modified readme to include fixture note and updated the homepage to html 2 so its prettier" />
     <MESSAGE value="re exported the database" />
@@ -511,7 +522,9 @@
     <MESSAGE value="fixed the livreur to zero didnt test yet" />
     <MESSAGE value="tested livreur , cant be set to zero only to null" />
     <MESSAGE value="fixed commandeLabo and tested and updated Database" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed commandeLabo and tested and updated Database" />
+    <MESSAGE value="fixed postLivreur" />
+    <MESSAGE value="smol fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="smol fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -542,10 +555,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591051585728">
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591053471270">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591051585728" />
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591053471270" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -558,10 +571,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591051589005">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591053473069">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591051589005" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591053473069" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
