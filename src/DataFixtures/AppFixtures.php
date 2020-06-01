@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Administrateurs;
 use App\Entity\Boulangeries;
 use App\Entity\CommandesBL;
+use App\Entity\CommandesLabo;
 use App\Entity\Composants;
 use App\Entity\CompositionsProduit;
 use App\Entity\DetailsCommandesBL;
@@ -65,6 +66,9 @@ class AppFixtures extends Fixture
             $manager->persist($produit);
             $manager->persist($produit2);
 
+            $commandesLabo = new CommandesLabo("label",$faker->numberBetween(0001,9999),$faker->dateTime('d-m-Y'),$faker->numberBetween(0,1000));
+            $manager->persist($commandesLabo);
+
 
             $detailscommandesBL = new DetailsCommandesBL($faker->numberBetween(0,100));
             $detailscommandesBL->addCodeProduit($produit);
@@ -79,7 +83,7 @@ class AppFixtures extends Fixture
             $compositionProduit = new CompositionsProduit($faker->numberBetween(0,100));
             $compositionProduit->addCodeProduit($produit);
             $compositionProduit->addCodeProduit($produit2);
-           $compositionProduit->addIdComposant($composant);
+            $compositionProduit->addIdComposant($composant);
             $manager->persist($compositionProduit);
 
         }

@@ -40,16 +40,16 @@ class CommandesLaboController
         $quantiteTotal = $data['quantiteTotal'];
         $codeProduit = $data['codeProduit'];
 
-        if (empty($idCommandeLabo) || empty($dueDate) || empty($libelle) || empty($codeProduit))
+        if ( empty($dueDate) || empty($libelle) || empty($codeProduit))
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
 
-        $codeProduit2 = $this->produitsRepository->findOneBy(['codeProduit'=>$codeProduit]);
+       // $codeProduit2 = $this->produitsRepository->findOneBy(['codeProduit'=>$codeProduit]);
 
-        $this->commandesLaboRepository-> save( $dueDate2, $libelle, $quantiteTotal, $codeProduit2);
+        $this->commandesLaboRepository->save( $dueDate2, $libelle, $quantiteTotal, $codeProduit);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
