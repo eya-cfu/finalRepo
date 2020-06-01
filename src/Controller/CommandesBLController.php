@@ -109,8 +109,13 @@ class CommandesBLController
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
-        $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
-        $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+        $profil = $this->profilRepository->findOneBy(['matricule' => $livreur]);
+        if(!empty($profil))
+        {
+            $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+        }
+        else $livreur2 = 0;
+
 
         $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 

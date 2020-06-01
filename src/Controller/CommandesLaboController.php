@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Produits;
 use App\Repository\CommandesLaboRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,10 +16,13 @@ class CommandesLaboController
 {
 
     private $commandesLaboRepository;
+    private $em;
 
-    public function __construct(CommandesLaboRepository $commandesLaboRepository)
+    public function __construct(CommandesLaboRepository $commandesLaboRepository,EntityManagerInterface $entityManager)
     {
         $this->commandesLaboRepository = $commandesLaboRepository;
+        $this->em= $entityManager;
+        $this->produitsRepository = $this->em->getRepository(Produits::class);
     }
 
 
@@ -42,7 +47,9 @@ class CommandesLaboController
 
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
 
-        $this->commandesLaboRepository-> save( $dueDate2, $libelle, $quantiteTotal, $codeProduit);
+        $codeProduit2 = $this->produitsRepository->findOneBy(['codeProduit'=>$codeProduit]);
+
+        $this->commandesLaboRepository-> save( $dueDate2, $libelle, $quantiteTotal, $codeProduit2);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }

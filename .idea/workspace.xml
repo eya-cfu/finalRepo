@@ -4,6 +4,7 @@
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesLaboController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesLaboController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +187,7 @@
       <workItem from="1590440201218" duration="2975000" />
       <workItem from="1590783033703" duration="3563000" />
       <workItem from="1590956250054" duration="17946000" />
-      <workItem from="1591042952320" duration="4590000" />
+      <workItem from="1591042952320" duration="5255000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -447,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591046560910</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="fixed the post of commandeBl, should now persist valid boulangeries">
+      <created>1591049004335</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1591049004335</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +466,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="meh" />
     <MESSAGE value="changed a lot of things to confrom to the api and still one method in details remaining" />
     <MESSAGE value="all methods have been debugged and tried out, id issue and date formatting have not been adressed" />
     <MESSAGE value="soft delete has been adressed still need to cascade delete all compositions of a product that has been softdeleted" />
@@ -483,7 +490,8 @@
     <MESSAGE value="added security measure to getCmdsByEtat and boulangerieGet all" />
     <MESSAGE value="fixed the identifyLivreur patch and boulangeries post and commandeBls post" />
     <MESSAGE value="fixed all patches and puts to look up the profil or boulangerie whatever and say invalid if youre trying to connect and entity to something invalid" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed all patches and puts to look up the profil or boulangerie whatever and say invalid if youre trying to connect and entity to something invalid" />
+    <MESSAGE value="fixed the post of commandeBl, should now persist valid boulangeries" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the post of commandeBl, should now persist valid boulangeries" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -510,14 +518,14 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1586181435086" />
-    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590966201598">
+    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591049355001">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1590966201598" />
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591046560673">
+    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591049003983">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591046560673" />
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591049003983" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -530,10 +538,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591046565413">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591049006404">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591046565413" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591049006404" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -542,10 +550,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="624" y="176" width="488" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1586114519655" />
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590783593666">
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591049613705">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1590783593666" />
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591049613705" />
     <state x="646" y="400" width="445" height="275" key="git4idea.rebase.GitRebaseDialog" timestamp="1587493782892">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
