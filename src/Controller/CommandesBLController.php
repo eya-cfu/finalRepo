@@ -225,8 +225,10 @@ class CommandesBLController
                 'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
                 'nomBL' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getNomBoul(),
-                'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
-                'nom' =>($commandesBL->getLivreur()==null) ? null :  $commandesBL->getLivreur()->getMatricule()->getNom(),
+                'matricule' =>  ($commandesBL->getLivreur()==null|| $commandesBL->getLivreur()->getMatricule()==null) ? null
+                    : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
+                'nom' =>($commandesBL->getLivreur()==null ||$commandesBL->getLivreur()->getMatricule()==null) ? null
+                    :  $commandesBL->getLivreur()->getMatricule()->getNom(),
             ];
         }
 

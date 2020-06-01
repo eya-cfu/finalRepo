@@ -139,11 +139,17 @@ class BoulangeriesController
                     'nomBL' => $boulangerie->getNomBoul(),
                     'adresse' => $boulangerie->getAdresse(),
                     'telephone' => $boulangerie->getTelephone(),
-                    'matricule' => $boulangerie->getMatricule()->getMatricule(),
+                    'matricule' =>  ($boulangerie->getMatricule()==null) ? null :$boulangerie->getMatricule()->getMatricule(),
                     'nbOperateurs' => $boulangerie->getNbOperateurs(),
                 ],
                 'nom'=> $boulangerie->getMatricule()->getNom(),
             ];
+
+
+            // 'matricule' =>  ($commandesBL->getLivreur()==null|| $commandesBL->getLivreur()->getMatricule()==null) ? null
+            //                    : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
+            //                'nom' =>($commandesBL->getLivreur()==null ||$commandesBL->getLivreur()->getMatricule()==null) ? null
+            //                    :  $commandesBL->getLivreur()->getMatricule()->getNom(),
         }
 
         
