@@ -124,7 +124,15 @@ class LivreursController
 
         $data = json_decode($request->getContent(), true);
 
-        empty($data['matricule']) ? true : $livreurs->setMatricule($data['matricule']);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $data['matricule']]);
+
+        if(empty($profil))
+        {
+            throw new NotFoundHttpException('Invalid!');
+        }
+        $livreurs->setMatricule($profil);
+        //  }
+
         empty($data['numVehicule']) ? true : $livreurs->setNumVehicule($data['numVehicule']);
         empty($data['teleLivreur']) ? true : $livreurs->setTeleLivreur($data['teleLivreur']);
 

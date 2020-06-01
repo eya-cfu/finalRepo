@@ -161,11 +161,19 @@ class BoulangeriesController
      */
     public function update($idBoulangerie, Request $request): JsonResponse
     {
-        $boulangeries = $this->boulangerieRepository->findOneBy(['idBoulangerie' => $idBoulangerie]);
+        $boulangeries = $this->boulangerieRepository->findOneBy(['id' => $idBoulangerie]);
         $data = json_decode($request->getContent(), true);
 
       //  empty($data['idBoulangerie']) ? true : $boulangeries->setIdBoulangerie($data['idBoulangerie']);
-        empty($data['responsable']) ? true : $boulangeries->setMatricule($data['responsable']);
+     //   empty($data['responsable']) ? true : $boulangeries->setMatricule($data['responsable']);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $data['matricule']]);
+        if(empty($profil))
+        {
+            throw new NotFoundHttpException('Invalid!');
+        }
+        $boulangeries->setMatricule($profil);
+        //  }
+
         empty($data['nbOperateurs']) ? true : $boulangeries->setNbOperateurs($data['nbOperateurs']);
         empty($data['adresse']) ? true : $boulangeries->setAdresse($data['adresse']);
         empty($data['telephone']) ? true : $boulangeries->setTelephone($data['telephone']);
