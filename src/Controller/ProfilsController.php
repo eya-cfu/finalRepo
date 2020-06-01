@@ -67,6 +67,26 @@ class ProfilsController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/profils/{matricule}", name="updateProfil", methods={"PUT"})
+     */
+    public function update($matricule, Request $request): JsonResponse
+    {
+        $profils = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+        $data = json_decode($request->getContent(), true);
+
+        empty($data['nom']) ? true : $profils->setNom($data['nom']);
+        empty($data['login']) ? true : $profils->setLogin($data['login']);
+        empty($data['password']) ? true : $profils->setPassword($data['password']);
+        empty($data['affectation']) ? true : $profils->setAffectation($data['affectation']);
+
+        $updated = $this->profilsRepository->update($profils);
+
+        return new JsonResponse($updated->toArray(), Response::HTTP_OK);
+    }
+
+
+
 
     /**
      * @Route("/profils/{matricule}", name="delete_Profil", methods={"DELETE"})
