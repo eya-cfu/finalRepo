@@ -381,6 +381,7 @@ class CommandesBLController
 
 
 
+
         foreach ($commandesBLS as $commandesBL) {
 
             $detailsCommandes = $this->getByIdCommande($commandesBL->getIdCommandeBL());

@@ -165,36 +165,43 @@ class DetailsCommandesController
         $dueDate =  $request->query->get('dueDate');
 
 
-
         // for every detail we need to go through and display the specific produit
         foreach ($detailsCommandes as $detail) {
 
             // this loop assumes that each codeProduit has a idCommande or it wont work
-            for($i = 0 ; $i < sizeof($detail->getCodeProduit()); $i++ )
+
+            for( $i=0; $i < sizeof ($detail->getCodeProduit()); $i++ )
             {
                 //need to compare the code again so we only get the product we need, basically sequential search
-                if($detail->getCodeProduit()[$i]->getCodeProduit()==$codeProduit
-                   && $detail->getIdCommandeBL()[$i]->getDueDate()->format('d-m-Y') == $dueDate)
-                {
+                if($detail->getCodeProduit()[$i]->getCodeProduit()==$codeProduit)
+
+                { for( $j=0; $j < sizeof ($detail->getIdCommandeBL()); $j++ )
+                    if ($detail->getIdCommandeBL()[$j]->getDueDate()->format('d-m-Y') == $dueDate){
                     $data[] = [
                         'idDetail' => $detail->getIdDetail(),
                         'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
-                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                        'idCommandeBL' => $detail->getIdCommandeBL()[$j]->getIdCommandeBL(),
                         'quantiteProd' => $detail->getQuantiteProd(),
-                                ];
+                    ];
                     //break so it only returns one element
-                   // break;
+                    // break;
+
                 }
-                /*  else
+                    else break;
+                }
+                  else
                 {
-                     $data[] = [
-                           'idDetail' => $detail->getIdDetail(),
-                           'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
-                           'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
-                           'quantiteProd' => $detail->getQuantiteProd(),
-                           'wrong'=> "fuck"
-                       ];
-                   }*/
+                    break;
+                    /*
+                    $data[]= ['i'=> $i,
+                        'size'=>sizeof ($detail->getCodeProduit()),
+                        'sizeCommande'=>sizeof ($detail->getIdCommandeBL()),
+                        'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
+                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                        'wrong' => 'fuck'
+                        ];
+                    */
+                   }
             }
         }
 
