@@ -72,8 +72,9 @@ class LivreursController
         {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
+        $matricule2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
 
-        $this->livreurRepository-> save($numVehicule, $teleLivreur, $matricule);
+        $this->livreurRepository-> save($numVehicule, $teleLivreur, $matricule2);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }

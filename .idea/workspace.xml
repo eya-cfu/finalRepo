@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200601223704.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200601224112.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesLaboController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesLaboController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommandesLabo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandesLabo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommandesLaboRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommandesLaboRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LivreursController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LivreursController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +186,7 @@
       <workItem from="1590440201218" duration="2975000" />
       <workItem from="1590783033703" duration="3563000" />
       <workItem from="1590956250054" duration="17946000" />
-      <workItem from="1591042952320" duration="6973000" />
+      <workItem from="1591042952320" duration="8799000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -473,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591049770532</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="fixed commandeLabo and tested and updated Database">
+      <created>1591051586122</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1591051586122</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +486,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="soft delete has been adressed still need to cascade delete all compositions of a product that has been softdeleted" />
     <MESSAGE value="cascade deleted all the compositions concerning one product" />
     <MESSAGE value="polished code a bit and made findbyproduit return a single element" />
     <MESSAGE value="wrote documentation in ReadMe.md and updated the homepage" />
@@ -509,7 +510,8 @@
     <MESSAGE value="fixed the post of commandeBl, should now persist valid boulangeries" />
     <MESSAGE value="fixed the livreur to zero didnt test yet" />
     <MESSAGE value="tested livreur , cant be set to zero only to null" />
-    <option name="LAST_COMMIT_MESSAGE" value="tested livreur , cant be set to zero only to null" />
+    <MESSAGE value="fixed commandeLabo and tested and updated Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed commandeLabo and tested and updated Database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -540,10 +542,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591049770316">
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591051585728">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591049770316" />
+    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591051585728" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -556,10 +558,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591049775168">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591051589005">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591049775168" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591051589005" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
