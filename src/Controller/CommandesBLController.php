@@ -395,9 +395,10 @@ class CommandesBLController
 
                     $data[] = [
                       //  'idCommandeBL' => $commandesBL->getIdCommandeBL(),
-                        'codesProduit' => $produit->getCodeProduit(),
+                        'codeProduit' => $produit->getCodeProduit(),
                         'libelle'=> $produit->getLibelle(),
                         'quantite'=> $element->getQuantiteProd(),
+                        //'idDetail' =>$element->getIdDetail()
                     ];
                 }
 

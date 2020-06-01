@@ -183,18 +183,18 @@ class DetailsCommandesController
                         'quantiteProd' => $detail->getQuantiteProd(),
                                 ];
                     //break so it only returns one element
-                    //break;
+                   // break;
                 }
-                else
+                /*  else
                 {
-                    $data[] = [
-                        'idDetail' => $detail->getIdDetail(),
-                        'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
-                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
-                        'quantiteProd' => $detail->getQuantiteProd(),
-                        'wrong'=> "fuck"
-                    ];
-                }
+                     $data[] = [
+                           'idDetail' => $detail->getIdDetail(),
+                           'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
+                           'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                           'quantiteProd' => $detail->getQuantiteProd(),
+                           'wrong'=> "fuck"
+                       ];
+                   }*/
             }
         }
 
