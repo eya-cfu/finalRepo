@@ -69,9 +69,10 @@ class LivreursController
         $matricule = $data['matricule'];
 
         if (empty($numVehicule) || empty($teleLivreur) || empty($matricule))
-        {
+       {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
+
         $matricule2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
 
         $this->livreurRepository-> save($numVehicule, $teleLivreur, $matricule2);
