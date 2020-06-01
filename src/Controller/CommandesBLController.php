@@ -71,7 +71,7 @@ class CommandesBLController
                 'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'idCommandeBL' => $commandesBL->getIdCommandeBL(),
                 'etat' => $commandesBL->getEtat(),
-                'matricule' => ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getId(),
+                'matricule' => ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
                 'idBoulangerie' => ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
             ];
         //  $idLivreur = $commandesBL->getLivreur()->getId();
@@ -140,7 +140,7 @@ class CommandesBLController
           'etat' => $commandesBL->getEtat(),
            'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
           'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
-            'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getId(),
+            'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
             'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
         ];
 
@@ -162,8 +162,22 @@ class CommandesBLController
         empty($data['idCommandeBL']) ? true : $commandesBL->setIdCommandeBL($data['idCommandeBL']);
         empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
         empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
-        empty($data['matricule']) ? true : $commandesBL->setLivreur($data['matricule']);
-        empty($data['idBoulangerie']) ? true : $commandesBL->setIdBoulangerie($data['idBoulangerie']);
+        $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
+        $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+        if(empty($livreur))
+        {
+            throw new NotFoundHttpException('Invalid!');
+        }
+        $commandesBL->setLivreur($livreur);
+
+
+        $boulangerie = $this->boulangerieRepository->findOneBy(['id' => $data['idBoulangerie']]);
+        if(empty($boulangerie))
+        {
+            throw new NotFoundHttpException('Invalid Boulangerie!');
+        }
+        $commandesBL->setIdBoulangerie($boulangerie);
+
 
         $updated = $this->commandesBLRepository->update($commandesBL);
 
