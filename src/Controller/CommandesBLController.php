@@ -109,9 +109,10 @@ class CommandesBLController
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
-        $livreur2 = $this->livreurRepository->findOneBy(['matricule'=> $livreur]);
+        $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
+        $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
 
-        $boulangerie2 = $this->boulangerieRepository->findOneBy(['idBoulangerie'=> $idBoulangerie]);
+        $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
        $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);//$dueDate2,$creationDate2
 
