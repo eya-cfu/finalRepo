@@ -23,9 +23,9 @@ class BoulangeriesRepository extends ServiceEntityRepository
     }
 
 
-    public function save( $addresse, $nbOperateurs, $nomBL,$telephone, $responsable)//$idBoulangerie,
+    public function save( $nomBL, $addresse, $telephone, $responsable,  $nbOperateurs)//$idBoulangerie,
     {
-        $boulangerie = new Boulangeries($addresse, $nbOperateurs,$nomBL,$telephone,$responsable);
+        $boulangerie = new Boulangeries($nomBL, $addresse, $telephone, $responsable,  $nbOperateurs);
         $boulangerie->setDeleted(false);
 
         $this->manager->persist($boulangerie);

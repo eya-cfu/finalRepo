@@ -102,20 +102,20 @@ class CommandesBLController
         //return new JsonResponse($request);
          // return new JsonResponse($data);
 
-        if (empty($creationDate) || empty($dueDate))
+    //    if (empty($creationDate) || empty($dueDate))
         {
-            throw new NotFoundHttpException('Expecting mandatory parameters!');
+        //    throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
-        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
+       $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
         $livreur2 = $this->livreurRepository->findOneBy(['matricule'=> $livreur]);
 
         $boulangerie2 = $this->boulangerieRepository->findOneBy(['idBoulangerie'=> $idBoulangerie]);
 
-       $this->commandesBLRepository->save($idCommandeBL,$dueDate2,$creationDate2,$etat, $livreur2, $boulangerie2);
+       $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);//$dueDate2,$creationDate2
 
-        return new JsonResponse(['status' => 'Customer created!'], Response::HTTP_CREATED);
+        return new JsonResponse(['status' => 'Commande created!'], Response::HTTP_CREATED);
     }
 
 
@@ -192,7 +192,18 @@ class CommandesBLController
        // empty($data['idCommandeBL']) ? true : $commandesBL->setIdCommandeBL($data['idCommandeBL']);
        // empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
        //// empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
-        empty($data['matricule']) ? true : $commandesBL->setLivreur($data['matricule']);
+
+
+    //    if( !empty($data['matricule'])) {
+        $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
+        $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+            if(empty($livreur))
+            {
+                throw new NotFoundHttpException('Invalid!');
+            }
+            $commandesBL->setLivreur($livreur);
+      //  }
+
        // empty($data['idBoulangerie']) ? true : $commandesBL->setIdBoulangerie($data['idBoulangerie']);
 
         $updated = $this->commandesBLRepository->update($commandesBL);

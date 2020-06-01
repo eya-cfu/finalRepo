@@ -45,18 +45,18 @@ class BoulangeriesController
         $telephone = $data['telephone'];
         $matricule = $data['matricule'];
 
+
+
        // return new JsonResponse($matricule);
         // return new JsonResponse($request);
         //  return new JsonResponse($data);
-
-        if ( empty($addresse) || empty($nbOperateurs) || empty($telephone))
+        $responsable2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+        if (empty($responsable2))
         {
-            throw new NotFoundHttpException('Expecting mandatory parameters!');
+            throw new NotFoundHttpException('Responsable Invalid');
         }
 
-        $responsable2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
-
-        $this->boulangerieRepository->save( $addresse, $nbOperateurs, $nomBL,$telephone, $responsable2);
+        $this->boulangerieRepository->save( $nomBL, $addresse, $telephone, $responsable2,  $nbOperateurs);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
