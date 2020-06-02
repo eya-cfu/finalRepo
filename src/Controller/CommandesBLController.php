@@ -162,7 +162,7 @@ class CommandesBLController
         empty($data['idCommandeBL']) ? true : $commandesBL->setIdCommandeBL($data['idCommandeBL']);
         empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
         empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
-        $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
+      /* $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
         $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         if(empty($livreur))
         {
@@ -178,7 +178,7 @@ class CommandesBLController
         }
         $commandesBL->setIdBoulangerie($boulangerie);
 
-
+*/
         $updated = $this->commandesBLRepository->update($commandesBL);
 
         return new JsonResponse($updated->toArray(), Response::HTTP_OK);

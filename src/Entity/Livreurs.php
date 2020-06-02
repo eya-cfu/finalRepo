@@ -59,17 +59,18 @@ class Livreurs
         return $this->id;
     }
 
-    public function getTeleLivreur(): ?string
+    public function getTeleLivreur(): ?int
     {
         return $this->teleLivreur;
     }
 
-    public function setTeleLivreur(?string $teleLivreur): self
+    public function setTeleLivreur(int $teleLivreur): self
     {
         $this->teleLivreur = $teleLivreur;
 
         return $this;
     }
+
 
     public function getNumVehicule(): ?string
     {
