@@ -75,7 +75,7 @@ class LivreursController
 
         $matricule2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
 
-        $this->livreurRepository-> save($numVehicule, $teleLivreur, $matricule2);
+        $this->livreurRepository-> save($teleLivreur, $numVehicule, $matricule2);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }

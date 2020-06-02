@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Livreurs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Livreurs.php" afterDir="false" />
-    </list>
+    <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +184,7 @@
       <workItem from="1590783033703" duration="3563000" />
       <workItem from="1590956250054" duration="17946000" />
       <workItem from="1591042952320" duration="12132000" />
-      <workItem from="1591124637383" duration="610000" />
+      <workItem from="1591124637383" duration="1632000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1586885663621</created>
@@ -519,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591055853775</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="modified doctrine class that was having a weird bug, where it demanded a string which doesnt make any sense. Normally shouldnt change that class but it should fix your error, weirdly doctrine didnt fix that itself">
+      <created>1591125326500</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1591125326500</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +533,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="changed get requests to only return one object, modified gets to suit swagger in boulangerie, made idcomposant unique and deleted it from faker. fixed the matricule issue in livreur and boulangerie" />
     <MESSAGE value="smol adjustments" />
     <MESSAGE value="- getAdmin by Login now looks like this&#10;&#10;{&quot;loginAdmin&quot;:&quot;Natasha&quot;,&quot;passwordAdmin&quot;:&quot;Kerluke&quot;,&quot;nomAdmin&quot;:&quot;Miss Modesta Davis DVM&quot;,&quot;teleAdmin&quot;:493180}&#10;which is not an array. Issue resolved &#10;&#10;-getCommand by etat and IdBoulangerie works on my side. Sadly I dont return a 405 anywhere. Please check the Spelling of the request and get back to me. Refer to the method defined in the sourceCode since it might differ from the swagger documentation by accident. I tested it with your server too and it worked for me.&#10;https://boulang.ml/commandesBL/getCmdsByEtatAndBoulangerieID?etat=nouvelle&amp;idBoulangerie=955&#10;&#10;/getCmd By Id has been tested on your server and also works for me &#10;https://boulang.ml/commandesBL/ById/DarkMagenta&#10;&#10;/getCompositionsProduit works https://boulang.ml/compositionsProduits &#10;Please refer to the links that have been tested with your server &#10;&#10;/getCmdsByEtatandMatricule https://boulang.ml/commandesBL/getByEtatAndMatricule?etat=nouvelle&amp;matricule=801&#10;same. &#10;&#10;/getCmdsForLab has been resolved and was caused by a small bug. Refer to the new version. It'll work.&#10;&#10;/getLivreurbyMatricule is now a normal Livreur not a filtered Response" />
     <MESSAGE value="/getDetailsCommandesBl now returns each row like it should. I was confused because i forgot that method existed and I was thinking of findByProduitAndDate which is right. When I coded it the documentation was incomplete so i returned it as an array. I apologize for this misunderstanding. The database definition is still logically sound according to my opinion. As to why they are STILL wrong thats because I did not change them indeed. &#10;IdDetail is unique every time and its only repeated as one Detail can have many products and many commandes. We do not map one quantity value multiple times." />
@@ -555,7 +557,8 @@
     <MESSAGE value="fixed a patch in commandes, fixed getCmdbyetatand Matricule" />
     <MESSAGE value="added softdelete for Livreurs.php" />
     <MESSAGE value="added put for profile to modify affectation,login, nom , password" />
-    <option name="LAST_COMMIT_MESSAGE" value="added put for profile to modify affectation,login, nom , password" />
+    <MESSAGE value="modified doctrine class that was having a weird bug, where it demanded a string which doesnt make any sense. Normally shouldnt change that class but it should fix your error, weirdly doctrine didnt fix that itself" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified doctrine class that was having a weird bug, where it demanded a string which doesnt make any sense. Normally shouldnt change that class but it should fix your error, weirdly doctrine didnt fix that itself" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -586,10 +589,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591055853588">
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591125326079">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591055853588" />
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591125326079" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -602,10 +605,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591055855685">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591125343756">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591055855685" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591125343756" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
