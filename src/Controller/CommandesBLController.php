@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Boulangeries;
 use App\Entity\CommandesBL;
+use App\Entity\CommandesLabo;
 use App\Entity\DetailsCommandesBL;
 use App\Entity\Livreurs;
 use App\Entity\Produits;
@@ -36,6 +37,7 @@ class CommandesBLController
     private $profilRepository;
     private $detailsCommandesBLRepository;
     private $produitsRepository;
+    private $commandeLaboRepository;
 
     private $em;
     private $queryBuilder;
@@ -52,11 +54,11 @@ class CommandesBLController
         $this->profilRepository = $this->em->getRepository(Profils::class);
         $this->detailsCommandesBLRepository = $this->em->getRepository(DetailsCommandesBL::class);
         $this->produitsRepository = $this->em->getRepository(Produits::class);
+        $this->commandeLaboRepository = $this->em->getRepository(CommandesLabo::class);
 
         $this->queryBuilder =$this->em->createQueryBuilder();
 
     }
-
 
     /**
      * @Route("/commandesBL", name="get_all_commandes", methods={"GET"})
@@ -89,7 +91,6 @@ class CommandesBLController
      */
     public function add(Request $request): JsonResponse
     {
-
         $data = json_decode($request->getContent(), true);
 
         $idCommandeBL = $data['idCommandeBL'];
@@ -98,7 +99,6 @@ class CommandesBLController
         $etat = $data['etat'];
         $livreur = $data['matricule'];
         $idBoulangerie = $data['idBoulangerie'];
-
 
         //return new JsonResponse($creationDate);
         //return new JsonResponse($request);
@@ -117,7 +117,6 @@ class CommandesBLController
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
         else $livreur2 = null;
-
 
         $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
@@ -340,6 +339,7 @@ class CommandesBLController
 
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
         $produits = $this->produitsRepository->findAll();
+
         $data = [];
         //$controllerDetail = new DetailsCommandesController($this->detailsCommandesBLRepository);
         $totalsum = 0;
@@ -381,7 +381,9 @@ class CommandesBLController
                      }
                    // $data[] = ['produits'=>$detailsCommandesByProduitAndByDate,'dueDate'=>$commandesBL->getDueDate()->format('d-m-Y')];
 
-                    if($sum!= 0) {
+
+                    // NEED TO CHECK IF ITS IN COMMANDELABO
+                    if($sum!= 0 && !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) {
                         //$totalsum += $sum;
                         $data[] = [
                             //  'id' => $commandesBL->getId(),
@@ -569,9 +571,26 @@ class CommandesBLController
         return $detailsForCommands;
     }
 
+    public function checkIfInLabo ($codeProduit, $dueDate)
+    {
+        $commandesLabo = $this->commandeLaboRepository->findAll();
+
+        foreach ($commandesLabo as $commandeLabo) {
+            if($commandeLabo->getCodeProduit == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
+            {
+                    return true;
+            }
+
+        }
+        return false;
+    }
 
 
 }
+
+
+
+
 
 
 //

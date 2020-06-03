@@ -69,7 +69,6 @@ class AppFixtures extends Fixture
             $commandesLabo = new CommandesLabo("label",$faker->numberBetween(0001,9999),$faker->dateTime('d-m-Y'),$faker->numberBetween(0,1000));
             $manager->persist($commandesLabo);
 
-
             $detailscommandesBL = new DetailsCommandesBL($faker->numberBetween(0,100));
             $detailscommandesBL->addCodeProduit($produit);
             $detailscommandesBL->addCodeProduit($produit2);

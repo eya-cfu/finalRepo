@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/api_home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/api_home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,14 +190,7 @@
       <workItem from="1590956250054" duration="17946000" />
       <workItem from="1591042952320" duration="12132000" />
       <workItem from="1591124637383" duration="12388000" />
-      <workItem from="1591210096587" duration="11747000" />
-    </task>
-    <task id="LOCAL-00004" summary="array conversion for entities added without foreing keys because those wont be used to display objects">
-      <created>1586955843016</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1586955843016</updated>
+      <workItem from="1591210096587" duration="14123000" />
     </task>
     <task id="LOCAL-00005" summary="finished admin operations tested them, configured all the repos">
       <created>1586977115783</created>
@@ -536,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591221422324</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fixed /commandesBL/getCmdsByEtatAndMatricule">
+      <created>1591223543611</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1591223543611</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +546,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="paths updated" />
     <MESSAGE value="getCount updated with new Date" />
     <MESSAGE value="fixed CompositionsProduitController the post method, now needs to be supplied with valid codeProduits and idComposants, updated faker to create the composants objects, updated the creationDate to datetime, getCount still works, fixed other small bugs" />
     <MESSAGE value="fixed the flipped unite and nom" />
@@ -572,7 +570,8 @@
     <MESSAGE value="made libelle of commandeLabo 20 length" />
     <MESSAGE value="made a fuckton of queries none work none make sense, fuck dql, fuck sql fuck doctrine" />
     <MESSAGE value="see if this works bellahi" />
-    <option name="LAST_COMMIT_MESSAGE" value="see if this works bellahi" />
+    <MESSAGE value="fixed /commandesBL/getCmdsByEtatAndMatricule" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed /commandesBL/getCmdsByEtatAndMatricule" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -603,10 +602,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
-    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591221422036">
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591223543327">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591221422036" />
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591223543327" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -619,10 +618,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591221425188">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591223557847">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591221425188" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591223557847" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
