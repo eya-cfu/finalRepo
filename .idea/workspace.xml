@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfilsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfilsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommandesBLController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,14 +187,7 @@
       <workItem from="1590783033703" duration="3563000" />
       <workItem from="1590956250054" duration="17946000" />
       <workItem from="1591042952320" duration="12132000" />
-      <workItem from="1591124637383" duration="3023000" />
-    </task>
-    <task id="LOCAL-00001" summary="first commit">
-      <created>1586885663621</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1586885663621</updated>
+      <workItem from="1591124637383" duration="11047000" />
     </task>
     <task id="LOCAL-00002" summary="first commit">
       <created>1586954480433</created>
@@ -532,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591128157885</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="made libelle of commandeLabo 20 length">
+      <created>1591132299310</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1591132299313</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +543,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="- getAdmin by Login now looks like this&#10;&#10;{&quot;loginAdmin&quot;:&quot;Natasha&quot;,&quot;passwordAdmin&quot;:&quot;Kerluke&quot;,&quot;nomAdmin&quot;:&quot;Miss Modesta Davis DVM&quot;,&quot;teleAdmin&quot;:493180}&#10;which is not an array. Issue resolved &#10;&#10;-getCommand by etat and IdBoulangerie works on my side. Sadly I dont return a 405 anywhere. Please check the Spelling of the request and get back to me. Refer to the method defined in the sourceCode since it might differ from the swagger documentation by accident. I tested it with your server too and it worked for me.&#10;https://boulang.ml/commandesBL/getCmdsByEtatAndBoulangerieID?etat=nouvelle&amp;idBoulangerie=955&#10;&#10;/getCmd By Id has been tested on your server and also works for me &#10;https://boulang.ml/commandesBL/ById/DarkMagenta&#10;&#10;/getCompositionsProduit works https://boulang.ml/compositionsProduits &#10;Please refer to the links that have been tested with your server &#10;&#10;/getCmdsByEtatandMatricule https://boulang.ml/commandesBL/getByEtatAndMatricule?etat=nouvelle&amp;matricule=801&#10;same. &#10;&#10;/getCmdsForLab has been resolved and was caused by a small bug. Refer to the new version. It'll work.&#10;&#10;/getLivreurbyMatricule is now a normal Livreur not a filtered Response" />
     <MESSAGE value="/getDetailsCommandesBl now returns each row like it should. I was confused because i forgot that method existed and I was thinking of findByProduitAndDate which is right. When I coded it the documentation was incomplete so i returned it as an array. I apologize for this misunderstanding. The database definition is still logically sound according to my opinion. As to why they are STILL wrong thats because I did not change them indeed. &#10;IdDetail is unique every time and its only repeated as one Detail can have many products and many commandes. We do not map one quantity value multiple times." />
     <MESSAGE value="implemented produit/countAll/getCount" />
     <MESSAGE value="paths updated" />
@@ -568,7 +567,8 @@
     <MESSAGE value="added put for profile to modify affectation,login, nom , password" />
     <MESSAGE value="modified doctrine class that was having a weird bug, where it demanded a string which doesnt make any sense. Normally shouldnt change that class but it should fix your error, weirdly doctrine didnt fix that itself" />
     <MESSAGE value="fixed constructor, man thats fucking annoying who it doesnt check that automatically" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed constructor, man thats fucking annoying who it doesnt check that automatically" />
+    <MESSAGE value="made libelle of commandeLabo 20 length" />
+    <option name="LAST_COMMIT_MESSAGE" value="made libelle of commandeLabo 20 length" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -599,10 +599,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
-    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591128157601">
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591132298831">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591128157601" />
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591132298831" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -615,10 +615,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591128160550">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591132301331">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591128160550" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591132301331" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -627,10 +627,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="624" y="176" width="488" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1586114519655" />
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591049613705">
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591141911453">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591049613705" />
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591141911453" />
     <state x="646" y="400" width="445" height="275" key="git4idea.rebase.GitRebaseDialog" timestamp="1587493782892">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>

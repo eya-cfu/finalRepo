@@ -340,13 +340,14 @@ class CommandesBLController
         $data = [];
         //$controllerDetail = new DetailsCommandesController($this->detailsCommandesBLRepository);
 
+        /*
         foreach ($commandesBLS as $commandesBL) {
 
-           $detailsCommandes = $this->getByIdCommande($commandesBL->getIdCommandeBL());
+          // $detailsCommandes = $this->getByIdCommande($commandesBL->getIdCommandeBL());
            // return new JsonResponse( $detailsCommandes,Response::HTTP_OK);
 
            // $data[] = [];
-
+          /  $detailsCommandes = $this->detailsCommandesBLRepository->findAll();
             $sum = 0 ;
             foreach ($detailsCommandes as $item) {
                 $sum += $item ->getQuantiteProd();
@@ -360,8 +361,8 @@ class CommandesBLController
                 {
 
                     $data[] = [
-                        // 'id' => $commandesBL->getId(),
-                        'codesProduit' => $produit->getCodeProduit(),
+                       //  'id' => $commandesBL->getId(),
+                        'codeProduit' => $produit->getCodeProduit(),
                         'libelle'=>$produit->getLibelle(),
                         'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
                         'sumQuantite'=> $sum,
@@ -370,6 +371,74 @@ class CommandesBLController
             }
 
         }
+*/
+
+        $detailsCommandes = $this->detailsCommandesBLRepository->findAll();
+
+        $entityManager = $this->em;
+      //  foreach ($detailsCommandes as $detailsCommande){
+
+       /* $qb = $this->detailsCommandesBLRepository->createQueryBuilder('p')
+            ->select('p.codeProduit.id, p.codeProduit.libelle, p.idCommandeBl.dueDate, sum(p.quantiteProd) as quantiteTotal')
+            ->innerjoin('p.idCommandeBL' 'p.codePr')
+            ->where('p.id = p.idCommandeBL.id AND p.id = p.codeProduit.id')
+            ->getQuery();
+       */
+
+        /*$query = $entityManager->createQuery(
+            'SELECT b.id, b.libelle, d.dueDate, sum(a.quantiteProd) AS quantiteTotal
+    FROM App\Entity\DetailsCommandesBL a
+    JOIN a.codeProduit b
+    WHERE a.id = b.id 
+    JOIN  p.idCommandeBL d 
+    WHERE d.id = a.id
+    GROUP BY b.id, b.libelle, d.dueDate'
+        );
+*/
+
+      //  $sql = "SELECT u.id, u.name, a.id AS address_id, a.street, a.city " "FROM users u INNER JOIN address a ON u.address_id = a.id";
+
+
+        $sql = "SELECT u.id, u.name, a.id as idenCom, a.street, a.city " .
+            "FROM DetailsCommandesBL a INNER JOIN idCommandeBL a ON u.idenCom = a.id";
+
+        //SELECT u FROM User u JOIN u.address a WHERE a.city = 'Berlin'
+
+       //     $data =  $query->getResult();
+
+       // }
+
+       /* $query = $entityManager->createQuery(
+            'SELECT b.id, b.libelle, d.dueDate, sum(a.quantiteProd) AS quantiteTotal
+    FROM App\Entity\DetailsCommandesBL a, App\Entity\Produits b , App\Entity\CommandesBL d
+    WHERE a.id = b.id AND d.id = a.id
+    GROUP BY b.id, b.libelle, d.dueDate'
+        );
+        */
+        /*
+        SELECT b.id, b.libelle, e.due_date, sum(a.quantite_prod) AS quantiteTotal
+    FROM details_commandes_bl a, produits b , details_commandes_bl_produits c, details_commandes_bl_commandes_bl d, commandes_bl e
+    WHERE a.id = c.id AND
+    a.id = d.id AND
+    c.details_commandes_bl_id = b.id AND
+    d.details_commandes_bl_id = e.id
+    GROUP BY b.id, b.libelle, d.due_date;
+        */
+
+        //SELECT Products.ProductID, ProductName, OrderDate, sum(Quantity) AS quantiteTotal
+        //    FROM OrderDetails, Products, Orders
+        //    WHERE Products.ProductID = OrderDetails.ProductID AND Orders.OrderID = OrderDetails.OrderID
+        //    GROUP BY OrderDate, Products.ProductID;
+
+        //SELECT b.produit_id, b.libelle, d.dueDate, sum(a.quantite_prod) AS quantiteTotal
+        //    FROM details_commandes_bl a, produits b , details_commandes_bl_produits c, details_commandes_bl_commandes_bl c, commandes_bl d
+        //    WHERE details_commandes_bl.id = details_commandes_bl_produits AND
+        //          details_commandes_bl.id = details_commandes_bl_commandes_bl AND
+        //          details_commandes_bl.produits_id = produits_id AND
+        //          details_commandes_bl_commandes_bl = commandes_bl.id
+        //    GROUP BY b.produit_id, b.libelle, d.dueDate'
+
+        // returns an array of Product objects
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
