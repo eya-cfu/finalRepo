@@ -278,8 +278,8 @@ class CommandesBLController
         $matricule =  $request->query->get('matricule');
 
         $profil = $this->profilRepository->findOneBy(['matricule' => $matricule]);
-
-        $commandesBLS = $this->commandesBLRepository -> findBy(['etat'=> $etat, 'livreur'=> $profil->getId()]);
+        $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+        $commandesBLS = $this->commandesBLRepository -> findBy(['etat'=> $etat, 'livreur'=> $livreur2->getId()]);
 
         $data = [];
 
@@ -357,8 +357,9 @@ class CommandesBLController
 
             array_push($dateList,$commandesBL->getDueDate()->format('d-m-Y'));
 
-            // need to get all commandes for a specific date then need to get how many produits are for that date and group that quantity
-            //under one product
+            // need to get all commandes for a specific date
+                // then need to get how many produits are for that date and group that quantity
+                 //under one product
 
 
             //return new JsonResponse($sum);
@@ -380,7 +381,6 @@ class CommandesBLController
                      }
                    // $data[] = ['produits'=>$detailsCommandesByProduitAndByDate,'dueDate'=>$commandesBL->getDueDate()->format('d-m-Y')];
 
-
                     if($sum!= 0) {
                         //$totalsum += $sum;
                         $data[] = [
@@ -399,36 +399,6 @@ class CommandesBLController
                    //  return new JsonResponse($detailsCommandesByProduitAndByDate);
 
                 }
-
-
-
-                   // foreach ($detailsCommandesByProduitAndByDate as $item) {
-                   //     $sum += $item ->getQuantiteProd();
-                  //  }
-                    // stil not right
-                   // foreach ($detailsCommandesByProduitAndByDate as $detail) {
-                     /*
-                      *    $data[] = [
-                            //  'id' => $commandesBL->getId(),
-                            'idDetail' => $element->getId(),
-                            'codeProduit' => $produit->getCodeProduit(),
-                            'libelle' => $produit->getLibelle(),
-                            'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
-                            'sumQuantite' => $sum,
-                      *
-                        $data[] = [
-                            //  'id' => $commandesBL->getId(),
-                            'idDetail' => $element->getId(),
-                            'codeProduit' => $produit->getCodeProduit(),
-                            'commandesBl' => $commandesBL->getDueDate()->format('d-m-Y'),
-                          //  'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
-                            'sumQuantite' => $sum,
-
-                        ];
-
-                    //}
-              //  } */
-          //  }
 
         }
 
@@ -604,3 +574,33 @@ class CommandesBLController
 }
 
 
+//
+
+//GETCMDSFORLAB DISCARDED CODE
+// foreach ($detailsCommandesByProduitAndByDate as $item) {
+//     $sum += $item ->getQuantiteProd();
+//  }
+// stil not right
+// foreach ($detailsCommandesByProduitAndByDate as $detail) {
+/*
+ *    $data[] = [
+       //  'id' => $commandesBL->getId(),
+       'idDetail' => $element->getId(),
+       'codeProduit' => $produit->getCodeProduit(),
+       'libelle' => $produit->getLibelle(),
+       'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
+       'sumQuantite' => $sum,
+ *
+   $data[] = [
+       //  'id' => $commandesBL->getId(),
+       'idDetail' => $element->getId(),
+       'codeProduit' => $produit->getCodeProduit(),
+       'commandesBl' => $commandesBL->getDueDate()->format('d-m-Y'),
+     //  'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
+       'sumQuantite' => $sum,
+
+   ];
+
+//}
+//  } */
+//  }
