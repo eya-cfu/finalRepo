@@ -9,10 +9,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ApiHomeController extends AbstractController
 {
     /**
-     * @Route("/teapot", name="api_home")
+     * @Route("/teapot", name="teapot")
      */
     public function index()
     {
         return $this->render('api_home/index.html.twig');
     }
+    
+    /**
+     * @Route("/", name="home")
+     */
+    public function index()
+    {
+        return $this->render('api_home/base.html.twig');
+    }
+    
 }
