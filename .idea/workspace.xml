@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="37443f4d-c5d8-46fe-85e7-e53a8dbd2640" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DetailsCommandesController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +144,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/api_home" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -184,42 +184,11 @@
       <workItem from="1588539745502" duration="5476000" />
       <workItem from="1590438156685" duration="1673000" />
       <workItem from="1590440201218" duration="2975000" />
-      <workItem from="1590783033703" duration="3450000" />
-    </task>
-    <task id="LOCAL-00001" summary="first commit">
-      <created>1586885663621</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1586885663621</updated>
-    </task>
-    <task id="LOCAL-00002" summary="first commit">
-      <created>1586954480433</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1586954480433</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added necessary addons to project">
-      <created>1586954512331</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1586954512331</updated>
-    </task>
-    <task id="LOCAL-00004" summary="array conversion for entities added without foreing keys because those wont be used to display objects">
-      <created>1586955843016</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1586955843016</updated>
-    </task>
-    <task id="LOCAL-00005" summary="finished admin operations tested them, configured all the repos">
-      <created>1586977115783</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1586977115783</updated>
+      <workItem from="1590783033703" duration="3563000" />
+      <workItem from="1590956250054" duration="17946000" />
+      <workItem from="1591042952320" duration="12132000" />
+      <workItem from="1591124637383" duration="12388000" />
+      <workItem from="1591210096587" duration="15023000" />
     </task>
     <task id="LOCAL-00006" summary="modified the database slightly, cant get Boulangeries.php to work in any shape or form, other classes dont wanna interact, finding an object by a specific column has straight up not worked at all for any of them so yeah fuck me, profils posting and getting works, commandesbl posting and getting works with CommandesBL.php missing associations,">
       <created>1587064026345</created>
@@ -361,7 +330,210 @@
       <option name="project" value="LOCAL" />
       <updated>1590785808473</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="/getDetailsCommandesBl now returns each row like it should. I was confused because i forgot that method existed and I was thinking of findByProduitAndDate which is right. When I coded it the documentation was incomplete so i returned it as an array. I apologize for this misunderstanding. The database definition is still logically sound according to my opinion. As to why they are STILL wrong thats because I did not change them indeed. &#10;IdDetail is unique every time and its only repeated as one Detail can have many products and many commandes. We do not map one quantity value multiple times.">
+      <created>1590786504192</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1590786504192</updated>
+    </task>
+    <task id="LOCAL-00027" summary="implemented produit/countAll/getCount">
+      <created>1590957365238</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1590957365247</updated>
+    </task>
+    <task id="LOCAL-00028" summary="paths updated">
+      <created>1590960449479</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1590960449479</updated>
+    </task>
+    <task id="LOCAL-00029" summary="getCount updated with new Date">
+      <created>1590962153280</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1590962153280</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fixed CompositionsProduitController the post method, now needs to be supplied with valid codeProduits and idComposants, updated faker to create the composants objects, updated the creationDate to datetime, getCount still works, fixed other small bugs">
+      <created>1590965980162</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1590965980162</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fixed the flipped unite and nom">
+      <created>1590966912743</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1590966912743</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fixed getDetailsCommande in CommandesBLController.php">
+      <created>1590969251909</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1590969251909</updated>
+    </task>
+    <task id="LOCAL-00033" summary="attempted fixing findbyProduitandDate">
+      <created>1590970043177</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1590970043177</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fixed findByProduitandDate">
+      <created>1590975758444</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590975758445</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added security measure to getCmdsByEtat and boulangerieGet all">
+      <created>1590976221527</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1590976221527</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fixed the identifyLivreur patch and boulangeries post and commandeBls post">
+      <created>1591045913259</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1591045913259</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fixed all patches and puts to look up the profil or boulangerie whatever and say invalid if youre trying to connect and entity to something invalid">
+      <created>1591046560910</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1591046560910</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fixed the post of commandeBl, should now persist valid boulangeries">
+      <created>1591049004335</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1591049004335</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fixed the livreur to zero didnt test yet">
+      <created>1591049631829</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1591049631829</updated>
+    </task>
+    <task id="LOCAL-00040" summary="tested livreur , cant be set to zero only to null">
+      <created>1591049770532</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1591049770532</updated>
+    </task>
+    <task id="LOCAL-00041" summary="fixed commandeLabo and tested and updated Database">
+      <created>1591051586122</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1591051586122</updated>
+    </task>
+    <task id="LOCAL-00042" summary="fixed postLivreur">
+      <created>1591053177171</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1591053177171</updated>
+    </task>
+    <task id="LOCAL-00043" summary="smol fixes">
+      <created>1591053471440</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1591053471440</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fixed GetcmdsByEtatandMatricule">
+      <created>1591053787646</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1591053787646</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fixed a patch in commandes, fixed getCmdbyetatand Matricule">
+      <created>1591054065255</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1591054065255</updated>
+    </task>
+    <task id="LOCAL-00046" summary="added softdelete for Livreurs.php">
+      <created>1591055282682</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1591055282682</updated>
+    </task>
+    <task id="LOCAL-00047" summary="added put for profile to modify affectation,login, nom , password">
+      <created>1591055853773</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1591055853775</updated>
+    </task>
+    <task id="LOCAL-00048" summary="modified doctrine class that was having a weird bug, where it demanded a string which doesnt make any sense. Normally shouldnt change that class but it should fix your error, weirdly doctrine didnt fix that itself">
+      <created>1591125326500</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1591125326500</updated>
+    </task>
+    <task id="LOCAL-00049" summary="fixed constructor, man thats fucking annoying who it doesnt check that automatically">
+      <created>1591128157885</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1591128157885</updated>
+    </task>
+    <task id="LOCAL-00050" summary="made libelle of commandeLabo 20 length">
+      <created>1591132299310</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1591132299313</updated>
+    </task>
+    <task id="LOCAL-00051" summary="made a fuckton of queries none work none make sense, fuck dql, fuck sql fuck doctrine">
+      <created>1591143549933</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1591143549933</updated>
+    </task>
+    <task id="LOCAL-00052" summary="see if this works bellahi">
+      <created>1591221422323</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1591221422324</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fixed /commandesBL/getCmdsByEtatAndMatricule">
+      <created>1591223543611</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1591223543611</updated>
+    </task>
+    <task id="LOCAL-00054" summary="added it to filter to check if its in commandeLabo or not">
+      <created>1591226343903</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1591226343903</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,30 +544,32 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="first commit" />
-    <MESSAGE value="Added necessary addons to project" />
-    <MESSAGE value="array conversion for entities added without foreing keys because those wont be used to display objects" />
-    <MESSAGE value="finished admin operations tested them, configured all the repos" />
-    <MESSAGE value="modified the database slightly, cant get Boulangeries.php to work in any shape or form, other classes dont wanna interact, finding an object by a specific column has straight up not worked at all for any of them so yeah fuck me, profils posting and getting works, commandesbl posting and getting works with CommandesBL.php missing associations," />
-    <MESSAGE value="boulangeries now works perfectly except the delete which requires the associated commande to be deleted as well. Livreur works as well, in fact all issues have been resolved" />
-    <MESSAGE value="back home and facing some weird bugs with a lot of methods i previously tested" />
-    <MESSAGE value="extensive testing of already implemented methods,made arrays as arguments display correctly" />
-    <MESSAGE value="getCmdsForLab works and almost done with everything" />
-    <MESSAGE value="CommandesBLController.php works fully and perfectly" />
-    <MESSAGE value="meh" />
-    <MESSAGE value="changed a lot of things to confrom to the api and still one method in details remaining" />
-    <MESSAGE value="all methods have been debugged and tried out, id issue and date formatting have not been adressed" />
-    <MESSAGE value="soft delete has been adressed still need to cascade delete all compositions of a product that has been softdeleted" />
-    <MESSAGE value="cascade deleted all the compositions concerning one product" />
-    <MESSAGE value="polished code a bit and made findbyproduit return a single element" />
-    <MESSAGE value="wrote documentation in ReadMe.md and updated the homepage" />
-    <MESSAGE value="modified readme to include fixture note and updated the homepage to html 2 so its prettier" />
-    <MESSAGE value="re exported the database" />
-    <MESSAGE value="Added getCount and made it support getting the current year" />
-    <MESSAGE value="changed get requests to only return one object, modified gets to suit swagger in boulangerie, made idcomposant unique and deleted it from faker. fixed the matricule issue in livreur and boulangerie" />
-    <MESSAGE value="smol adjustments" />
-    <MESSAGE value="- getAdmin by Login now looks like this&#10;&#10;{&quot;loginAdmin&quot;:&quot;Natasha&quot;,&quot;passwordAdmin&quot;:&quot;Kerluke&quot;,&quot;nomAdmin&quot;:&quot;Miss Modesta Davis DVM&quot;,&quot;teleAdmin&quot;:493180}&#10;which is not an array. Issue resolved &#10;&#10;-getCommand by etat and IdBoulangerie works on my side. Sadly I dont return a 405 anywhere. Please check the Spelling of the request and get back to me. Refer to the method defined in the sourceCode since it might differ from the swagger documentation by accident. I tested it with your server too and it worked for me.&#10;https://boulang.ml/commandesBL/getCmdsByEtatAndBoulangerieID?etat=nouvelle&amp;idBoulangerie=955&#10;&#10;/getCmd By Id has been tested on your server and also works for me &#10;https://boulang.ml/commandesBL/ById/DarkMagenta&#10;&#10;/getCompositionsProduit works https://boulang.ml/compositionsProduits &#10;Please refer to the links that have been tested with your server &#10;&#10;/getCmdsByEtatandMatricule https://boulang.ml/commandesBL/getByEtatAndMatricule?etat=nouvelle&amp;matricule=801&#10;same. &#10;&#10;/getCmdsForLab has been resolved and was caused by a small bug. Refer to the new version. It'll work.&#10;&#10;/getLivreurbyMatricule is now a normal Livreur not a filtered Response" />
-    <option name="LAST_COMMIT_MESSAGE" value="- getAdmin by Login now looks like this&#10;&#10;{&quot;loginAdmin&quot;:&quot;Natasha&quot;,&quot;passwordAdmin&quot;:&quot;Kerluke&quot;,&quot;nomAdmin&quot;:&quot;Miss Modesta Davis DVM&quot;,&quot;teleAdmin&quot;:493180}&#10;which is not an array. Issue resolved &#10;&#10;-getCommand by etat and IdBoulangerie works on my side. Sadly I dont return a 405 anywhere. Please check the Spelling of the request and get back to me. Refer to the method defined in the sourceCode since it might differ from the swagger documentation by accident. I tested it with your server too and it worked for me.&#10;https://boulang.ml/commandesBL/getCmdsByEtatAndBoulangerieID?etat=nouvelle&amp;idBoulangerie=955&#10;&#10;/getCmd By Id has been tested on your server and also works for me &#10;https://boulang.ml/commandesBL/ById/DarkMagenta&#10;&#10;/getCompositionsProduit works https://boulang.ml/compositionsProduits &#10;Please refer to the links that have been tested with your server &#10;&#10;/getCmdsByEtatandMatricule https://boulang.ml/commandesBL/getByEtatAndMatricule?etat=nouvelle&amp;matricule=801&#10;same. &#10;&#10;/getCmdsForLab has been resolved and was caused by a small bug. Refer to the new version. It'll work.&#10;&#10;/getLivreurbyMatricule is now a normal Livreur not a filtered Response" />
+    <MESSAGE value="fixed CompositionsProduitController the post method, now needs to be supplied with valid codeProduits and idComposants, updated faker to create the composants objects, updated the creationDate to datetime, getCount still works, fixed other small bugs" />
+    <MESSAGE value="fixed the flipped unite and nom" />
+    <MESSAGE value="fixed getDetailsCommande in CommandesBLController.php" />
+    <MESSAGE value="attempted fixing findbyProduitandDate" />
+    <MESSAGE value="fixed findByProduitandDate" />
+    <MESSAGE value="added security measure to getCmdsByEtat and boulangerieGet all" />
+    <MESSAGE value="fixed the identifyLivreur patch and boulangeries post and commandeBls post" />
+    <MESSAGE value="fixed all patches and puts to look up the profil or boulangerie whatever and say invalid if youre trying to connect and entity to something invalid" />
+    <MESSAGE value="fixed the post of commandeBl, should now persist valid boulangeries" />
+    <MESSAGE value="fixed the livreur to zero didnt test yet" />
+    <MESSAGE value="tested livreur , cant be set to zero only to null" />
+    <MESSAGE value="fixed commandeLabo and tested and updated Database" />
+    <MESSAGE value="fixed postLivreur" />
+    <MESSAGE value="smol fixes" />
+    <MESSAGE value="fixed GetcmdsByEtatandMatricule" />
+    <MESSAGE value="fixed a patch in commandes, fixed getCmdbyetatand Matricule" />
+    <MESSAGE value="added softdelete for Livreurs.php" />
+    <MESSAGE value="added put for profile to modify affectation,login, nom , password" />
+    <MESSAGE value="modified doctrine class that was having a weird bug, where it demanded a string which doesnt make any sense. Normally shouldnt change that class but it should fix your error, weirdly doctrine didnt fix that itself" />
+    <MESSAGE value="fixed constructor, man thats fucking annoying who it doesnt check that automatically" />
+    <MESSAGE value="made libelle of commandeLabo 20 length" />
+    <MESSAGE value="made a fuckton of queries none work none make sense, fuck dql, fuck sql fuck doctrine" />
+    <MESSAGE value="see if this works bellahi" />
+    <MESSAGE value="fixed /commandesBL/getCmdsByEtatAndMatricule" />
+    <MESSAGE value="added it to filter to check if its in commandeLabo or not" />
+    <option name="LAST_COMMIT_MESSAGE" value="added it to filter to check if its in commandeLabo or not" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="198" width="800" height="677" key="#Deployment" timestamp="1586885597249">
@@ -414,22 +588,22 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="468" y="199" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1588542781758" />
-    <state x="648" y="256" width="441" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1587491071439">
+    <state x="648" y="256" width="441" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1591124729416">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="648" y="256" width="441" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1587491071439" />
+    <state x="648" y="256" width="441" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1591124729415" />
     <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586181435086">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1586181435086" />
-    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587477550591">
+    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591049355001">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1587477550591" />
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2" timestamp="1590785808092">
+    <state x="203" y="295" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1591049355001" />
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2" timestamp="1591226343812">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="421" y="113" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1590785808092" />
+    <state x="299" y="133" width="912" height="886" key="CommitChangelistDialog2/67.27.1613.1023@67.27.1613.1023" timestamp="1591226343812" />
     <state x="645" y="281" width="447" height="513" key="FileChooserDialogImpl" timestamp="1586885548712">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -442,10 +616,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="362" y="172" key="SettingsEditor/67.27.1613.1023@67.27.1613.1023" timestamp="1588022707923" />
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1590785810102">
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1591226354283">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1590785810102" />
+    <state x="67" y="273" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591226354283" />
     <state x="529" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586720562461">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -454,10 +628,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="624" y="176" width="488" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1586114519655" />
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590783593666">
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591141911453">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1590783593666" />
+    <state x="645" y="452" width="447" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1613.1023@67.27.1613.1023" timestamp="1591141911453" />
     <state x="646" y="400" width="445" height="275" key="git4idea.rebase.GitRebaseDialog" timestamp="1587493782892">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -466,9 +640,9 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="590" y="310" width="556" height="455" key="refactoring.ChangeSignatureDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1586976635985" />
-    <state x="536" y="250" width="672" height="678" key="search.everywhere.popup" timestamp="1587585232108">
+    <state x="536" y="250" width="672" height="678" key="search.everywhere.popup" timestamp="1591125182054">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
-    <state x="536" y="250" width="672" height="678" key="search.everywhere.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1587585232108" />
+    <state x="536" y="250" width="672" height="678" key="search.everywhere.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1591125182054" />
   </component>
 </project>

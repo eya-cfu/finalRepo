@@ -38,7 +38,7 @@ class ComposantsController
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
-        $this->composantsRepository-> save($idCommposant, $unite, $nomComp);
+        $this->composantsRepository-> save($idCommposant, $nomComp,$unite);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }

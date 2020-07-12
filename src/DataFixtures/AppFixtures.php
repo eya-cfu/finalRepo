@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Administrateurs;
 use App\Entity\Boulangeries;
 use App\Entity\CommandesBL;
+use App\Entity\CommandesLabo;
 use App\Entity\Composants;
 use App\Entity\CompositionsProduit;
 use App\Entity\DetailsCommandesBL;
@@ -25,7 +26,7 @@ class AppFixtures extends Fixture
         // $manager->persist($product);
         $faker = Factory::create();
          // use this to populate the database
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $administrateurs = new Administrateurs($faker->firstName,
                 $faker->lastName,$faker->name,$faker->numberBetween(10000,999999));
             $manager->persist($administrateurs);
@@ -65,6 +66,8 @@ class AppFixtures extends Fixture
             $manager->persist($produit);
             $manager->persist($produit2);
 
+            $commandesLabo = new CommandesLabo("label",$faker->numberBetween(0001,9999),$faker->dateTime('d-m-Y'),$faker->numberBetween(0,1000));
+            $manager->persist($commandesLabo);
 
             $detailscommandesBL = new DetailsCommandesBL($faker->numberBetween(0,100));
             $detailscommandesBL->addCodeProduit($produit);
@@ -73,13 +76,13 @@ class AppFixtures extends Fixture
             $detailscommandesBL->addIdCommandeBL($commandes2);
             $manager->persist($detailscommandesBL);
 
-         //   $composant = new Composants("snoots","long","floopy");
-           // $manager->persist($composant);
+            $composant = new Composants($faker->unique(false, 1000)->lexify('??????'),"DeadlyHumanPoison","l");
+            $manager->persist($composant);
 
             $compositionProduit = new CompositionsProduit($faker->numberBetween(0,100));
             $compositionProduit->addCodeProduit($produit);
             $compositionProduit->addCodeProduit($produit2);
-          //  $compositionProduit->addIdComposant($composant);
+            $compositionProduit->addIdComposant($composant);
             $manager->persist($compositionProduit);
 
         }

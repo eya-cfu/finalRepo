@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Composants;
+use App\Entity\Produits;
 use App\Repository\CompositionsProduitRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,10 +16,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class CompositionsProduitController 
 {
     private $compositionsProduitRepository;
+    private $produitsRepository;
+    private $composantsRepository;
+    private $em;
 
-    public function __construct(CompositionsProduitRepository $compositionsProduitRepository)
+    public function __construct(CompositionsProduitRepository $compositionsProduitRepository,EntityManagerInterface $entityManager)
     {
         $this->compositionsProduitRepository = $compositionsProduitRepository;
+        $this->em= $entityManager;
+        $this->produitsRepository = $this->em->getRepository(Produits::class);
+        $this->composantsRepository = $this->em->getRepository(Composants::class);
+
     }
 
 
@@ -57,18 +67,41 @@ class CompositionsProduitController
     {
 
         $data = json_decode($request->getContent(), true);
+      //  return new JsonResponse($data);
 
         $codesProduits = $data['codeProduit'];
       //  $idComposition = $data['idComposition'];
         $quantiteComp = $data['quantiteComp'];
         $idComposants = $data['idComposant'];
 
-        if (empty($codesProduits)  || empty($quantiteComp))
+      // if (empty($codesProduits)  || empty($quantiteComp))
         {
-            throw new NotFoundHttpException('Expecting mandatory parameters!');
+        //    throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
             // need to pass an array here
-        $this->compositionsProduitRepository-> save( $quantiteComp,$idComposants ,$codesProduits);
+        $codesProduitsObjects = array();
+        $composantsObjects = array();
+        foreach ($codesProduits as $codeProduit)
+        {
+            $produit = $this->produitsRepository->findOneBy(['id'=>$codeProduit ]);
+            if(empty($produit))
+            {
+                throw new NotFoundHttpException('Produit Not Found!');
+            }
+           array_push($codesProduitsObjects, $produit);
+        }
+
+        foreach ($idComposants as $idComposant)
+        {
+            $composant = $this->composantsRepository->findOneBy(['idComposant'=>$idComposant ]);
+            if(empty($composant))
+            {
+                throw new NotFoundHttpException('Composant Not Found!');
+            }
+            array_push($composantsObjects, $composant);
+        }
+
+        $this->compositionsProduitRepository-> save( $quantiteComp,$composantsObjects ,$codesProduitsObjects);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }

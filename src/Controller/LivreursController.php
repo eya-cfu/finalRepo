@@ -34,7 +34,7 @@ class LivreursController
      */
     public function getAll(): JsonResponse
     {
-        $livreurs = $this->livreurRepository->findAll();
+        $livreurs = $this->livreurRepository->findBy(['deleted'=> false]);
         $data = [];
 
         foreach ($livreurs as $livreur) {
@@ -69,11 +69,13 @@ class LivreursController
         $matricule = $data['matricule'];
 
         if (empty($numVehicule) || empty($teleLivreur) || empty($matricule))
-        {
+       {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
-        $this->livreurRepository-> save($numVehicule, $teleLivreur, $matricule);
+        $matricule2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+
+        $this->livreurRepository-> save($teleLivreur, $numVehicule, $matricule2);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -124,7 +126,15 @@ class LivreursController
 
         $data = json_decode($request->getContent(), true);
 
-        empty($data['matricule']) ? true : $livreurs->setMatricule($data['matricule']);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $data['matricule']]);
+
+        if(empty($profil))
+        {
+            throw new NotFoundHttpException('Invalid!');
+        }
+        $livreurs->setMatricule($profil);
+        //  }
+
         empty($data['numVehicule']) ? true : $livreurs->setNumVehicule($data['numVehicule']);
         empty($data['teleLivreur']) ? true : $livreurs->setTeleLivreur($data['teleLivreur']);
 

@@ -29,10 +29,7 @@ class CommandesLaboRepository extends ServiceEntityRepository
 
     public function save( $dueDate, $libelle, $quantiteTotal, $codeProduit)//$idCommandeLabo,
     {
-        $commandesLabo = new CommandesLabo($libelle,$quantiteTotal,$dueDate);
-
-        $commandesLabo
-            ->setCodeProduit($codeProduit);
+        $commandesLabo = new CommandesLabo($libelle,$quantiteTotal,$dueDate,$codeProduit);
 
         $this->manager->persist($commandesLabo);
         $this->manager->flush();
