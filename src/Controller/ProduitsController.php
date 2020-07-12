@@ -75,12 +75,15 @@ class ProduitsController
         $this->produitsRepository-> save($libelle, $prixHA, $TVA, $prixTTC);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
+
     }
+
+
     
     /**
      * @Route("/produits/getCount", name="getCount", methods={"GET"})
      */
-    public function getCount(Request $request): JsonResponse
+/*    public function getCount(Request $request): JsonResponse
     {
         
 
@@ -98,7 +101,7 @@ class ProduitsController
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
-
+*/
 
     /**
      * @Route("/produits/{codeProduit}", name="deleteProduit", methods={"DELETE"})

@@ -11,7 +11,7 @@ class ApiHomeController extends AbstractController
     /**
      * @Route("/teapot", name="teapot")
      */
-    public function index()
+    public function index2()
     {
         return $this->render('api_home/index.html.twig');
     }
