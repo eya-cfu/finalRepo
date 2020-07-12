@@ -32,7 +32,7 @@ class CommandesBL
     private $dueDate;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $creationDate;
 

@@ -29,6 +29,7 @@ class ProfilsRepository extends ServiceEntityRepository
 
     public function save($matricule, $login, $password, $nom, $affectation)
     {
+
         $profils = new Profils($matricule,$nom,$affectation,$login,$password);
 
         $profils->setDeleted(false);

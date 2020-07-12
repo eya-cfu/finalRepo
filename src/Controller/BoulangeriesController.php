@@ -45,18 +45,18 @@ class BoulangeriesController
         $telephone = $data['telephone'];
         $matricule = $data['matricule'];
 
+
+
        // return new JsonResponse($matricule);
         // return new JsonResponse($request);
         //  return new JsonResponse($data);
-
-        if ( empty($addresse) || empty($nbOperateurs) || empty($telephone))
+        $responsable2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
+        if (empty($responsable2))
         {
-            throw new NotFoundHttpException('Expecting mandatory parameters!');
+            throw new NotFoundHttpException('Responsable Invalid');
         }
 
-        $responsable2 = $this->profilsRepository->findOneBy(['matricule' => $matricule]);
-
-        $this->boulangerieRepository->save( $addresse, $nbOperateurs, $nomBL,$telephone, $responsable2);
+        $this->boulangerieRepository->save( $nomBL, $addresse, $telephone, $responsable2,  $nbOperateurs);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -139,11 +139,17 @@ class BoulangeriesController
                     'nomBL' => $boulangerie->getNomBoul(),
                     'adresse' => $boulangerie->getAdresse(),
                     'telephone' => $boulangerie->getTelephone(),
-                    'matricule' => $boulangerie->getMatricule()->getMatricule(),
+                    'matricule' =>  ($boulangerie->getMatricule()==null) ? null :$boulangerie->getMatricule()->getMatricule(),
                     'nbOperateurs' => $boulangerie->getNbOperateurs(),
                 ],
                 'nom'=> $boulangerie->getMatricule()->getNom(),
             ];
+
+
+            // 'matricule' =>  ($commandesBL->getLivreur()==null|| $commandesBL->getLivreur()->getMatricule()==null) ? null
+            //                    : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
+            //                'nom' =>($commandesBL->getLivreur()==null ||$commandesBL->getLivreur()->getMatricule()==null) ? null
+            //                    :  $commandesBL->getLivreur()->getMatricule()->getNom(),
         }
 
         
@@ -155,11 +161,19 @@ class BoulangeriesController
      */
     public function update($idBoulangerie, Request $request): JsonResponse
     {
-        $boulangeries = $this->boulangerieRepository->findOneBy(['idBoulangerie' => $idBoulangerie]);
+        $boulangeries = $this->boulangerieRepository->findOneBy(['id' => $idBoulangerie]);
         $data = json_decode($request->getContent(), true);
 
       //  empty($data['idBoulangerie']) ? true : $boulangeries->setIdBoulangerie($data['idBoulangerie']);
-        empty($data['responsable']) ? true : $boulangeries->setMatricule($data['responsable']);
+     //   empty($data['responsable']) ? true : $boulangeries->setMatricule($data['responsable']);
+        $profil = $this->profilsRepository->findOneBy(['matricule' => $data['matricule']]);
+        if(empty($profil))
+        {
+            throw new NotFoundHttpException('Invalid!');
+        }
+        $boulangeries->setMatricule($profil);
+        //  }
+
         empty($data['nbOperateurs']) ? true : $boulangeries->setNbOperateurs($data['nbOperateurs']);
         empty($data['adresse']) ? true : $boulangeries->setAdresse($data['adresse']);
         empty($data['telephone']) ? true : $boulangeries->setTelephone($data['telephone']);

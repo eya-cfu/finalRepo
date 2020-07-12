@@ -26,7 +26,7 @@ class CommandesLabo
 
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $libelle;
 
@@ -35,15 +35,17 @@ class CommandesLabo
      */
     private $quantiteTotal;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Produits")
-     */
-    private $codeProduit;
+
 
     /**
      * @ORM\Column(type="date")
      */
     private $dueDate;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $codeProduit;
 
     /**
      * CommandesLabo constructor.
@@ -53,13 +55,13 @@ class CommandesLabo
      * @param $codeProduit
      * @param $dueDate
      */
-    public function __construct(  $libelle, $quantiteTotal, $dueDate)//$idCommandeLabo,
+    public function __construct($libelle, $quantiteTotal, $dueDate, $codeProduit)//$idCommandeLabo,
     {
 
     //    $this->idCommandeLabo = $idCommandeLabo;
         $this->libelle = $libelle;
         $this->quantiteTotal = $quantiteTotal;
-        $this->codeProduit = new ArrayCollection();
+        $this->codeProduit = $codeProduit;
         $this->dueDate = $dueDate;
     }
 
@@ -82,17 +84,6 @@ class CommandesLabo
         return $this;
     }
 
-    public function getCodeProduit(): ?string
-    {
-        return $this->codeProduit;
-    }
-
-    public function setCodeProduit(string $CodeProduit): self
-    {
-        $this->CodeProduit = $CodeProduit;
-
-        return $this;
-    }
 
     public function getLibelle(): ?string
     {
@@ -118,24 +109,6 @@ class CommandesLabo
         return $this;
     }
 
-    public function addCodeProduit(Produits $codeProduit): self
-    {
-        if (!$this->codeProduit->contains($codeProduit)) {
-            $this->codeProduit[] = $codeProduit;
-        }
-
-        return $this;
-    }
-
-    public function removeCodeProduit(Produits $codeProduit): self
-    {
-        if ($this->codeProduit->contains($codeProduit)) {
-            $this->codeProduit->removeElement($codeProduit);
-        }
-
-        return $this;
-    }
-
     public function getDueDate(): ?\DateTimeInterface
     {
         return $this->dueDate;
@@ -157,5 +130,17 @@ class CommandesLabo
             'libelle' => $this->getLibelle(),
             'quantiteTotal' => $this->getQuantiteTotal()
         ];
+    }
+
+    public function getCodeProduit(): ?int
+    {
+        return $this->codeProduit;
+    }
+
+    public function setCodeProduit(int $codeProduit): self
+    {
+        $this->codeProduit = $codeProduit;
+
+        return $this;
     }
 }

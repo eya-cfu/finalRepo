@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\CommandesBL;
 use App\Entity\DetailsCommandesBL;
+use App\Entity\Produits;
 use App\Repository\DetailsCommandesBLRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,10 +19,17 @@ use Symfony\Component\Validator\Constraints\Collection;
 class DetailsCommandesController
 {
     private $detailsCommandesRepository;
+    private $produitsRepository;
+    private $commandesBlRepository;
+    private $em;
 
-    public function __construct(DetailsCommandesBLRepository $detailsCommandesBLRepository)
+    public function __construct(DetailsCommandesBLRepository $detailsCommandesBLRepository,EntityManagerInterface $entityManager)
     {
         $this->detailsCommandesRepository = $detailsCommandesBLRepository;
+
+        $this->em= $entityManager;
+        $this->produitsRepository = $this->em->getRepository(Produits::class);
+        $this->commandesBlRepository = $this->em->getRepository(CommandesBL::class);
     }
 
 
@@ -28,8 +38,8 @@ class DetailsCommandesController
      */
     public function getAll(): JsonResponse
     {
-        $detailsCommandesBLS = $this->detailsCommandesRepository->findAll();
-        $data = [];
+      //  $detailsCommandesBLS = $this->detailsCommandesRepository->findAll();
+      //  $data = [];
 
       /*  foreach ($detailsCommandesBLS as $detailsCommandesBL) {
             $codesProduit = array();
@@ -94,12 +104,36 @@ class DetailsCommandesController
         $quantiteProd = $data['quantiteProd'];
         $idCommandesBLs = $data['idCommandeBL'];
 
-        if (empty($codesProduits) || empty($quantiteProd))
+       // if (empty($codesProduits) || empty($quantiteProd))
         {
-            throw new NotFoundHttpException('Expecting mandatory parameters!');
+         //   throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
+
+        $codesProduitsObjects = array();
+        $commandesObjects = array();
+        foreach ($codesProduits as $codeProduit)
+        {
+            $produit = $this->produitsRepository->findOneBy(['id'=>$codeProduit ]);
+            if(empty($produit))
+            {
+                throw new NotFoundHttpException('Produit Not Found!');
+            }
+            array_push($codesProduitsObjects, $produit);
+        }
+
+        foreach ($idCommandesBLs as $idCommandesBL)
+        {
+            $commandeBl = $this->commandesBlRepository->findOneBy(['idCommandeBL'=>$idCommandesBL ]);
+            if(empty($commandeBl))
+            {
+                throw new NotFoundHttpException('Commande Not Found!');
+            }
+            array_push($commandesObjects, $commandeBl);
+        }
+
+
         // arrays need to be read
-        $this->detailsCommandesRepository-> save($quantiteProd,$idCommandesBLs,$codesProduits);
+        $this->detailsCommandesRepository-> save($quantiteProd,$commandesObjects,$codesProduitsObjects);
 
         return new JsonResponse(['status' => 'created!'], Response::HTTP_CREATED);
     }
@@ -130,27 +164,44 @@ class DetailsCommandesController
         $codeProduit = $request->query->get('codeProduit');
         $dueDate =  $request->query->get('dueDate');
 
-       // $data[] =[];
 
         // for every detail we need to go through and display the specific produit
         foreach ($detailsCommandes as $detail) {
 
             // this loop assumes that each codeProduit has a idCommande or it wont work
-            for($i = 0 ; $i < sizeof($detail->getCodeProduit()); $i++ )
+
+            for( $i=0; $i < sizeof ($detail->getCodeProduit()); $i++ )
             {
                 //need to compare the code again so we only get the product we need, basically sequential search
-                if($detail->getCodeProduit()[$i]->getCodeProduit()==$codeProduit
-                   && $detail->getIdCommandeBL()[$i]->getDueDate()->format('Y-m-d') == $dueDate)
-                {
+                if($detail->getCodeProduit()[$i]->getCodeProduit()==$codeProduit)
+
+                { for( $j=0; $j < sizeof ($detail->getIdCommandeBL()); $j++ )
+                    if ($detail->getIdCommandeBL()[$j]->getDueDate()->format('d-m-Y') == $dueDate){
                     $data[] = [
                         'idDetail' => $detail->getIdDetail(),
                         'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
-                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                        'idCommandeBL' => $detail->getIdCommandeBL()[$j]->getIdCommandeBL(),
                         'quantiteProd' => $detail->getQuantiteProd(),
-                                ];
+                    ];
                     //break so it only returns one element
-                    //break;
+                    // break;
+
                 }
+                    else break;
+                }
+                  else
+                {
+                    break;
+                    /*
+                    $data[]= ['i'=> $i,
+                        'size'=>sizeof ($detail->getCodeProduit()),
+                        'sizeCommande'=>sizeof ($detail->getIdCommandeBL()),
+                        'codeProduit' => $detail->getCodeProduit()[$i]->getCodeProduit(),
+                        'idCommandeBL' => $detail->getIdCommandeBL()[$i]->getIdCommandeBL(),
+                        'wrong' => 'fuck'
+                        ];
+                    */
+                   }
             }
         }
 
