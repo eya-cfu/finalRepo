@@ -34,10 +34,10 @@ class Livreurs
      */
     private $matricule;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
+    /*
+     * column(type="boolean", nullable=true)
      */
-    private $deleted;
+//    private $deleted;
 
     /**
      * Livreurs constructor.
@@ -105,7 +105,7 @@ class Livreurs
         ];
     }
 
-    public function getDeleted(): ?bool
+    /* public function getDeleted(): ?bool
     {
         return $this->deleted;
     }
@@ -115,6 +115,6 @@ class Livreurs
         $this->deleted = $deleted;
 
         return $this;
-    }
+    } */
 
 }
