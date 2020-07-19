@@ -259,8 +259,8 @@ class CommandesBLController
                 'nomBL' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getNomBoul(),
                 'matricule' =>  ($commandesBL->getLivreur()==null|| $commandesBL->getLivreur()->getMatricule()==null) ? null
                     : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
-                'nom' =>($commandesBL->getLivreur()==null ||$commandesBL->getLivreur()->getMatricule()==null) ? null
-                    :  $commandesBL->getLivreur()->getMatricule()->getNom(),
+               // 'nom' =>($commandesBL->getLivreur()==null ||$commandesBL->getLivreur()->getMatricule()==null) ? null
+                 //   :  $commandesBL->getLivreur()->getMatricule()->getNom(),
             ];
         }
 
