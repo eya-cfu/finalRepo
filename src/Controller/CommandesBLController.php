@@ -134,7 +134,8 @@ class CommandesBLController
       // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
        $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
-
+       if($commandesBL == null) 
+           return new JsonResponse("None found",Response::HTTP_OK);
         $data[] = [
             //'id' => $commandesBL->getId(),
            'idCommandeBL' => $commandesBL->getIdCommandeBL(),
