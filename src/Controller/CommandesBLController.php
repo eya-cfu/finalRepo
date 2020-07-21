@@ -347,8 +347,7 @@ class CommandesBLController
             ];
        // }
           if(empty($data) || $data[0]== null ){
-           $data = [];
-            return new JsonResponse($data,Response::HTTP_OK);
+            return new JsonResponse(0,Response::HTTP_OK);
        }
         
         $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
