@@ -119,6 +119,9 @@ class CommandesBLController
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
         else $livreur2 = null;
+        
+        if ($livreur2 == null) 
+               return new JsonResponse(['status' => 'Livreur invalide!'], Response::HTTP_NO_CONTENT);
 
         $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
@@ -345,8 +348,7 @@ class CommandesBLController
             ];
        // }
           if(empty($data) || $data[0]== null ){
-           $data = [];
-            return new JsonResponse($data,Response::HTTP_OK);
+            return new JsonResponse(0,Response::HTTP_OK);
        }
         
         $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
