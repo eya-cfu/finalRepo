@@ -120,12 +120,12 @@ class CommandesBLController
         }
         else $livreur2 = null;
         
-        if ($livreur2 == null) 
-               return new JsonResponse(['status' => 'Livreur invalide!'], Response::HTTP_NO_CONTENT);
+       // if ($livreur2 == null) 
+       //        return new JsonResponse(['status' => 'Livreur invalide!'], Response::HTTP_NO_CONTENT);
 
-        $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
+       $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
-       $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);//$dueDate2,$creationDate2
+       $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);  //$dueDate2,$creationDate2
 
         return new JsonResponse(['status' => 'Commande created!'], Response::HTTP_CREATED);
     }
