@@ -120,8 +120,7 @@ class CommandesBLController
         }
         else $livreur2 = null;
         
-       // if ($livreur2 == null) 
-       //        return new JsonResponse(['status' => 'Livreur invalide!'], Response::HTTP_NO_CONTENT);
+      
 
        $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
