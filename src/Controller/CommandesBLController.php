@@ -262,10 +262,10 @@ class CommandesBLController
      //   return new JsonResponse($commandesBLS[0]->getId());
         $data = [];
      
-      // if($commandesBLS == null){
-       //    $data = [];
-       //     return new JsonResponse($data,Response::HTTP_OK);
-       //}
+       if($commandesBLS == null){
+           $data = [];
+            return new JsonResponse($data,Response::HTTP_OK);
+       }
        
 
         foreach ($commandesBLS as $commandesBL) {
@@ -277,8 +277,8 @@ class CommandesBLController
                 'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
                 'nomBL' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getNomBoul(),
-            //    'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
-            //    'nom' =>($commandesBL->getLivreur()==null ) ? null : $commandesBL->getLivreur()->getMatricule()->getNom(),
+                'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
+               'nom' =>($commandesBL->getLivreur()==null ) ? null : $commandesBL->getLivreur()->getMatricule()->getNom(),
             ];
         }
 
