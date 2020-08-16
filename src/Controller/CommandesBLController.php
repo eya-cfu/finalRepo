@@ -119,12 +119,13 @@ class CommandesBLController
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
         else $livreur2 = null;
+<<<<<<< HEAD
+=======
         
-       // if ($livreur2 == null) 
-       //        return new JsonResponse(['status' => 'Livreur invalide!'], Response::HTTP_NO_CONTENT);
+      
+>>>>>>> e484c3ce6e5dad799d41b5344b297635dd1a0fa0
 
        $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
-
        $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);  //$dueDate2,$creationDate2
 
         return new JsonResponse(['status' => 'Commande created!'], Response::HTTP_CREATED);
