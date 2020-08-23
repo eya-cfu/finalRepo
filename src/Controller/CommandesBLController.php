@@ -107,9 +107,9 @@ class CommandesBLController
          // return new JsonResponse($data);
 
     //    if (empty($creationDate) || empty($dueDate))
-//        {
+        {
         //    throw new NotFoundHttpException('Expecting mandatory parameters!');
-//        }
+        }
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
@@ -119,16 +119,18 @@ class CommandesBLController
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
         else $livreur2 = null;
+       
+        
+        $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
-       $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
-       $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);  //$dueDate2,$creationDate2
+       $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);//$dueDate2,$creationDate2
 
         return new JsonResponse(['status' => 'Commande created!'], Response::HTTP_CREATED);
     }
 
 
       /**
-     * @Route("/commandesBL/{idCommandeBL}", name="get_one_CommandesBL", methods={"GET"})
+     * @Route("/commandesBL/ById/{idCommandeBL}", name="get_one_CommandesBL", methods={"GET"})
        */
     public function get($idCommandeBL): JsonResponse
     {
@@ -225,7 +227,6 @@ class CommandesBLController
        // empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
        //// empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
 
-
     //    if( !empty($data['matricule'])) {
         $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
         $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
@@ -257,12 +258,12 @@ class CommandesBLController
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
      //   return new JsonResponse($commandesBLS[0]->getId());
         $data = [];
-     
+
        if($commandesBLS == null){
            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
        }
-       
+
 
         foreach ($commandesBLS as $commandesBL) {
             $data[] = [
@@ -273,13 +274,16 @@ class CommandesBLController
                 'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
                 'nomBL' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getNomBoul(),
-                'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
-               'nom' =>($commandesBL->getLivreur()==null ) ? null : $commandesBL->getLivreur()->getMatricule()->getNom(),
+                'matricule' =>  ($commandesBL->getLivreur()==null|| $commandesBL->getLivreur()->getMatricule()==null) ? null
+                    : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
+                'nom' =>($commandesBL->getLivreur()==null ||$commandesBL->getLivreur()->getMatricule()==null) ? null
+                    :  $commandesBL->getLivreur()->getMatricule()->getNom(),
             ];
         }
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
 
 
     /**
@@ -291,10 +295,16 @@ class CommandesBLController
         $matricule =  $request->query->get('matricule');
 
         $profil = $this->profilRepository->findOneBy(['matricule' => $matricule]);
+
+        if($profil == null ){
+            $data = [];
+            return new JsonResponse($data,Response::HTTP_OK);
+        }
+
         $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         $commandesBLS = $this->commandesBLRepository -> findBy(['etat'=> $etat, 'livreur'=> $livreur2->getId()]);
              
-       if($commandesBLS == null|| $profil == null || $livreur2 == null){
+       if($commandesBLS == null|| $livreur2 == null){
            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
        }
@@ -424,6 +434,7 @@ class CommandesBLController
                             'sumQuantite' => $sum,
                             //'totalsum' => $totalsum
                         ];
+                  // */
                     }
 
                    //  return new JsonResponse($detailsCommandesByProduitAndByDate);
@@ -669,6 +680,6 @@ class CommandesBLController
 
    ];
 
-}
-  } */
+//}
+//  } */
 //  }
