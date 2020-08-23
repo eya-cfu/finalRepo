@@ -18,12 +18,12 @@ use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use http\Client\Response;
 use PhpParser\Node\Expr\Cast\Object_;
 use Swagger\Server\Controller\DetailsCommandesBLController;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\DetailsCommandesController;
@@ -248,10 +248,10 @@ class CommandesBLController
     /**
      * @Route("/commandesBL/getCmdsByEtat", name="getCmdsByEtat", methods={"GET"})
      */
-    public function getCmdsByEtat(Request $request): JsonResponse
+    public function getCmdsByEtat(Request $request): Response
     {
        $etat =  $request->query->get('etat');
-        return new JsonResponse('List empty',Response::HTTP_OK);
+        return new Response('List empty',Response::HTTP_OK);
 
     //   return new JsonResponse($etat);
        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
