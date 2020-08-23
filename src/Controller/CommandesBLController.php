@@ -281,7 +281,7 @@ class CommandesBLController
             ];
         }
 
-        return new JsonResponse($data, Response::HTTP_OK);
+        return new JsonResponse('Should return something here', Response::HTTP_OK);
     }
 
 
