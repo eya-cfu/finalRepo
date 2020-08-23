@@ -259,10 +259,10 @@ class CommandesBLController
      //   return new JsonResponse($commandesBLS[0]->getId());
         $data = [];
 
-       //if($commandesBLS == null){
-         //  $data = [];
-       //     return new JsonResponse($data,Response::HTTP_OK);
-     //  }
+       if(empty($commandesBLS)){
+           $data = [];
+            return new JsonResponse('List empty',Response::HTTP_OK);
+      }
 
 
         foreach ($commandesBLS as $commandesBL) {
