@@ -248,10 +248,11 @@ class CommandesBLController
     /**
      * @Route("/commandesBL/getCmdsByEtat", name="getCmdsByEtat", methods={"GET"})
      */
-    public function getCmdsByEtat(Request $request): Response
+    public function getCmdsByEtat(Request $request): JsonResponse
     {
+        return new JsonResponse('List empty',Response::HTTP_OK);
        $etat =  $request->query->get('etat');
-        return new Response('List empty');
+
 
     //   return new JsonResponse($etat);
        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
