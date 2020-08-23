@@ -107,9 +107,9 @@ class CommandesBLController
          // return new JsonResponse($data);
 
     //    if (empty($creationDate) || empty($dueDate))
-        {
+//        {
         //    throw new NotFoundHttpException('Expecting mandatory parameters!');
-        }
+//        }
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
@@ -119,11 +119,6 @@ class CommandesBLController
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
         else $livreur2 = null;
-<<<<<<< HEAD
-=======
-        
-      
->>>>>>> e484c3ce6e5dad799d41b5344b297635dd1a0fa0
 
        $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
        $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);  //$dueDate2,$creationDate2
@@ -429,7 +424,6 @@ class CommandesBLController
                             'sumQuantite' => $sum,
                             //'totalsum' => $totalsum
                         ];
-                  // */
                     }
 
                    //  return new JsonResponse($detailsCommandesByProduitAndByDate);
@@ -675,6 +669,6 @@ class CommandesBLController
 
    ];
 
-//}
-//  } */
+}
+  } */
 //  }
