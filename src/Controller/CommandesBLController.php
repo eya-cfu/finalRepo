@@ -251,6 +251,7 @@ class CommandesBLController
     public function getCmdsByEtat(Request $request): JsonResponse
     {
        $etat =  $request->query->get('etat');
+        return new JsonResponse('List empty',Response::HTTP_OK);
 
     //   return new JsonResponse($etat);
        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
