@@ -18,12 +18,12 @@ use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use http\Client\Response;
 use PhpParser\Node\Expr\Cast\Object_;
 use Swagger\Server\Controller\DetailsCommandesBLController;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\DetailsCommandesController;
@@ -80,9 +80,9 @@ class CommandesBLController
                 'matricule' => ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
                 'idBoulangerie' => ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
             ];
-        //  $idLivreur = $commandesBL->getLivreur()->getId();
-         //  return new JsonResponse($idLivreur);
-         //  $data['matricule'] =$idLivreur;
+            //  $idLivreur = $commandesBL->getLivreur()->getId();
+            //  return new JsonResponse($idLivreur);
+            //  $data['matricule'] =$idLivreur;
         }
 
         return new JsonResponse($data, Response::HTTP_OK);
@@ -104,14 +104,14 @@ class CommandesBLController
 
         //return new JsonResponse($creationDate);
         //return new JsonResponse($request);
-         // return new JsonResponse($data);
+        // return new JsonResponse($data);
 
-    //    if (empty($creationDate) || empty($dueDate))
+        //    if (empty($creationDate) || empty($dueDate))
         {
-        //    throw new NotFoundHttpException('Expecting mandatory parameters!');
+            //    throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
         $dueDate2 = \DateTime::createFromFormat('d-m-Y', $dueDate);
-       $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
+        $creationDate2 = \DateTime::createFromFormat('d-m-Y H-i', $creationDate);
 
         $profil = $this->profilRepository->findOneBy(['matricule' => $livreur]);
         if(!empty($profil))
@@ -119,36 +119,36 @@ class CommandesBLController
             $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         }
         else $livreur2 = null;
-       
-        
+
+
         $boulangerie2 = $this->boulangerieRepository->findOneBy(['id'=> $idBoulangerie]);
 
-       $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);//$dueDate2,$creationDate2
+        $this->commandesBLRepository->save($idCommandeBL,$etat,$dueDate2,$creationDate2, $boulangerie2, $livreur2);//$dueDate2,$creationDate2
 
         return new JsonResponse(['status' => 'Commande created!'], Response::HTTP_CREATED);
     }
 
 
-      /**
+    /**
      * @Route("/commandesBL/ById/{idCommandeBL}", name="get_one_CommandesBL", methods={"GET"})
-       */
+     */
     public function get($idCommandeBL): JsonResponse
     {
-      // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
+        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
-       $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
-          
-       if($commandesBL == null){
-           $data = [];
+        $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
+
+        if($commandesBL == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
         $data[] = [
             //'id' => $commandesBL->getId(),
-           'idCommandeBL' => $commandesBL->getIdCommandeBL(),
-          'etat' => $commandesBL->getEtat(),
-           'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
-          'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
+            'idCommandeBL' => $commandesBL->getIdCommandeBL(),
+            'etat' => $commandesBL->getEtat(),
+            'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
+            'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
             'matricule' =>  ($commandesBL->getLivreur()==null) ? null : $commandesBL->getLivreur()->getMatricule()->getMatricule(),
             'idBoulangerie' =>  ($commandesBL->getIdBoulangerie()==null) ? null : $commandesBL->getIdBoulangerie()->getId(),
         ];
@@ -166,33 +166,33 @@ class CommandesBLController
     {
         $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
         $data = json_decode($request->getContent(), true);
-        
-       if($commandesBL == null){
-           $data = [];
+
+        if($commandesBL == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
         empty($data['etat']) ? true : $commandesBL->setEtat($data['etat']);
         empty($data['idCommandeBL']) ? true : $commandesBL->setIdCommandeBL($data['idCommandeBL']);
         empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
         empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
-      /* $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
-        $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
-        if(empty($livreur))
-        {
-            throw new NotFoundHttpException('Invalid!');
-        }
-        $commandesBL->setLivreur($livreur);
+        /* $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
+          $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
+          if(empty($livreur))
+          {
+              throw new NotFoundHttpException('Invalid!');
+          }
+          $commandesBL->setLivreur($livreur);
 
 
-        $boulangerie = $this->boulangerieRepository->findOneBy(['id' => $data['idBoulangerie']]);
-        if(empty($boulangerie))
-        {
-            throw new NotFoundHttpException('Invalid Boulangerie!');
-        }
-        $commandesBL->setIdBoulangerie($boulangerie);
+          $boulangerie = $this->boulangerieRepository->findOneBy(['id' => $data['idBoulangerie']]);
+          if(empty($boulangerie))
+          {
+              throw new NotFoundHttpException('Invalid Boulangerie!');
+          }
+          $commandesBL->setIdBoulangerie($boulangerie);
 
-*/
+  */
         $updated = $this->commandesBLRepository->update($commandesBL);
 
         return new JsonResponse($updated->toArray(), Response::HTTP_OK);
@@ -203,11 +203,11 @@ class CommandesBLController
 
     public function delete($idCommandeBL): JsonResponse
     {
-        $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
+    $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
 
-        $this->commandesBLRepository->remove($commandesBL);
+    $this->commandesBLRepository->remove($commandesBL);
 
-        return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
+    return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
     }
      */
 
@@ -218,26 +218,26 @@ class CommandesBLController
     {
         $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
         $data = json_decode($request->getContent(), true);
-     //   $queryParameter  = $request->query->get('matricule');
+        //   $queryParameter  = $request->query->get('matricule');
 
-     //   $this->livreurRepository->findOneBy(['matricule'=>$queryParameter]);
+        //   $this->livreurRepository->findOneBy(['matricule'=>$queryParameter]);
 
         //  empty($data['etat']) ? true : $commandesBL->setEtat($data['etat']);
-       // empty($data['idCommandeBL']) ? true : $commandesBL->setIdCommandeBL($data['idCommandeBL']);
-       // empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
-       //// empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
+        // empty($data['idCommandeBL']) ? true : $commandesBL->setIdCommandeBL($data['idCommandeBL']);
+        // empty($data['creationDate']) ? true : $commandesBL->setCreationDate($data['creationDate']);
+        //// empty($data['dueDate']) ? true : $commandesBL->setDueDate($data['dueDate']);
 
-    //    if( !empty($data['matricule'])) {
+        //    if( !empty($data['matricule'])) {
         $profil = $this->profilRepository->findOneBy(['matricule' => $data['matricule']]);
         $livreur = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
-            if(empty($livreur))
-            {
-                throw new NotFoundHttpException('Invalid!');
-            }
-            $commandesBL->setLivreur($livreur);
-      //  }
+        if(empty($livreur))
+        {
+            throw new NotFoundHttpException('Invalid!');
+        }
+        $commandesBL->setLivreur($livreur);
+        //  }
 
-       // empty($data['idBoulangerie']) ? true : $commandesBL->setIdBoulangerie($data['idBoulangerie']);
+        // empty($data['idBoulangerie']) ? true : $commandesBL->setIdBoulangerie($data['idBoulangerie']);
 
         $updated = $this->commandesBLRepository->update($commandesBL);
 
@@ -250,21 +250,19 @@ class CommandesBLController
      */
     public function getCmdsByEtat(Request $request): JsonResponse
     {
-        return new JsonResponse('List empty',Response::HTTP_OK);
-       $etat =  $request->query->get('etat');
+        $etat =  $request->query->get('etat');
 
-
-    //   return new JsonResponse($etat);
-       // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
+        //   return new JsonResponse($etat);
+        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
-     //   return new JsonResponse($commandesBLS[0]->getId());
+        //   return new JsonResponse($commandesBLS[0]->getId());
         $data = [];
 
-       if(empty($commandesBLS)){
-           $data = [];
-            return new JsonResponse('List empty',Response::HTTP_OK);
-      }
+        if($commandesBLS == null){
+            $data = [];
+            return new JsonResponse($data,Response::HTTP_OK);
+        }
 
 
         foreach ($commandesBLS as $commandesBL) {
@@ -283,9 +281,8 @@ class CommandesBLController
             ];
         }
 
-        return new JsonResponse('Should return something here', Response::HTTP_OK);
+        return new JsonResponse($data, Response::HTTP_OK);
     }
-
 
 
     /**
@@ -305,18 +302,18 @@ class CommandesBLController
 
         $livreur2 = $this->livreurRepository->findOneBy(['matricule' => $profil->getId()]);
         $commandesBLS = $this->commandesBLRepository -> findBy(['etat'=> $etat, 'livreur'=> $livreur2->getId()]);
-             
-       if($commandesBLS == null|| $livreur2 == null){
-           $data = [];
+
+        if($commandesBLS == null|| $livreur2 == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
 
         $data = [];
 
         foreach ($commandesBLS as $commandesBL) {
             $data[] = [
-             //   'id' => $commandesBL->getId(),
+                //   'id' => $commandesBL->getId(),
                 'idCommandeBL' => $commandesBL->getIdCommandeBL(),
                 'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),
                 'creationDate' => $commandesBL->getCreationDate()->format('d-m-Y H-i'),
@@ -339,26 +336,26 @@ class CommandesBLController
         $year = $now->format("Y");
         $yearDate = new DateTime($year.'-01-01');
 
-      
-    $count =   $this->commandesBLRepository->createQueryBuilder('u')
+
+        $count =   $this->commandesBLRepository->createQueryBuilder('u')
             ->select('count(u.id)')
             ->where('u.creationDate > :year' )->setParameter('year',$yearDate)
             ->getQuery()
             ->getSingleScalarResult();
 
-       // $commandesBLS = $this->commandesBLRepository -> findBy(['creationDate'=> $year]);
+        // $commandesBLS = $this->commandesBLRepository -> findBy(['creationDate'=> $year]);
 
         $data = [];
 
-       // foreach ($commandesBLS as $commandesBL) {
-            $data[] = [
-                 'count' => $count,
-            ];
-       // }
-          if(empty($data) || $data[0]== null ){
+        // foreach ($commandesBLS as $commandesBL) {
+        $data[] = [
+            'count' => $count,
+        ];
+        // }
+        if(empty($data) || $data[0]== null ){
             return new JsonResponse(0,Response::HTTP_OK);
-       }
-        
+        }
+
         $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
         $jsonDec = json_decode($jsonResp);
         return new JsonResponse($jsonDec, Response::HTTP_OK);
@@ -370,16 +367,16 @@ class CommandesBLController
      */
     public function getCmdsForLab(Request $request): JsonResponse
     {
-       $etat =  $request->query->get('etat');
+        $etat =  $request->query->get('etat');
 
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
         $produits = $this->produitsRepository->findAll();
-             
-       if($commandesBLS == null|| $produits==null){
-           $data = [];
+
+        if($commandesBLS == null|| $produits==null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
 
         $data = [];
         //$controllerDetail = new DetailsCommandesController($this->detailsCommandesBLRepository);
@@ -389,38 +386,38 @@ class CommandesBLController
 
         foreach ($commandesBLS as $commandesBL) {
 
-         //  $detailsCommandesByDate = $this->getByDueDateAndPushProduits($commandesBL->getDueDate()->format('d-m-Y'));
+            //  $detailsCommandesByDate = $this->getByDueDateAndPushProduits($commandesBL->getDueDate()->format('d-m-Y'));
             if(!in_array($commandesBL->getDueDate()->format('d-m-Y'),$dateList))
             { $detailsCommandesByDate = $this->getByDueDate($commandesBL->getDueDate()->format('d-m-Y'));
 
-            //return new JsonResponse( $detailsCommandesByDate,Response::HTTP_OK);
-         //   $data[] = ['date'=>$detailsCommandesByDate];
+                //return new JsonResponse( $detailsCommandesByDate,Response::HTTP_OK);
+                //   $data[] = ['date'=>$detailsCommandesByDate];
 
-            array_push($dateList,$commandesBL->getDueDate()->format('d-m-Y'));
+                array_push($dateList,$commandesBL->getDueDate()->format('d-m-Y'));
 
-            // need to get all commandes for a specific date
+                // need to get all commandes for a specific date
                 // then need to get how many produits are for that date and group that quantity
-                 //under one product
+                //under one product
 
 
-            //return new JsonResponse($sum);
+                //return new JsonResponse($sum);
 
-           //foreach ($detailsCommandesByDate as $element)
-          //  {
+                //foreach ($detailsCommandesByDate as $element)
+                //  {
 
 
                 foreach ($produits as $produit) {
 
-                     $detailsCommandesByProduitAndByDate = $this->getByCodeProduit($produit->getCodeProduit(), $detailsCommandesByDate);
+                    $detailsCommandesByProduitAndByDate = $this->getByCodeProduit($produit->getCodeProduit(), $detailsCommandesByDate);
 
                     // return new JsonResponse(sizeof($detailsCommandesByProduitAndByDate));
 
                     $sum = 0 ;
 
-                     foreach ($detailsCommandesByProduitAndByDate as $item) {
-                         $sum += $item->getQuantiteProd();
-                     }
-                   // $data[] = ['produits'=>$detailsCommandesByProduitAndByDate,'dueDate'=>$commandesBL->getDueDate()->format('d-m-Y')];
+                    foreach ($detailsCommandesByProduitAndByDate as $item) {
+                        $sum += $item->getQuantiteProd();
+                    }
+                    // $data[] = ['produits'=>$detailsCommandesByProduitAndByDate,'dueDate'=>$commandesBL->getDueDate()->format('d-m-Y')];
 
 
                     // NEED TO CHECK IF ITS IN COMMANDELABO
@@ -431,19 +428,19 @@ class CommandesBLController
                             //'idDetail' => $element->getId(),
                             'codeProduit' => $produit->getCodeProduit(),
                             'libelle' => $produit->getLibelle(),
-                           // 'commande' => $commandesBL->getId(),
+                            // 'commande' => $commandesBL->getId(),
                             'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
                             'sumQuantite' => $sum,
                             //'totalsum' => $totalsum
                         ];
-                  // */
+                        // */
                     }
 
-                   //  return new JsonResponse($detailsCommandesByProduitAndByDate);
+                    //  return new JsonResponse($detailsCommandesByProduitAndByDate);
 
                 }
 
-        }
+            }
 
         }
         return new JsonResponse($data, Response::HTTP_OK);
@@ -457,16 +454,16 @@ class CommandesBLController
         $etat = $request->query->get('etat');
         $idBoulangerie =  $request->query->get('idBoulangerie');
 
-       // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
+        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
         $commandesBLS = $this->commandesBLRepository
             ->findBy(['etat'=> $etat]);
-  
-       if($commandesBLS == null){
-           $data = [];
+
+        if($commandesBLS == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
         $data = [];
 
         foreach ($commandesBLS as $commandesBL) {
@@ -493,12 +490,12 @@ class CommandesBLController
     public function getDetailsCommandesForCommandes($idCommandeBL,Request $request): JsonResponse
     {
         $commandesBLS = $this->commandesBLRepository->findBy(['idCommandeBL'=>$idCommandeBL]);
-             
-       if($commandesBLS == null){
-           $data = [];
+
+        if($commandesBLS == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
 
         foreach ($commandesBLS as $commandesBL) {
 
@@ -513,7 +510,7 @@ class CommandesBLController
                 {
 
                     $data[] = [
-                      //  'idCommandeBL' => $commandesBL->getIdCommandeBL(),
+                        //  'idCommandeBL' => $commandesBL->getIdCommandeBL(),
                         'codeProduit' => $produit->getCodeProduit(),
                         'libelle'=> $produit->getLibelle(),
                         'quantite'=> $element->getQuantiteProd(),
@@ -532,12 +529,12 @@ class CommandesBLController
     public function getByIdCommande ($idCommandeBL)
     {
         $detailsCommandesBLS = $this->detailsCommandesBLRepository->findAll();
-             
-       if($detailsCommandesBLS == null){
-           $data = [];
+
+        if($detailsCommandesBLS == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
-       
+        }
+
         $detailsForCommands = array();
         foreach ($detailsCommandesBLS as $detailsCommandesBL) {
 
@@ -545,8 +542,8 @@ class CommandesBLController
 
             foreach ($detailsCommandesBL->getIdCommandeBL() as $element)
             {
-               // array_push($detailsForCommands,$element->getIdCommandeBL() );
-              if($idCommandeBL == $element->getIdCommandeBL())
+                // array_push($detailsForCommands,$element->getIdCommandeBL() );
+                if($idCommandeBL == $element->getIdCommandeBL())
                 {
                     array_push($detailsForCommands,$detailsCommandesBL );
                     //array_push($detailsForCommands,$element->getIdCommandeBL());
@@ -567,12 +564,12 @@ class CommandesBLController
 
             foreach ($detailsCommandesBL->getIdCommandeBL() as $element)
             {
-               //  array_push($detailsForCommands,$element->getDueDate()->format('d-m-Y'));
+                //  array_push($detailsForCommands,$element->getDueDate()->format('d-m-Y'));
                 if($dueDate == $element->getDueDate()->format('d-m-Y')) {
                     if (!in_array($detailsCommandesBL, $detailsForCommands)) {
                         array_push($detailsForCommands,$detailsCommandesBL );
                         // array_push($detailsForCommands,$element->getDueDate()->format('d-m-Y'));
-                       // array_push($detailsForCommands, $detailsCommandesBL->getId());
+                        // array_push($detailsForCommands, $detailsCommandesBL->getId());
                     }
                 }
             }
@@ -585,10 +582,10 @@ class CommandesBLController
     public function getByDueDateAndPushProduits ($dueDate)
     {
         $detailsCommandesBLS = $this->detailsCommandesBLRepository->findAll();
-          if($detailsCommandesBLS == null){
-           $data = [];
+        if($detailsCommandesBLS == null){
+            $data = [];
             return new JsonResponse($data,Response::HTTP_OK);
-       }
+        }
         $detailsForCommands = array();
         foreach ($detailsCommandesBLS as $detailsCommandesBL) {
 
@@ -597,7 +594,7 @@ class CommandesBLController
                 //  array_push($detailsForCommands,$element->getDueDate()->format('d-m-Y'));
                 if($dueDate == $element->getDueDate()->format('d-m-Y'))
                 {
-                   foreach( $detailsCommandesBL->getCodeProduit() as $produit) {
+                    foreach( $detailsCommandesBL->getCodeProduit() as $produit) {
                         array_push($detailsForCommands,$produit ->getCodeProduit());
                         //array_push($detailsForCommands,$idCommandeBL);
                     }
@@ -623,7 +620,7 @@ class CommandesBLController
                 if($codeProduit == $element->getCodeProduit())
                 {
                     array_push($detailsForCommands,$detailsCommandesBL );
-                     // array_push($detailsForCommands,$element->getCodeProduit());
+                    // array_push($detailsForCommands,$element->getCodeProduit());
                     //array_push($detailsForCommands,$idCommandeBL);
                 }
             }
@@ -640,7 +637,7 @@ class CommandesBLController
         foreach ($commandesLabo as $commandeLabo) {
             if($commandeLabo->getCodeProduit == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
             {
-                    return true;
+                return true;
             }
 
         }
