@@ -595,7 +595,7 @@ class CommandesBLController
         $commandesLabo = $this->commandeLaboRepository->findAll();
 
        foreach ($commandesLabo as $commandeLabo) {
-            if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
+            if($commandeLabo->getCodeProduit() == $codeProduit && $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
             {
                 return true;
             }
