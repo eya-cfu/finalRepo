@@ -395,7 +395,7 @@ class CommandesBLController
 
 
                     // NEED TO CHECK IF ITS IN COMMANDELABO
-                    if($sum!= 0 && !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) {
+                   // if($sum!= 0 && !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) {
                         //$totalsum += $sum;
                         $data[] = [
                             //  'id' => $commandesBL->getId(),
@@ -408,7 +408,7 @@ class CommandesBLController
                             //'totalsum' => $totalsum
                         ];
                         // */
-                    }
+                   // }
 
                     //  return new JsonResponse($detailsCommandesByProduitAndByDate);
 
