@@ -352,7 +352,6 @@ class CommandesBLController
             return new JsonResponse($data,Response::HTTP_OK);
         }
 
-
         $data = [];
         //$controllerDetail = new DetailsCommandesController($this->detailsCommandesBLRepository);
         $totalsum = 0;
