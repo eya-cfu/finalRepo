@@ -395,7 +395,7 @@ class CommandesBLController
 
 
                     // NEED TO CHECK IF ITS IN COMMANDELABO
-                    if( !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) {
+                    if($sum!= 0 && !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) {
                         //$totalsum += $sum;
                         $data[] = [
                             //  'id' => $commandesBL->getId(),
@@ -606,15 +606,15 @@ class CommandesBLController
 
     public function checkIfInLabo ($codeProduit, $dueDate)
     {
-        $commandesLabo = $this->commandeLaboRepository->findAll();
+        //$commandesLabo = $this->commandeLaboRepository->findAll();
 
-        foreach ($commandesLabo as $commandeLabo) {
-            if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
+      //  foreach ($commandesLabo as $commandeLabo) {
+        //    if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
             {
                 return true;
             }
 
-        }
+ //       }
         return false;
     }
 
