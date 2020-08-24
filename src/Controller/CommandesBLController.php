@@ -611,7 +611,7 @@ class CommandesBLController
       //  foreach ($commandesLabo as $commandeLabo) {
         //    if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
             {
-                return true;
+                //return true;
             }
 
  //       }
