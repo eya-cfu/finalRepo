@@ -260,8 +260,7 @@ class CommandesBLController
             ];
         }
 
-      //  $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
-       // $jsonDec = json_decode($jsonResp);
+      
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
@@ -324,15 +323,10 @@ class CommandesBLController
             ->getQuery()
             ->getSingleScalarResult();
 
-        // $commandesBLS = $this->commandesBLRepository -> findBy(['creationDate'=> $year]);
-
-        $data = [];
-
-        // foreach ($commandesBLS as $commandesBL) {
         $data[] = [
             'count' => $count,
         ];
-        // }
+       
         if(empty($data) || $data[0]== null ){
             return new JsonResponse(0,Response::HTTP_OK);
         }
