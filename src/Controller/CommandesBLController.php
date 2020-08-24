@@ -252,7 +252,7 @@ class CommandesBLController
     {
         $etat =  $request->query->get('etat');
 
-        //   return new JsonResponse($etat);
+          return new JsonResponse($etat);
         // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
