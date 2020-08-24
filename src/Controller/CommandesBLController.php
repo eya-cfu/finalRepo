@@ -606,12 +606,12 @@ class CommandesBLController
 
     public function checkIfInLabo ($codeProduit, $dueDate)
     {
-        //$commandesLabo = $this->commandeLaboRepository->findAll();
+        $commandesLabo = $this->commandeLaboRepository->findAll();
 
-      //  foreach ($commandesLabo as $commandeLabo) {
+ //       foreach ($commandesLabo as $commandeLabo) {
         //    if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
             {
-                //return true;
+               // return true;
             }
 
  //       }
