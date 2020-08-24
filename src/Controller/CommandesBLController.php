@@ -239,19 +239,8 @@ class CommandesBLController
     public function getCmdsByEtat(Request $request): JsonResponse
     {
         $etat =  $request->query->get('etat');
-
-         // return new JsonResponse($etat);
-        // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
-
-        $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
+        $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);        
         
-        
-        //   return new JsonResponse($commandesBLS[0]->getId());
-        
-        if($commandesBLS == null){
-            $data = "hola";
-            return new JsonResponse($data,Response::HTTP_OK);
-        }
 
         $data = [];
 
@@ -271,9 +260,9 @@ class CommandesBLController
             ];
         }
 
-        $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
-        $jsonDec = json_decode($jsonResp);
-        return new JsonResponse($jsonDec, Response::HTTP_OK);
+      //  $jsonResp = json_encode($data[0],JSON_FORCE_OBJECT);
+       // $jsonDec = json_decode($jsonResp);
+        return new JsonResponse($data, Response::HTTP_OK);
     }
 
 
