@@ -395,6 +395,9 @@ class CommandesBLController
 
 
                     // NEED TO CHECK IF ITS IN COMMANDELABO
+                    if($produit->getCodeProduit()==null)
+                        return new JsonResponse('empty produit');
+                    
                     if($sum!= 0 && !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) {
                         //$totalsum += $sum;
                         $data[] = [
@@ -609,7 +612,7 @@ class CommandesBLController
         $commandesLabo = $this->commandeLaboRepository->findAll();
 
         foreach ($commandesLabo as $commandeLabo) {
-          //  if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
+            if($commandeLabo->getCodeProduit() == $codeProduit || $commandeLabo->getDueDate()->format('d-m-Y')==$dueDate)
             {
                 return true;
             }
