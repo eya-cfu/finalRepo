@@ -353,31 +353,21 @@ class CommandesBLController
         }
 
         $data = [];
-        //$controllerDetail = new DetailsCommandesController($this->detailsCommandesBLRepository);
         $totalsum = 0;
-
         $dateList = array();
 
         foreach ($commandesBLS as $commandesBL) {
 
             //  $detailsCommandesByDate = $this->getByDueDateAndPushProduits($commandesBL->getDueDate()->format('d-m-Y'));
             if(!in_array($commandesBL->getDueDate()->format('d-m-Y'),$dateList))
-            { $detailsCommandesByDate = $this->getByDueDate($commandesBL->getDueDate()->format('d-m-Y'));
-
-                //return new JsonResponse( $detailsCommandesByDate,Response::HTTP_OK);
-                //   $data[] = ['date'=>$detailsCommandesByDate];
+            { 
+                $detailsCommandesByDate = $this->getByDueDate($commandesBL->getDueDate()->format('d-m-Y'));
 
                 array_push($dateList,$commandesBL->getDueDate()->format('d-m-Y'));
 
                 // need to get all commandes for a specific date
                 // then need to get how many produits are for that date and group that quantity
                 //under one product
-
-
-                //return new JsonResponse($sum);
-
-                //foreach ($detailsCommandesByDate as $element)
-                //  {
 
 
                 foreach ($produits as $produit) {
@@ -391,33 +381,28 @@ class CommandesBLController
                     foreach ($detailsCommandesByProduitAndByDate as $item) {
                         $sum += $item->getQuantiteProd();
                     }
-                    // $data[] = ['produits'=>$detailsCommandesByProduitAndByDate,'dueDate'=>$commandesBL->getDueDate()->format('d-m-Y')];
-
 
                     // NEED TO CHECK IF ITS IN COMMANDELABO
-                    //&& !$this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))
-                    if($sum!= 0 ) {
+                    
+                    if($sum!= 0 && !($this->checkIfInLabo($produit->getCodeProduit(),$commandesBL->getDueDate()->format('d-m-Y'))) ) 
+                    {
                         //$totalsum += $sum;
                         $data[] = [
-                            //  'id' => $commandesBL->getId(),
-                            //'idDetail' => $element->getId(),
                             'codeProduit' => $produit->getCodeProduit(),
                             'libelle' => $produit->getLibelle(),
-                            // 'commande' => $commandesBL->getId(),
                             'dueDate' => $commandesBL->getDueDate()->format('d-m-Y'),//'d-m-Y
                             'sumQuantite' => $sum,
-                            //'totalsum' => $totalsum
                         ];
-                        // */
+                        
                     }
 
-                    //  return new JsonResponse($detailsCommandesByProduitAndByDate);
 
                 }
 
             }
 
         }
+        
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
