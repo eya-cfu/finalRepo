@@ -256,6 +256,11 @@ class CommandesBLController
         // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
+        if (isset($commandesBLS)) {
+            echo "cmd BL diff than null";
+            echo $commandesBLS[0]->getId();
+        }
+        
         //   return new JsonResponse($commandesBLS[0]->getId());
         $data = [];
 
