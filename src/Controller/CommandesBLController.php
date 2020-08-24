@@ -198,19 +198,7 @@ class CommandesBLController
         return new JsonResponse($updated->toArray(), Response::HTTP_OK);
     }
 
-    /**
-     * @Route("/commandesBL/{idCommandeBL}", name="deleteCommandeBL", methods={"DELETE"})
-
-    public function delete($idCommandeBL): JsonResponse
-    {
-    $commandesBL = $this->commandesBLRepository->findOneBy(['idCommandeBL' => $idCommandeBL]);
-
-    $this->commandesBLRepository->remove($commandesBL);
-
-    return new JsonResponse(['status' => 'Customer deleted'], Response::HTTP_NO_CONTENT);
-    }
-     */
-
+    
     /**
      * @Route("/commandesBL/{idCommandeBL}/identifyLivreur", name="updateLivreurofCommande", methods={"PATCH"})
      */
@@ -256,19 +244,16 @@ class CommandesBLController
         // return new JsonResponse( $this->em->getClassMetadata(CommandesBL::class)->getFieldNames());
 
         $commandesBLS = $this->commandesBLRepository->findBy(['etat'=>$etat]);
-        if (isset($commandesBLS)) {
-            echo "cmd BL diff than null";
-            echo $commandesBLS[0]->getId();
-        }
+        
         
         //   return new JsonResponse($commandesBLS[0]->getId());
-        $data = [];
-
+        
         if($commandesBLS == null){
-            $data = [];
+            $data = "hola";
             return new JsonResponse($data,Response::HTTP_OK);
         }
 
+        $data = [];
 
         foreach ($commandesBLS as $commandesBL) {
             $data[] = [
