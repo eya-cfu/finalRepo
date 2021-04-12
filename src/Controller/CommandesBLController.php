@@ -470,11 +470,11 @@ class CommandesBLController
                 {
 
                     $data[] = [
-                        //  'idCommandeBL' => $commandesBL->getIdCommandeBL(),
+                        'idCommandeBL' => $commandesBL->getIdCommandeBL(),
                         'codeProduit' => $produit->getCodeProduit(),
                         'libelle'=> $produit->getLibelle(),
                         'quantite'=> $element->getQuantiteProd(),
-                        //'idDetail' =>$element->getIdDetail()
+                        'idDetail' =>$element->getIdDetail()
                     ];
                 }
 
